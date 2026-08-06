@@ -1,0 +1,79 @@
+@keyframes heartBeatOpenSmooth {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  35% {
+    transform: scale(1.06);
+    opacity: 0.9;
+  }
+  55% {
+    transform: scale(0.97);
+  }
+  75% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+::ng-deep .p-dialog {
+  border-radius: 24px !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.1) !important;
+  overflow: hidden;
+
+  animation: heartBeatOpenSmooth 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(226,75,74,0.22); }
+  60%      { box-shadow: 0 0 0 12px rgba(226,75,74,0); }
+}
+
+.icon-outer {
+  width: 84px; height: 84px; border-radius: 50%;
+  background: #FEE8E8;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.4rem;
+  animation: pulse 2.2s ease infinite;
+}
+.icon-inner {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #FCCCCC;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.modal-title { font-size: 20px; font-weight: 700; color: #111; margin-bottom: 10px; }
+.modal-body  { font-size: 14px; color: #666; line-height: 1.65; margin-bottom: 1.6rem; }
+.modal-body strong { color: #222; font-weight: 600; }
+
+.divider { height: 1px; background: #f0f0f0; margin: 0 -1.8rem 1.4rem; }
+
+.modal-actions { display: flex; gap: 10px; }
+
+.btn-no {
+  flex: 1; padding: 13px 0;
+  font-size: 14px; font-weight: 500; color: #444;
+  background: #f2f2f2; border: none; border-radius: 14px; cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-no:hover { background: #e6e6e6; }
+.btn-no:active { transform: scale(0.97); }
+
+.btn-yes {
+  flex: 1.5; padding: 13px 0;
+  font-size: 14px; font-weight: 700; color: #fff;
+  background: #E53935; border: none; border-radius: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  box-shadow: 0 4px 18px rgba(229,57,53,0.45);
+  transition: background 0.15s, box-shadow 0.15s, transform 0.12s;
+}
+.btn-yes:hover { background: #C62828; box-shadow: 0 6px 24px rgba(229,57,53,0.55); transform: translateY(-1px); }
+.btn-yes:active { transform: scale(0.97); }
+
+button {
+  font-family: "cairo";
+}

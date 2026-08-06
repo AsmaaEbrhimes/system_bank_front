@@ -1,0 +1,119 @@
+.wrapper-error {
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    display: block;
+    animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+
+textarea.ng-invalid.ng-touched,
+input.ng-invalid.ng-touched {
+    border: 1px solid #ff4d4f !important;
+    outline: none;
+}
+
+textarea.ng-invalid.ng-touched:focus,
+input.ng-invalid.ng-touched:focus {
+    box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+}
+
+::placeholder,
+button,
+input {
+  font-family: 'Cairo', sans-serif;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+textarea:focus{
+   outline: none;
+   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1),
+                0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper_section {
+  background-color: white;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+
+  margin: 20px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+::ng-deep .p-overlay-mask {
+  background: #0a1f4473;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+::ng-deep .p-datepicker-panel {
+  direction: ltr;
+}
+
+::ng-deep .p-datepicker-day-selected {
+  background-color: #124959 !important;
+}
+
+:host {
+  ::ng-deep .p-dialog-header {
+    display: none;
+  }
+}
+
+:host {
+  ::ng-deep .p-dialog {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper_section {
+    margin: 10px !important;
+    padding: 10px !important;
+  }
+}

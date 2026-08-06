@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+div[style*="position: fixed"][style*="bottom"][style*="right"][style*="z-index"] {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+div:has(> *:contains("PrimeUI")),
+div:has-text("Invalid PrimeUI License"),
+.p-license-badge {
+    display: none !important;
+}
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

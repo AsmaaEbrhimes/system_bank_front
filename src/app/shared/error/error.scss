@@ -1,0 +1,141 @@
+@use "../../../GlopalStyle.scss";
+
+$error-color: #ef2a2a;
+$error-gradient: linear-gradient(to bottom right, #ff7675, #d63031);
+
+
+.wrapper_error_tostr{
+ background: #0a1f4473;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 888888888888888;
+}
+
+.main_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid $error-color; // تغيير اللون للأحمر
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  h3 {
+    opacity: 0;
+    animation: fadeInUp 0.3s ease-out forwards;
+    animation-delay: 1.6s;
+    margin-top: 15px;
+    color: $error-color; // تغيير لون النص
+  }
+
+  p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.3s ease-out forwards;
+    animation-delay: 1.7s;
+  }
+}
+
+.check-container { // احتفظت بنفس الاسم ليعمل مع الأنيميشن القديم
+  width: 6.25rem;
+  height: 7.5rem;
+
+  .check-background {
+    width: 100%;
+    height: calc(100% - 1.25rem);
+    background: $error-gradient; // التدرج الأحمر
+    box-shadow: 0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset,
+      0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset;
+    transform: scale(0.84);
+    border-radius: 50%;
+    animation: animateContainer 0.4s ease-out forwards 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+    svg {
+      width: 50%; // الـ X تبدو أفضل بهذا الحجم
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: animateCheck 0.5s forwards 0.5s ease-out;
+    }
+  }
+
+  .check-shadow {
+    bottom: calc(-15% - 5px);
+    left: 0;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba($error-color, 0.8), transparent);
+    animation: animateShadow 0.75s ease-out forwards 0.75s;
+  }
+}
+
+button {
+  margin-top: 20px;
+  background-color: $error-color;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  transition: 0.3s linear;
+  opacity: 0;
+  animation: fadeInUp 0.3s ease-out forwards;
+  animation-delay: 1.8s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $error-color;
+    color: $error-color;
+  }
+}
+// --- Animations (نفس الموجودة في Success) ---
+
+@keyframes animateContainer {
+  0% { opacity: 0; transform: scale(0); box-shadow: 0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset; }
+  43% { transform: scale(1.15); box-shadow: 0px 0px 0px 43px rgba(255, 255, 255, 0.25) inset; }
+  100% { opacity: 1; transform: scale(1); box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.25) inset; }
+}
+
+@keyframes animateCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes animateShadow {
+  0% { opacity: 0; width: 100%; height: 15%; }
+  100% { opacity: 0.25; width: 85%; height: 15%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// --- Media Queries ---
+
+@media(max-width:767px) {
+  .main_container { width: 70%; }
+}
+
+@media(min-width:767px) and (max-width:1200px) {
+  .main_container { width: 40%; }
+}

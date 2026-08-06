@@ -1,0 +1,16 @@
+@if ((Core._Error | async); as errorMessage){
+ <div class="wrapper_error_tostr">
+  <div class="main_container error-mode">
+    <div class="check-container">
+      <div class="check-background">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 16L36 36M36 16L16 36" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+          <div class="check-shadow"></div>
+    </div>
+    <h3>{{errorMessage}}!</h3>
+    <button (click)="close()">محاولة مرة أخرى</button>
+  </div>
+  </div>
+}
