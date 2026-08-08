@@ -1,0 +1,20 @@
+@use '../Style_Auth.scss';
+
+app-auth-banner {
+  width: 50%;
+  height: 100vh;
+}
+
+.brand-logo {
+  margin-top: 30px;
+}
+
+.auth-form {
+  gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  app-auth-banner {
+    display: none;
+  }
+}
