@@ -1,0 +1,22 @@
+<section>
+  <div class="header_menue">
+    <div>
+      <h4>The closet</h4>
+      <p>Banking Operations Dashboard</p>
+    </div>
+    <img height="50" width="50" src="Img/360_F_61062796_NF87GPnWV0fQ2LhoYNlyjev0PocRwZj9.jpg" />
+  </div>
+
+
+  <ul>
+    @for(item of List_Menue ; track $index){
+      <li>
+        <span>{{item.name}}</span>
+        <span class="icon-wrapper"><svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" [src]="'/Icons/' + item.icon" class="input-icon"></svg-icon></span>
+      </li>
+    }
+  </ul>
+</section>
+
+
+
