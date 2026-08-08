@@ -5,9 +5,9 @@ import { AuthRoutingModule } from './auth-routing-module';
 import { Login } from './login/login';
 import { Register } from './register/register';
 import { AuthBanner } from './auth-banner/auth-banner';
-
+import { SvgIconComponent } from 'angular-svg-icon';
 @NgModule({
   declarations: [Login, Register, AuthBanner],
-  imports: [CommonModule, AuthRoutingModule],
+  imports: [CommonModule, AuthRoutingModule,SvgIconComponent],
 })
 export class AuthModule {}
