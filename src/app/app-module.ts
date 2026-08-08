@@ -6,10 +6,11 @@ import { App } from './app';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared-module';
 import { CoreModule } from './core/core-module';
+import { AngularSvgIconModule, SvgIconComponent } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,10 @@ import { CoreModule } from './core/core-module';
     AppRoutingModule,
     RouterModule.forRoot([]),
     SharedModule,
-    CoreModule
+    CoreModule,
+    SvgIconComponent,
+    HttpClientModule,
+    AngularSvgIconModule.forRoot()
   ],
   providers: [
     provideZonelessChangeDetection(),
