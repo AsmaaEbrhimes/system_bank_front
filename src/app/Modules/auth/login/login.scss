@@ -4,3 +4,9 @@ app-auth-banner {
   width: 50%;
   height: 100vh;
 }
+
+@media (max-width: 1200px) {
+  app-auth-banner {
+    display: none !important;
+  }
+}
