@@ -219,6 +219,49 @@
   color: #9ca3af;
 }
 
+
+.welcome-text {
+  display: inline-block;
+  opacity: 0;
+  animation: fade-slide-up 0.6s ease-out forwards;
+}
+
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wave {
+  display: inline-block;
+  opacity: 0;
+  transform-origin: 70% 70%;
+  animation:
+    fade-in 0.4s ease-out forwards 0.5s,
+    wave-animation 2.5s infinite 0.9s;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
 @media (max-width: 767px) {
   .login-form-section {
     width: 100%;
