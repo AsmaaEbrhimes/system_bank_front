@@ -1,0 +1,76 @@
+<section class="summary-cards">
+
+  <div class="card blue">
+    <div class="card-header">
+      <div class="icon-box">
+        <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/wpf--bank-cards.svg"></svg-icon>
+      </div>
+
+      <div class="card-title-group">
+        <span class="card-title">البطاقات الفعالة</span>
+        <span class="badge badge-success">1.1% ↑</span>
+      </div>
+    </div>
+
+
+    <div class="card-body">
+      <h2 class="value">8,912</h2>
+      <p class="subtitle">بطاقة مفعلة حالياً</p>
+    </div>
+
+    <app-sparkline-chart color="#4F46E5"></app-sparkline-chart>
+  </div>
+
+  <div class="card green">
+    <div class="card-header">
+      <div class="icon-box">
+        <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/tabler--users.svg"></svg-icon>
+      </div>
+      <div class="card-title-group">
+        <span class="card-title">إجمالي العملاء</span>
+        <span class="badge badge-success">3.2% ↑</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2 class="value">12,406</h2>
+      <p class="subtitle">حساب نشط عبر جميع الفروع</p>
+    </div>
+    <app-sparkline-chart color="#10B981"></app-sparkline-chart>
+  </div>
+
+  <div class="card purple">
+    <div class="card-header">
+      <div class="icon-box">
+        <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }"
+          src="/Icons/grommet-icons--transaction.svg"></svg-icon>
+      </div>
+      <div class="card-title-group">
+        <span class="card-title">حجم معاملات اليوم</span>
+        <span class="badge badge-success">8.6% ↑</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2 class="value">2.14M <span class="currency">ج.م</span></h2>
+      <p class="subtitle">1,208 عملية منذ منتصف الليل</p>
+    </div>
+    <app-sparkline-chart color="#8B5CF6"></app-sparkline-chart>
+  </div>
+
+  <div class="card red">
+    <div class="card-header">
+      <div class="icon-box">
+        <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/griddy-icons--loan.svg"></svg-icon>
+      </div>
+      <div class="card-title-group">
+        <span class="card-title">طلبات قروض معلقة</span>
+        <span class="badge badge-danger">4 ↓</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2 class="value">27</h2>
+      <p class="subtitle">بانتظار مراجعة الموظف</p>
+    </div>
+    <app-sparkline-chart color="#F43F5E"></app-sparkline-chart>
+  </div>
+
+</section>
