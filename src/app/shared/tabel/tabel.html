@@ -1,0 +1,73 @@
+<p-table
+  [value]="tableData"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[5, 10, 20, 50]"
+>
+
+  <!-- HEADER -->
+  <ng-template #header>
+    <tr>
+
+      <th
+        *ngFor="let col of bodytabel"
+        [pSortableColumn]="col.value"
+      >
+        {{ col.key }}
+      </th>
+
+      <th *ngIf="actionsTemplate">
+        الإجراءات
+      </th>
+
+    </tr>
+  </ng-template>
+
+
+
+  <!-- BODY -->
+  <ng-template #body let-row>
+    <tr>
+
+      <td *ngFor="let col of bodytabel">
+
+        <ng-container
+          *ngIf="
+            col.value === 'status' && statusTemplate;
+            else normalCell
+          "
+        >
+
+          <ng-container
+            *ngTemplateOutlet="
+              statusTemplate;
+              context: { $implicit: row }
+            "
+          ></ng-container>
+
+        </ng-container>
+
+        <ng-template #normalCell>
+          {{ row[col.value] }}
+        </ng-template>
+
+      </td>
+
+
+      <!-- ACTIONS -->
+      <td *ngIf="actionsTemplate">
+
+        <ng-container
+          *ngTemplateOutlet="
+            actionsTemplate;
+            context: { $implicit: row }
+          "
+        ></ng-container>
+
+      </td>
+
+    </tr>
+  </ng-template>
+
+</p-table>

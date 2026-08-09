@@ -1,0 +1,59 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #063C5E #f1f1f1;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #063C5E;
+    border-radius: 10px;
+
+    &:hover {
+      background: #042b44;
+    }
+  }
+}
+
+::ng-deep {
+  .p-datatable {
+    table {
+      min-width: 1000px;
+      border-collapse: separate;
+    }
+
+    th, td {
+      white-space: nowrap;
+    }
+  }
+}
+
+
+
+:host ::ng-deep .p-datatable td {
+white-space: normal;
+    word-break: break-word;
+    line-height: 1.5;
+    min-width: 200px;
+    max-width: 300px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+ th{
+        background-color: rgba(#4f46e5, 0.1) !important;
+
+}
