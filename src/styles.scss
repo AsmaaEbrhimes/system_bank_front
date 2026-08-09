@@ -1,30 +1,48 @@
-div[style*="position: fixed"][style*="bottom"][style*="right"][style*="z-index"] {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+div[style*='position: fixed'][style*='bottom'][style*='right'][style*='z-index'] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
-div:has(> *:contains("PrimeUI")),
-div:has-text("Invalid PrimeUI License"),
+div:has(> *:contains('PrimeUI')),
+div:has-text('Invalid PrimeUI License'),
 .p-license-badge {
-    display: none !important;
+  display: none !important;
 }
 
-
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-body{
-    background-color: #F6F5FB;
-    direction: rtl;
+body {
+  background-color: #f6f5fb;
+  direction: rtl;
 }
 
+button {
+  cursor: pointer;
+    border: none;
+}
 
-li{
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e6e2e2;
+
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+
+  background-color: #bebbbb;
+}
+
+li {
   list-style: none;
 }
