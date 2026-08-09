@@ -1,0 +1,21 @@
+<div class="sparkline-container">
+  <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="sparkline-svg">
+    <defs>
+      <linearGradient [id]="gradientId" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" [attr.stop-color]="color" stop-opacity="0.35" />
+        <stop offset="100%" [attr.stop-color]="color" stop-opacity="0.0" />
+      </linearGradient>
+    </defs>
+
+    <path
+      d="M 0,45 Q 15,35 25,40 T 45,55 T 65,40 T 85,30 T 100,45 T 115,55 T 130,40 T 145,45 T 160,35 T 175,45 T 190,60 T 210,40 T 230,35 T 250,55 T 270,45 T 300,50 L 300,80 L 0,80 Z"
+      [attr.fill]="'url(#' + gradientId + ')'" />
+
+    <path
+      d="M 0,45 Q 15,35 25,40 T 45,55 T 65,40 T 85,30 T 100,45 T 115,55 T 130,40 T 145,45 T 160,35 T 175,45 T 190,60 T 210,40 T 230,35 T 250,55 T 270,45 T 300,50"
+      fill="none"
+      [attr.stroke]="color"
+      stroke-width="3"
+      stroke-linecap="round" />
+  </svg>
+</div>
