@@ -1,0 +1,24 @@
+p {
+  color: var(--text-dim);
+  font-size: 13.5px;
+}
+
+.wrapper_date {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  width: 100%;
+  div {
+    width: 30%;
+  }
+}
+
+
+
+.wrapper_main_paget{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
