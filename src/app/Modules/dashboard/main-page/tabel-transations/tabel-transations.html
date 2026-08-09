@@ -1,1 +1,19 @@
-<p>tabel-transations works!</p>
+<section class="Tabel_transactions">
+  <div class="header_transactions">
+
+    <h3>Show all movements</h3>
+    <a href=""><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+        src="/Icons/formkit--arrowright.svg"></svg-icon>The latest notebook moves</a>
+  </div>
+  <app-tabel [data]="reportData" [bodytabel]="bodyTableCols">
+
+    <ng-template #status let-row>
+
+      <span class="status-badge" [class.success]="row.status === 'تم التنفيذ'"
+        [class.pending]="row.status === 'قيد المعالجة'">
+        {{ row.status }}
+      </span>
+
+    </ng-template>
+  </app-tabel>
+</section>
