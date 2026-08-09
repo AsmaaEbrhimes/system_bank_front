@@ -9,9 +9,11 @@ import { SummaryCard } from './main-page/summary-card/summary-card';
 import { DatePickerModule } from 'primeng/datepicker';
 import { SparklineChart } from './main-page/summary-card/sparkline-chart/sparkline-chart';
 import { TabelTransations } from './main-page/tabel-transations/tabel-transations';
+import { SharedModule } from '../../shared/shared-module';
+import { Header } from './header/header';
 
 @NgModule({
-  declarations: [SideNav, Panel, MainPage, SummaryCard, SparklineChart, TabelTransations],
-  imports: [CommonModule, DashboardRoutingModule, SvgIconComponent, DatePickerModule],
+  declarations: [SideNav, Panel, MainPage, SummaryCard, SparklineChart, TabelTransations, Header],
+  imports: [CommonModule, DashboardRoutingModule, SvgIconComponent, DatePickerModule, SharedModule],
 })
 export class DashboardModule {}
