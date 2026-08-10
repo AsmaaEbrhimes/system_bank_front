@@ -11,9 +11,19 @@ import { SparklineChart } from './main-page/summary-card/sparkline-chart/sparkli
 import { TabelTransations } from './main-page/tabel-transations/tabel-transations';
 import { SharedModule } from '../../shared/shared-module';
 import { Header } from './header/header';
+import { PayingBills } from './paying-bills/paying-bills';
 
 @NgModule({
-  declarations: [SideNav, Panel, MainPage, SummaryCard, SparklineChart, TabelTransations, Header],
+  declarations: [
+    SideNav,
+    Panel,
+    MainPage,
+    SummaryCard,
+    SparklineChart,
+    TabelTransations,
+    Header,
+    PayingBills,
+  ],
   imports: [CommonModule, DashboardRoutingModule, SvgIconComponent, DatePickerModule, SharedModule],
 })
 export class DashboardModule {}
