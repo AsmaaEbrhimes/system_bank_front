@@ -1,12 +1,4 @@
-
-import {
-  Component,
-  EventEmitter,
-  HostListener,
-  Input,
-  Output,
-  signal
-} from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-side-nav',
@@ -15,7 +7,6 @@ import {
   styleUrl: './side-nav.scss',
 })
 export class SideNav {
-
   status_toggel = signal(true);
 
   isMobileOrTablet = signal(false);
@@ -47,35 +38,43 @@ export class SideNav {
   List_Menue = [
     {
       name: 'Overview',
-      icon: 'material-symbols--overview-outline.svg'
+      icon: 'material-symbols--overview-outline.svg',
+      Route: '/ContentDashboard',
     },
     {
       name: 'Paying bills',
-      icon: 'hugeicons--payment-02.svg'
+      icon: 'hugeicons--payment-02.svg',
+      Route: '/ContentDashboard/paying_bills',
     },
     {
       name: 'Cards',
-      icon: 'wpf--bank-cards.svg'
+      icon: 'wpf--bank-cards.svg',
+      Route: '',
     },
     {
       name: 'Customers',
-      icon: 'streamline--information-desk-customer-remix.svg'
+      icon: 'streamline--information-desk-customer-remix.svg',
+      Route: '',
     },
     {
       name: 'Loans',
-      icon: 'griddy-icons--loan.svg'
+      icon: 'griddy-icons--loan.svg',
+      Route: '',
     },
     {
       name: 'Notifications',
-      icon: 'material-symbols--notifications-outline-rounded.svg'
+      icon: 'material-symbols--notifications-outline-rounded.svg',
+      Route: '',
     },
     {
       name: 'Reports',
-      icon: 'oui--nav-reports.svg'
+      icon: 'oui--nav-reports.svg',
+      Route: '',
     },
     {
       name: 'Transactions',
-      icon: 'hugeicons--transaction.svg'
-    }
+      icon: 'hugeicons--transaction.svg',
+      Route: '',
+    },
   ];
 }
