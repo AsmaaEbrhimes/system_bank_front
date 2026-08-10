@@ -98,3 +98,31 @@ ul {
     box-shadow: 0 0 10px #6d5ae0;
   }
 }
+
+
+
+
+.close_menue{
+  position: absolute;
+  background-color: #6d5ae0;
+  color: #ffffff;
+  inset-inline-start: 10px;
+  top: 10px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  &:hover{
+    opacity: 0.5;
+  }
+}
+
+
+@media(max-width:1200px){
+  .close_menue{
+    display: block;
+  }
+}

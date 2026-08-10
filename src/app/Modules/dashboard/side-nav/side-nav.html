@@ -1,9 +1,17 @@
 <section class="content_menue">
   <div class="logo_badge">
+    <button class="close_menue" (click)="onCloselMenue()">
+      <svg-icon [svgStyle]="{ 'width.px': 30, 'height.px': 30 }" src="/Icons/material-symbols--close.svg"></svg-icon>
+    </button>
+
+
+
+    @if(!status_toggel() || isMobileOrTablet()){
     <div>
       <h4>The closet</h4>
       <p>Banking Operations Dashboard</p>
     </div>
+    }
 
     <svg viewBox="0 0 100 100" class="shield_icon" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -13,7 +21,6 @@
         </linearGradient>
       </defs>
 
-      <!-- جسم الدرع -->
       <path d="M50 4
              L86 18
              V46
@@ -22,7 +29,6 @@
              V18
              Z" fill="url(#shieldGradient)" />
 
-      <!-- الطبقة البيضاء الداخلية -->
       <path d="M50 12
              L78 23
              V46
@@ -31,18 +37,13 @@
              V23
              Z" fill="#ffffff" />
 
-      <!-- أيقونة البنك -->
       <g fill="url(#shieldGradient)">
-        <!-- القبة (نص دائرة) -->
         <path d="M35 40 A15 15 0 0 1 65 40 Z" />
-        <!-- خط رفيع تحت القبة -->
         <rect x="33" y="40" width="34" height="3" rx="1" />
-        <!-- الأعمدة -->
         <rect x="36" y="46" width="4" height="20" />
         <rect x="45" y="46" width="4" height="20" />
         <rect x="51" y="46" width="4" height="20" />
         <rect x="60" y="46" width="4" height="20" />
-        <!-- القاعدة -->
         <rect x="32" y="68" width="36" height="4" rx="1" />
       </g>
     </svg>
@@ -52,17 +53,22 @@
   <ul>
     @for(item of List_Menue ; track $index){
     <li [ngClass]="{'active':$index == 0}">
+      @if(!status_toggel() || isMobileOrTablet()){
       <span>{{item.name}}</span>
+      }
       <span class="icon-wrapper"><svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }"
           [src]="'/Icons/' + item.icon"></svg-icon></span>
     </li>
     }
   </ul>
 
+
   <button class="btn_logout"><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
       src="/Icons/material-symbols-light--logout.svg"></svg-icon>
 
-
+    @if(!status_toggel() || isMobileOrTablet()){
     <span> Logout</span>
+    }
   </button>
+
 </section>
