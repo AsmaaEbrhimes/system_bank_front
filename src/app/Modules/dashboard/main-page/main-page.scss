@@ -14,11 +14,17 @@ p {
   }
 }
 
-
-
-.wrapper_main_paget{
+.wrapper_main_paget {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+@media (max-width: 767px) {
+  .wrapper_date {
+    div {
+      width: 100%;
+    }
+  }
 }
