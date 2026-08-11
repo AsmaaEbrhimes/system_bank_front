@@ -4,17 +4,13 @@
   font-size: 12px;
   font-weight: bold;
   display: inline-block;
-transform: rotate(5deg);
+  transform: rotate(-2deg);
 }
-
-
-
-
 
 .status-badge.success {
   background: #e8f8f1;
   color: #159a68;
-    border: 1px solid #159a68;
+  border: 1px solid #159a68;
 }
 
 .status-badge.pending {
@@ -23,21 +19,18 @@ transform: rotate(5deg);
   border: 1px solid #c58a12;
 }
 
-
-
-.header_transactions
-{
+.header_transactions {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
- svg{
-  position: relative;
- top: 5px;
- }
+  svg {
+    position: relative;
+    top: 5px;
+  }
 }
 
-.Tabel_transactions{
+.Tabel_transactions {
   background-color: white;
   border-radius: 20px;
-    padding: 20px;
+  padding: 20px;
 }

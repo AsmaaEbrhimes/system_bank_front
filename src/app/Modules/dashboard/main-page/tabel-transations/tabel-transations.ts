@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './tabel-transations.scss',
 })
 export class TabelTransations implements OnInit {
-  bodyTableCols: any[] = []; 
+  bodyTableCols: any[] = [];
 
   reportData = [
     {
@@ -45,7 +45,6 @@ export class TabelTransations implements OnInit {
   ];
 
   ngOnInit(): void {
-    // تخزين تعريف الجدول هنا
     this.bodyTableCols = [
       { key: "العميل", value: "customer" },
       { key: "النوع", value: "type" },
