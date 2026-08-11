@@ -1,0 +1,79 @@
+.wrapper_paying_bills {
+  margin-top: 20px;
+
+  p {
+    color: #5b6572;
+  }
+}
+
+.Tabel {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+  margin-top: 30px;
+}
+
+.count {
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-inline-start: 7px;
+}
+.count:last-child {
+  background: #e6e0ff;
+  color: #6d5ae0;
+}
+
+.active_count {
+  background: #6d5ae0 !important;
+  color: #fff !important;
+}
+
+.tabs_button {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 10px;
+  gap: 10px;
+  background-color: #f7f7fb;
+  border: 1px solid #d6dfea;
+
+  .thumb {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    width: calc(50% - 20px);
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+    transition: right 0.3s ease;
+    right: 15px;
+    z-index: 1;
+  }
+
+  .thumb.pos-2 {
+    right: calc(50% + 5px);
+  }
+
+  button {
+    width: 50%;
+    padding: 15px;
+    background-color: transparent;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    z-index: 2;
+    border: none;
+  }
+
+  button.active {
+    color: #6d5ae0 !important;
+  }
+}

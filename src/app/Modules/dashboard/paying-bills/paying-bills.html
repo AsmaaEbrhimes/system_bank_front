@@ -1,1 +1,48 @@
-<p>paying-bills works!</p>
+<section class="wrapper_paying_bills">
+  <div class="header_paying_bills">
+    <h3>Paying bills</h3>
+    <p>Due service bills and the record of immediate payment from the customer's balance</p>
+  </div>
+
+  <div class="Tabel">
+    <!-- <div class="tabs_button">
+      <button>
+        <span>Unpaid</span>
+        <span class="count active_count">3</span>
+      </button>
+      <button>
+        <span>Paid</span>
+        <span class="count">10</span>
+      </button>
+    </div> -->
+
+
+
+    <div class="tabs_button">
+  <div class="thumb" [class.pos-2]="activeTab === 'paid'"></div>
+
+  <button [class.active]="activeTab === 'unpaid'" (click)="activeTab = 'unpaid'">
+    <span>Unpaid</span>
+    <span class="count" [class.active_count]="activeTab === 'unpaid'">3</span>
+  </button>
+
+  <button [class.active]="activeTab === 'paid'" (click)="activeTab = 'paid'">
+    <span>Paid</span>
+    <span class="count" [class.active_count]="activeTab === 'paid'">10</span>
+  </button>
+</div>
+
+
+    <app-tabel [data]="reportData" [bodytabel]="bodyTableCols">
+
+      <ng-template #status let-row>
+
+        <span class="status-badge" [class.success]="row.status === 'تم التنفيذ'"
+          [class.pending]="row.status === 'قيد المعالجة'">
+          {{ row.status }}
+        </span>
+
+      </ng-template>
+    </app-tabel>
+  </div>
+</section>
