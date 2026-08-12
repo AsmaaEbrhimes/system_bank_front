@@ -1,8 +1,8 @@
-<div class="menue"  [class.collapsed]="status_toggel()">
+<div class="menue" [class.collapsed]="status_toggel()">
   <app-side-nav (CloseOPen)="onCloseMenue($event)" [StatusMenue]="status_toggel()"></app-side-nav>
 </div>
 
-<div class="content-dashbord"  [class.collapsed]="status_toggel()">
+<div class="content-dashbord" [class.collapsed]="status_toggel()">
   <app-header (toggelMenue)="onToggelMenue()"></app-header>
   <router-outlet></router-outlet>
 </div>
