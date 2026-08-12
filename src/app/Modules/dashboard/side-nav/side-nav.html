@@ -52,8 +52,7 @@
 
   <ul>
     @for(item of List_Menue ; track $index){
-    <li [routerLink]="item.Route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-      [ngClass]="{'active':$index == 0}">
+    <li [routerLink]="item.Route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       @if(!status_toggel() || isMobileOrTablet()){
       <span>{{item.name}}</span>
       }
