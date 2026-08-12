@@ -12,7 +12,8 @@ import { TabelTransations } from './main-page/tabel-transations/tabel-transation
 import { SharedModule } from '../../shared/shared-module';
 import { Header } from './header/header';
 import { PayingBills } from './paying-bills/paying-bills';
-
+import { SelectModule } from 'primeng/select';
+import { BillingMetrics } from './paying-bills/billing-metrics/billing-metrics';
 @NgModule({
   declarations: [
     SideNav,
@@ -23,7 +24,15 @@ import { PayingBills } from './paying-bills/paying-bills';
     TabelTransations,
     Header,
     PayingBills,
+    BillingMetrics,
   ],
-  imports: [CommonModule, DashboardRoutingModule, SvgIconComponent, DatePickerModule, SharedModule],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    SvgIconComponent,
+    DatePickerModule,
+    SharedModule,
+    SelectModule,
+  ],
 })
 export class DashboardModule {}
