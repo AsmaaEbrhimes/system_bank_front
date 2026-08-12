@@ -1,18 +1,72 @@
 .wrapper_paying_bills {
-  margin-top: 20px;
-
-  p {
-    color: #5b6572;
-  }
-}
-
-.Tabel {
   background-color: white;
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
   margin-top: 30px;
+  width: 100%;
+  p {
+    color: #5b6572;
+  }
 }
+
+.wrapper_header_paying {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.header_paying_bills {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  .header_logo {
+    background-color: #6d5ae0;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.btn_download_report {
+
+  background-color: #6d5ae0;
+    color: white;
+
+
+  font-weight: 700;
+  font-size: 13px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s linear;
+  &:hover {
+      border: 1px solid #d6dfea;
+  background: #ffffff;
+  color: #1f2430;
+    transform: translateY(-5px);
+  }
+}
+
+
+.Tabel
+ {
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+}
+
+
 
 .count {
   height: 25px;
@@ -20,8 +74,9 @@
   line-height: 25px;
   border-radius: 50%;
   display: inline-block;
-  margin-inline-start: 7px;
 }
+
+
 .count:last-child {
   background: #e6e0ff;
   color: #6d5ae0;
@@ -71,9 +126,19 @@
     position: relative;
     z-index: 2;
     border: none;
+    display: flex;
+    justify-content: center;
+   gap: 5px;
+   align-items: center;
   }
 
   button.active {
     color: #6d5ae0 !important;
   }
 }
+
+
+
+
+
+

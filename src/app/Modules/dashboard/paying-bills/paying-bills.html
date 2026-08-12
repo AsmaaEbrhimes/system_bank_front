@@ -1,36 +1,50 @@
 <section class="wrapper_paying_bills">
-  <div class="header_paying_bills">
-    <h3>Paying bills</h3>
-    <p>Due service bills and the record of immediate payment from the customer's balance</p>
+  <div class="wrapper_header_paying">
+    <button class="btn_download_report">
+      <span>Export the report </span>
+      <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/nimbus--download.svg"></svg-icon>
+    </button>
+
+
+
+    <div class="header_paying_bills">
+      <div>
+        <h3>Paying bills</h3>
+        <p>Due service bills and the record of immediate payment from the customer's balance</p>
+      </div>
+
+      <div class="header_logo">
+        <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }" src="/Icons/hugeicons--payment-02.svg"></svg-icon>
+      </div>
+    </div>
+
   </div>
 
-  <div class="Tabel">
-    <!-- <div class="tabs_button">
-      <button>
-        <span>Unpaid</span>
-        <span class="count active_count">3</span>
-      </button>
-      <button>
-        <span>Paid</span>
-        <span class="count">10</span>
-      </button>
-    </div> -->
 
+  <app-billing-metrics></app-billing-metrics>
+
+
+
+  <div class="Tabel">
 
 
     <div class="tabs_button">
-  <div class="thumb" [class.pos-2]="activeTab === 'paid'"></div>
+      <div class="thumb" [class.pos-2]="activeTab === 'paid'"></div>
 
-  <button [class.active]="activeTab === 'unpaid'" (click)="activeTab = 'unpaid'">
-    <span>Unpaid</span>
-    <span class="count" [class.active_count]="activeTab === 'unpaid'">3</span>
-  </button>
+      <button [class.active]="activeTab === 'unpaid'" (click)="activeTab = 'unpaid'">
+        <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+            src="/Icons/uil--receipt.svg"></svg-icon></span>
+        <span>Unpaid</span>
+        <span class="count" [class.active_count]="activeTab === 'unpaid'">3</span>
+      </button>
 
-  <button [class.active]="activeTab === 'paid'" (click)="activeTab = 'paid'">
-    <span>Paid</span>
-    <span class="count" [class.active_count]="activeTab === 'paid'">10</span>
-  </button>
-</div>
+      <button [class.active]="activeTab === 'paid'" (click)="activeTab = 'paid'">
+          <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+            src="/Icons/ep--circle-check-filled.svg"></svg-icon></span>
+        <span>Paid</span>
+        <span class="count" [class.active_count]="activeTab === 'paid'">10</span>
+      </button>
+    </div>
 
 
     <app-tabel [data]="reportData" [bodytabel]="bodyTableCols">
