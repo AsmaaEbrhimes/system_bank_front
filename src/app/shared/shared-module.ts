@@ -7,10 +7,11 @@ import { Loader } from './loader/loader';
 import { TableModule } from 'primeng/table';
 import { Tabel } from './tabel/tabel';
 import { SearchComponent } from './search/search.component';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [Success , NoData , Error , Loader , Tabel , SearchComponent],
-  imports: [CommonModule , AsyncPipe , TableModule ],
+  imports: [CommonModule , AsyncPipe , TableModule , AngularSvgIconModule],
   exports: [Success , NoData , Error , Loader , Tabel , SearchComponent],
   providers: [
     DatePipe
