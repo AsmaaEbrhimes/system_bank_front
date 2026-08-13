@@ -1,12 +1,14 @@
-p {
-  color: var(--text-dim);
-  font-size: 13.5px;
-}
-
 .wrapper_date {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.date_calnder {
+  display: flex;
   justify-content: flex-end;
+  gap: 10px;
   width: 100%;
   div {
     width: 30%;
@@ -21,7 +23,7 @@ p {
 }
 
 @media (max-width: 767px) {
-  .wrapper_date {
+  .date_calnder {
     div {
       width: 100%;
     }
