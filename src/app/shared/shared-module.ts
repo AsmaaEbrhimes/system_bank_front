@@ -6,13 +6,14 @@ import { Error } from './error/error';
 import { Loader } from './loader/loader';
 import { TableModule } from 'primeng/table';
 import { Tabel } from './tabel/tabel';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
-  declarations: [Success , NoData , Error , Loader , Tabel],
+  declarations: [Success , NoData , Error , Loader , Tabel , SearchComponent],
   imports: [CommonModule , AsyncPipe , TableModule ],
-  exports: [Success , NoData , Error , Loader , Tabel ],
+  exports: [Success , NoData , Error , Loader , Tabel , SearchComponent],
   providers: [
-    DatePipe 
+    DatePipe
   ]
 })
 export class SharedModule {}
