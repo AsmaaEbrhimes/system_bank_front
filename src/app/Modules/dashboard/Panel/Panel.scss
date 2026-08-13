@@ -25,6 +25,17 @@
   transition: 0.3s linear;
 }
 
+.content_outlet {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px 20px;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+  margin-top: 20px;
+        border: 1px solid #0000002b;
+
+}
+
+
 .menue.collapsed {
   width: 5%;
 }
@@ -33,11 +44,6 @@
   width: 95%;
   margin-inline-end: 5%;
 }
-
-
-
-
-
 
 @media (max-width: 767px) {
   .menue {
@@ -58,10 +64,6 @@
   }
 }
 
-
-
-
-
 @media (min-width: 767px) and (max-width: 1200px) {
   .menue {
     width: 0;
@@ -76,7 +78,6 @@
 
   .content-dashbord.collapsed {
     width: 100%;
-    margin-inline-start:0;
+    margin-inline-start: 0;
   }
 }
-
