@@ -22,14 +22,14 @@ export class Core {
   }
 
   // *****************************Search***********************************//
-  search<T>(searchTerm: string, searchKeys: (keyof T)[]): T[] {
+ search<T>(searchTerm: string, searchKeys: (keyof T)[]): T[] {
     const term = searchTerm?.trim();
     const data = this.originalDataStore();
     if (!term) return data;
     const normalizedSearch = this.normalizeArabic(term);
     return data.filter((item: any) => {
       return searchKeys.some((key) => {
-        const valueToSearch = item[key] ? String(item[key]) : '';
+        const valueToSearch = item[key] ? String(item[key]) : "";
         const normalizedValue = this.normalizeArabic(valueToSearch);
         return normalizedValue.includes(normalizedSearch);
       });
@@ -40,7 +40,7 @@ export class Core {
     return text.replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي').toLowerCase();
   }
 
-  
+
   // *****************************Prevent minus***********************************//
   onKeyDown(event: KeyboardEvent) {
     if (event.key === '-' || event.key === 'e') {
