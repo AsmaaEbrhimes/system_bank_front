@@ -54,7 +54,7 @@ export class SideNav {
     {
       name: 'Customers',
       icon: 'streamline--information-desk-customer-remix.svg',
-      Route: '',
+      Route: '/ContentDashboard/custmers',
     },
     {
       name: 'Loans',
