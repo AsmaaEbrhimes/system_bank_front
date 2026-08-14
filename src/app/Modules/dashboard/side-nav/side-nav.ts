@@ -49,7 +49,7 @@ export class SideNav {
     {
       name: 'Cards',
       icon: 'wpf--bank-cards.svg',
-      Route: '',
+      Route: '/ContentDashboard/cards',
     },
     {
       name: 'Customers',
