@@ -3,6 +3,7 @@ import { Panel } from './Panel/Panel';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PayingBills } from './paying-bills/paying-bills';
+import { Cards } from './cards/cards';
 {
 }
 
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', component: MainPage },
       { path: 'paying_bills', component: PayingBills },
+      { path: 'cards', component: Cards },
     ],
   },
 ];
