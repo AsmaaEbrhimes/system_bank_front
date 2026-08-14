@@ -37,3 +37,17 @@
   padding: 10px 20px;
   box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
 }
+
+  a{
+      white-space: nowrap;
+      margin-top: 10px;
+    }
+
+@media (max-width: 767px){
+  .header_transactions{
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+  }
+}
