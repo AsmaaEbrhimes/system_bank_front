@@ -63,3 +63,18 @@
 .report_paying_custmer {
   width: 100%;
 }
+
+
+@media (max-width: 767px){
+  .select_custmer{
+    width: 100%;
+  }
+
+  .wrapper_report_paying{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1200px){
+
+}
