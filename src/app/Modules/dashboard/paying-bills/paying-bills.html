@@ -27,7 +27,6 @@
 
   <div class="Tabel">
 
-
     <div class="tabs_button">
       <div class="thumb" [class.pos-2]="activeTab === 'paid'"></div>
 
@@ -39,13 +38,16 @@
       </button>
 
       <button [class.active]="activeTab === 'paid'" (click)="activeTab = 'paid'">
-          <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+        <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
             src="/Icons/ep--circle-check-filled.svg"></svg-icon></span>
         <span>Paid</span>
         <span class="count" [class.active_count]="activeTab === 'paid'">10</span>
       </button>
     </div>
 
+    <div class="wrapper_search">
+      <app-search></app-search>
+    </div>
 
     <app-tabel [data]="reportData" [bodytabel]="bodyTableCols">
 
