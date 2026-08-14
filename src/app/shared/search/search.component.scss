@@ -41,3 +41,12 @@
 .search-input::placeholder {
   color: #888780;
 }
+
+
+
+
+@media (max-width: 767px){
+  .search-container {
+    width: 100% !important;
+  }
+}
