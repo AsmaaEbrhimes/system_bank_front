@@ -1,0 +1,29 @@
+<section>
+  <div class="header_custmer">
+
+      <div>
+      <h3><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+                src="/Icons/streamline--information-desk-customer-remix.svg"></svg-icon> Clients</h3>
+      <p>Managing customer data and linking it to bank accounts</p>
+    </div>
+
+        <button>Add Clients +</button>
+
+  </div>
+
+
+  <div class="tabel_custmer">
+    <app-search></app-search>
+  <app-tabel [data]="reportData" [bodytabel]="bodyTabel()">
+ <ng-template #status let-row>
+
+      <span class="status-badge" [class.success]="row.status === 'نشط'"
+        [class.pending]="row.status === 'مراجعة KYC'">
+        {{ row.status }}
+      </span>
+
+    </ng-template>
+
+  </app-tabel>
+  </div>
+</section>
