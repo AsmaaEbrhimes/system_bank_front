@@ -126,6 +126,10 @@
   .summary-cards {
     grid-template-columns: 1fr;
   }
+
+  .card-header {
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 767px) and (max-width: 1200px) {
