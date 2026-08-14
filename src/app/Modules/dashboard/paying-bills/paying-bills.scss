@@ -29,10 +29,9 @@
 }
 
 .btn_download_report {
-
+  white-space: nowrap;
   background-color: #6d5ae0;
-    color: white;
-
+  color: white;
 
   font-weight: 700;
   font-size: 13px;
@@ -42,26 +41,23 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  border: 1px solid transparent;
   transition: 0.3s linear;
   &:hover {
-      border: 1px solid #d6dfea;
-  background: #ffffff;
-  color: #1f2430;
+    border: 1px solid #d6dfea;
+    background: #ffffff;
+    color: #1f2430;
     transform: translateY(-5px);
   }
 }
 
-
-.Tabel
- {
+.Tabel {
   margin-top: 30px;
   width: 100%;
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
 }
-
-
 
 .count {
   height: 25px;
@@ -70,7 +66,6 @@
   border-radius: 50%;
   display: inline-block;
 }
-
 
 .count:last-child {
   background: #e6e0ff;
@@ -123,8 +118,8 @@
     border: none;
     display: flex;
     justify-content: center;
-   gap: 5px;
-   align-items: center;
+    gap: 5px;
+    align-items: center;
   }
 
   button.active {
@@ -132,12 +127,37 @@
   }
 }
 
-
-
-
-
-
-
-.wrapper_search{
+.wrapper_search {
   margin-bottom: 20px;
 }
+
+@media (max-width: 767px) {
+  .wrapper_header_paying {
+    flex-direction: column;
+    .btn_download_report {
+      width: fit-content;
+      margin: auto;
+    }
+  }
+
+  .header_paying_bills {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+
+    div:first-child {
+      order: 2;
+    }
+    .header_logo {
+      order: 1 !important;
+    }
+  }
+
+
+  .tabs_button{
+    svg{
+      display: none;
+    }
+  }
+}
+
