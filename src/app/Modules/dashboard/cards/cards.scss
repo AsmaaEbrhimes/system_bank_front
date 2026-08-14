@@ -1,0 +1,196 @@
+.header_cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  div {
+    text-align: start;
+    h3 {
+      color: #1a2233;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    p {
+      color: #5b6572;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+
+  button {
+    background-color: #6d5ae0;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 15px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 16px;
+    border: 1px solid transparent;
+    transition: 0.3s linear;
+    &:hover {
+      transform: translateY(-5px);
+      background-color: #ffffff;
+      color: #6d5ae0;
+      border: 1px solid #6d5ae0;
+    }
+  }
+}
+
+.wrapper_cards {
+  margin-top: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+.action_and_details_card {
+  width: 100% !important;
+// margin-top: 20px;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    padding: 26px 28px;
+    color: #fff;
+    background:
+      radial-gradient(120% 140% at 85% -10%, rgba(255, 255, 255, 0.18), transparent 55%),
+      linear-gradient(135deg, #6c5ce7 0%, #4a34b0 55%, #2e1f73 100%);
+    box-shadow:
+      0 20px 40px -12px rgba(74, 52, 176, 0.45),
+      0 4px 12px rgba(46, 31, 115, 0.25);
+
+    .expird_card,
+    .header_card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center !important;
+    }
+    .title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      justify-content: space-between;
+      span {
+        display: inline-block;
+        height: 7px;
+        width: 7px;
+        background: #e6e0ff;
+        border-radius: 50%;
+      }
+    }
+
+    .expird_card {
+      span {
+        font-size: 10px;
+        color: #a99bf0;
+      }
+    }
+    .password_card {
+      text-align: center;
+    }
+  }
+
+  .action_cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    width: 100%;
+    gap: 10px;
+    button {
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      color: #4a34b0;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px;
+      width: 100%;
+      border-radius: 7px;
+      background-color: rgba(255, 255, 255, 0.85);
+      box-shadow:
+        0 6px 16px rgba(108, 92, 231, 0.35),
+        0 2px 4px rgba(74, 52, 176, 0.2);
+      transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+      &:hover {
+        box-shadow:
+          0 8px 20px rgba(108, 92, 231, 0.45),
+          0 3px 6px rgba(74, 52, 176, 0.25);
+        transform: translateY(-2px);
+      }
+      svg {
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+}
+
+.chip {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 44px;
+  height: 34px;
+  border-radius: 7px;
+  background: linear-gradient(155deg, #f6e7b4 0%, #e0bd6c 35%, #c9a24a 65%, #f3de9e 100%);
+  position: relative;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(120, 90, 20, 0.35);
+    border-radius: 4px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 4px;
+    background:
+      linear-gradient(rgba(120, 90, 20, 0.3) 1px, transparent 1px) 0 0 / 100% 33.33%,
+      linear-gradient(90deg, rgba(120, 90, 20, 0.3) 1px, transparent 1px) 0 0 / 33.33% 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .header_cards {
+    flex-direction: column;
+    div,
+    button {
+      text-align: center;
+      margin: auto;
+    }
+    button {
+      margin-top: 10px;
+    }
+  }
+  .wrapper_cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1200px) {
+  .wrapper_cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
