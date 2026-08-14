@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { Core } from '../../core/Servies/core';
 
 @Component({
-  selector: 'haqeq-search',
+  selector: 'app-search',
   standalone: false,
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
