@@ -1,20 +1,13 @@
-<p-table
-  [value]="tableData"
-  [tableStyle]="{ 'min-width': '50rem' }"
-  [paginator]="true"
-  [rows]="10"
-  [rowsPerPageOptions]="[5, 10, 20, 50]"
->
+<p-table [value]="tableData" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="10"
+  [rowsPerPageOptions]="[5, 10, 20, 50]">
 
   <!-- HEADER -->
   <ng-template #header>
     <tr>
 
-      <th
-        *ngFor="let col of bodytabel"
-        [pSortableColumn]="col.value"
-      >
+      <th *ngFor="let col of bodytabel" [pSortableColumn]="col.value">
         {{ col.key }}
+        <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/basil--sort-solid.svg"></svg-icon>
       </th>
 
       <th *ngIf="actionsTemplate">
@@ -32,19 +25,15 @@
 
       <td *ngFor="let col of bodytabel">
 
-        <ng-container
-          *ngIf="
+        <ng-container *ngIf="
             col.value === 'status' && statusTemplate;
             else normalCell
-          "
-        >
+          ">
 
-          <ng-container
-            *ngTemplateOutlet="
+          <ng-container *ngTemplateOutlet="
               statusTemplate;
               context: { $implicit: row }
-            "
-          ></ng-container>
+            "></ng-container>
 
         </ng-container>
 
@@ -58,12 +47,10 @@
       <!-- ACTIONS -->
       <td *ngIf="actionsTemplate">
 
-        <ng-container
-          *ngTemplateOutlet="
+        <ng-container *ngTemplateOutlet="
             actionsTemplate;
             context: { $implicit: row }
-          "
-        ></ng-container>
+          "></ng-container>
 
       </td>
 
