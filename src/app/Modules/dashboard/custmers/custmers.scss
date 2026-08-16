@@ -1,8 +1,14 @@
 .header_custmer {
-  display: flex;
+
+display: flex;
   justify-content: space-between;
+  align-items: center;
+
   div {
-    text-align: start !important;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
   }
   h3 {
     color: #1a2233;

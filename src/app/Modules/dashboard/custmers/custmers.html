@@ -1,29 +1,31 @@
 <section>
   <div class="header_custmer">
+    <button>Add Clients +</button>
 
-      <div>
-      <h3><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-                src="/Icons/streamline--information-desk-customer-remix.svg"></svg-icon> Clients</h3>
+    <div>
+      <h3>
+        Clients
+        <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+          src="/Icons/streamline--information-desk-customer-remix.svg"></svg-icon>
+      </h3>
       <p>Managing customer data and linking it to bank accounts</p>
     </div>
 
-        <button>Add Clients +</button>
 
   </div>
 
 
   <div class="tabel_custmer">
     <app-search></app-search>
-  <app-tabel [data]="reportData" [bodytabel]="bodyTabel()">
- <ng-template #status let-row>
+    <app-tabel [data]="reportData" [bodytabel]="bodyTabel()">
+      <ng-template #status let-row>
 
-      <span class="status-badge" [class.success]="row.status === 'نشط'"
-        [class.pending]="row.status === 'مراجعة KYC'">
-        {{ row.status }}
-      </span>
+        <span class="status-badge" [class.success]="row.status === 'نشط'" [class.pending]="row.status === 'مراجعة KYC'">
+          {{ row.status }}
+        </span>
 
-    </ng-template>
+      </ng-template>
 
-  </app-tabel>
+    </app-tabel>
   </div>
 </section>
