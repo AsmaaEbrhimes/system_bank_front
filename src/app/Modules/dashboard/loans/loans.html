@@ -1,0 +1,31 @@
+<section>
+  <div class="header_loans">
+    <div class="content_header">
+      <div>
+        <h3>Loans</h3>
+        <p>Full workflow: Submit ← Review ← Determine Benefit ← Approve or Reject</p>
+      </div>
+      <div class="container_svg">
+        <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/griddy-icons--loan.svg"></svg-icon>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="tabel_loans">
+    <div class="buttons_tap">
+      <button [class.active]="active_tap()==0" (click)="SetActive(0)">Under review</button>
+      <button [class.active]="active_tap()==1" (click)="SetActive(1)" class="active">Approved</button>
+      <button [class.active]="active_tap()==2" (click)="SetActive(2)">Rejected</button>
+    </div>
+
+
+    <app-search></app-search>
+
+    <app-tabel [data]="reportData" [bodytabel]="boayTabel()">
+
+
+    </app-tabel>
+  </div>
+</section>
