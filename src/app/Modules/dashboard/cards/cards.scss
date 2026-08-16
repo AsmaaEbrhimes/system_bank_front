@@ -1,3 +1,9 @@
+.section_cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .header_cards {
   display: flex;
   justify-content: space-between;
@@ -46,7 +52,6 @@
 
 .wrapper_cards {
   margin-top: 40px;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -54,8 +59,7 @@
 }
 .action_and_details_card {
   width: 100% !important;
-margin-bottom: 30px;
-
+  margin-bottom: 30px;
   .card {
     display: flex;
     flex-direction: column;
