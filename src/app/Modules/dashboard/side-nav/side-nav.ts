@@ -59,7 +59,7 @@ export class SideNav {
     {
       name: 'Loans',
       icon: 'griddy-icons--loan.svg',
-      Route: '',
+      Route: '/ContentDashboard/loans',
     },
     {
       name: 'Notifications',
