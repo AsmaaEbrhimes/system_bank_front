@@ -16,6 +16,7 @@ import { SelectModule } from 'primeng/select';
 import { BillingMetrics } from './paying-bills/billing-metrics/billing-metrics';
 import { Cards } from './cards/cards';
 import { Custmers } from './custmers/custmers';
+import { Loans } from './loans/loans';
 @NgModule({
   declarations: [
     SideNav,
@@ -29,6 +30,7 @@ import { Custmers } from './custmers/custmers';
     BillingMetrics,
     Cards,
     Custmers,
+    Loans,
   ],
   imports: [
     CommonModule,

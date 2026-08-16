@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PayingBills } from './paying-bills/paying-bills';
 import { Cards } from './cards/cards';
 import { Custmers } from './custmers/custmers';
+import { Loans } from './loans/loans';
 {
 }
 
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'paying_bills', component: PayingBills },
       { path: 'cards', component: Cards },
       { path: 'custmers', component: Custmers },
+      { path: 'loans', component: Loans },
     ],
   },
 ];
