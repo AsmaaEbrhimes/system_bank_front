@@ -3,7 +3,12 @@
     <div class="content_header">
       <div>
         <h3>Loans</h3>
-        <p>Full workflow: Submit ← Review ← Determine Benefit ← Approve or Reject</p>
+        <p>
+          <span class="title">Submitting the application</span><span class="arrow">←</span>
+          <span class="title">Review</span><span class="arrow">←</span>
+          <span class="title">Identifying the benefit Review</span><span class="arrow">←</span>
+          <span class="title">Approval or rejection</span>
+        </p>
       </div>
       <div class="container_svg">
         <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/griddy-icons--loan.svg"></svg-icon>
@@ -11,6 +16,40 @@
     </div>
   </div>
 
+
+
+
+ <div class="wrapper_Statistics">
+  <div class="card warning">
+    <div class="card-content">
+      <h3>4</h3>
+      <p>Under review</p>
+    </div>
+    <div class="icon">
+      <svg-icon [svgStyle]="{ 'width.px': 22, 'height.px': 22 }" src="/Icons/mdi-light--clock.svg"></svg-icon>
+    </div>
+  </div>
+
+  <div class="card success">
+    <div class="card-content">
+      <h3>128</h3>
+      <p>Approved this month</p>
+    </div>
+    <div class="icon">
+      <svg-icon [svgStyle]="{ 'width.px': 22, 'height.px': 22 }" src="/Icons/mdi--success.svg"></svg-icon>
+    </div>
+  </div>
+
+  <div class="card danger">
+    <div class="card-content">
+      <h3>14</h3>
+      <p>Rejected this month</p>
+    </div>
+    <div class="icon">
+      <svg-icon [svgStyle]="{ 'width.px': 22, 'height.px': 22 }" src="/Icons/material-symbols--close-rounded.svg"></svg-icon>
+    </div>
+  </div>
+</div>
 
 
   <div class="tabel_loans">
