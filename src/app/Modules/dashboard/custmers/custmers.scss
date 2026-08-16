@@ -3,36 +3,35 @@
   justify-content: space-between;
   align-items: center;
 
-  div {
-    text-align: end;
+  .content_header {
     display: flex;
-    flex-direction: column;
     align-items: flex-end;
+    align-items: center;
+    gap: 7px;
   }
+
   h3 {
     color: #1a2233;
     font-weight: 700;
     font-size: 24px;
-    display: flex;
-    align-items: center;
     gap: 7px;
-    .container_svg {
-      height: 30px;
-      width: 30px;
-      background: #e6e0ff;
-      color: #6d5ae0;
-      border: 1px solid #6d5ae0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 5px;
-    }
   }
   p {
     color: #5b6572;
     font-size: 13.5px;
   }
 
+  .container_svg {
+    height: 30px;
+    width: 30px;
+    background: #e6e0ff;
+    color: #6d5ae0;
+    border: 1px solid #6d5ae0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
   button {
     padding: 10px 20px;
     border-radius: 7px;
