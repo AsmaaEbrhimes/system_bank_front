@@ -16,9 +16,16 @@
     display: flex;
     align-items: center;
     gap: 7px;
-
-    svg {
+    .container_svg {
+      height: 30px;
+      width: 30px;
+      background: #e6e0ff;
       color: #6d5ae0;
+      border: 1px solid #6d5ae0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
     }
   }
   p {
