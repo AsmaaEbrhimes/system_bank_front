@@ -64,7 +64,7 @@ export class SideNav {
     {
       name: 'Notifications',
       icon: 'material-symbols--notifications-outline-rounded.svg',
-      Route: '',
+      Route: 'notifications',
     },
     {
       name: 'Reports',
