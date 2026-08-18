@@ -17,6 +17,7 @@ import { BillingMetrics } from './paying-bills/billing-metrics/billing-metrics';
 import { Cards } from './cards/cards';
 import { Custmers } from './custmers/custmers';
 import { Loans } from './loans/loans';
+import { Notifications } from './notifications/notifications';
 @NgModule({
   declarations: [
     SideNav,
@@ -31,6 +32,7 @@ import { Loans } from './loans/loans';
     Cards,
     Custmers,
     Loans,
+    Notifications,
   ],
   imports: [
     CommonModule,
