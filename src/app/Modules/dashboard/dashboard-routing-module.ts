@@ -7,6 +7,7 @@ import { Cards } from './cards/cards';
 import { Custmers } from './custmers/custmers';
 import { Loans } from './loans/loans';
 import { Notifications } from './notifications/notifications';
+import { Transactions } from './transactions/transactions';
 {
 }
 
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'custmers', component: Custmers },
       { path: 'loans', component: Loans },
       { path: 'notifications', component: Notifications },
+      { path: 'transactions', component: Transactions },
     ],
   },
 ];

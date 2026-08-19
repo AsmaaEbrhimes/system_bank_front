@@ -18,6 +18,7 @@ import { Cards } from './cards/cards';
 import { Custmers } from './custmers/custmers';
 import { Loans } from './loans/loans';
 import { Notifications } from './notifications/notifications';
+import { Transactions } from './transactions/transactions';
 @NgModule({
   declarations: [
     SideNav,
@@ -33,6 +34,7 @@ import { Notifications } from './notifications/notifications';
     Custmers,
     Loans,
     Notifications,
+    Transactions,
   ],
   imports: [
     CommonModule,
