@@ -74,7 +74,7 @@ export class SideNav {
     {
       name: 'Transactions',
       icon: 'hugeicons--transaction.svg',
-      Route: '',
+      Route: 'transactions',
     },
   ];
 }
