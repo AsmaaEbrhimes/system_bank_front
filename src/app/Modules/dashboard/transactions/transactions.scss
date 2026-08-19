@@ -1,0 +1,105 @@
+.header_transactions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  justify-content: flex-end;
+  p {
+    color: #5b6572;
+    font-size: 13.5px;
+  }
+  .container_svg {
+    height: 30px;
+    width: 30px;
+    background: #e6e0ff;
+    color: #6d5ae0;
+    border: 1px solid #6d5ae0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+}
+
+.btns_transactions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #e6e0ff;
+  padding: 6px;
+  border-radius: 12px;
+  width: 100%;
+  overflow-x: auto;
+  --count: 4;
+  --w: calc(100% / var(--count));
+  --active-index: 0; // القيمة الافتراضية
+
+  .thumb {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    right: calc(6px + var(--w) * var(--active-index));
+    width: calc(var(--w) - 3px);
+    background-color: #6d5ae0;
+    border-radius: 9px;
+    box-shadow: 0 8px 16px -6px rgba(109, 90, 224, 0.5);
+    transition: right 0.3s cubic-bezier(0.5, 0, 0.15, 1);
+    z-index: 0;
+  }
+
+  button {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 10px;
+    color: #6b6885;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.25s ease;
+
+    &.active {
+      color: #ffffff;
+    }
+  }
+}
+
+.tabel_transactions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+.status-badge.success {
+  background: #e8f8f1;
+  color: #159a68;
+  border: 1px solid #159a68;
+}
+
+.status-badge.pending {
+  background: #fff4dc;
+  color: #c58a12;
+  border: 1px solid #c58a12;
+}

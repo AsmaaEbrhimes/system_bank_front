@@ -1,1 +1,54 @@
-<p>transactions works!</p>
+<section>
+  <div class="header_transactions">
+    <div>
+      <h3>Transactions</h3>
+      <p>The Complete Ledger — Deposit, Withdrawal, Transfer</p>
+    </div>
+
+    <div class="container_svg">
+      <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/hugeicons--transaction.svg"></svg-icon>
+    </div>
+
+  </div>
+
+
+  <div class="tabel_transactions">
+   <div class="btns_transactions" [style.--active-index]="selectedFilterIndex">
+  <div class="thumb"></div>
+
+  <button [class.active]="selectedFilterIndex === 0" (click)="setFilter(0)">
+    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mingcute--grid-2-line.svg"></svg-icon>
+    All
+  </button>
+
+  <button [class.active]="selectedFilterIndex === 1" (click)="setFilter(1)">
+    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--arrow-down-left-bold.svg"></svg-icon>
+    Deposit
+  </button>
+
+  <button [class.active]="selectedFilterIndex === 2" (click)="setFilter(2)">
+    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--arrow-up-right-bold.svg"></svg-icon>
+    Pull
+  </button>
+
+  <button [class.active]="selectedFilterIndex === 3" (click)="setFilter(3)">
+    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/grommet-icons--transaction.svg"></svg-icon>
+    Transfer
+  </button>
+
+
+</div>
+    <app-search></app-search>
+    <app-tabel [data]="reportData" [bodytabel]="bodyTabel()">
+
+      <ng-template #status let-row>
+
+        <span class="status-badge" [class.success]="row.status === 'تم التنفيذ'"
+          [class.pending]="row.status === 'قيد المعالجة'">
+          {{ row.status }}
+        </span>
+
+      </ng-template>
+    </app-tabel>
+  </div>
+</section>
