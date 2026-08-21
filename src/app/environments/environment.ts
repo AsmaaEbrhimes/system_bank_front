@@ -1,4 +1,4 @@
 export const environment={
-    baseApi:"https://lawyers-backend.vercel.app/api/v1/",
+    baseApi:"https://localhost:7007/api/",
     production:false
 }
