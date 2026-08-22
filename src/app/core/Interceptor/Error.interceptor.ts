@@ -9,29 +9,33 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Core } from '../Servies/core';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(
-    private core: Core,
-    private router: Router,
-  ) {}
+  constructor(private core: Core) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        switch (error.status) {
-          case 401:
-            this.router.navigate(['/']);
-            break;
-        }
-        this.core._Error.next(error.error.message);
+        const errorMessage = this.extractErrorMessage(error);
+
+        this.core._Error?.next(errorMessage);
         setTimeout(() => {
-          this.core._Error.next('');
-        }, 4000);
+          this.core._Error?.next('');
+        }, 5000);
         return throwError(() => error);
       }),
     );
+  }
+
+  private extractErrorMessage(error: HttpErrorResponse): string {
+    const errBody = error.error;
+
+    if (errBody?.errors) {
+      return Object.values(errBody.errors).flat().join('\n');
+    }
+
+    if (typeof errBody === 'string') return errBody;
+    return errBody?.message || errBody?.title || 'حدث خطأ غير متوقع';
   }
 }
