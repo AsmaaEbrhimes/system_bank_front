@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { Data } from '../../../core/Servies/data';
 
 @Component({
   selector: 'app-main-page',
@@ -6,4 +7,17 @@ import { Component } from '@angular/core';
   templateUrl: './main-page.html',
   styleUrl: './main-page.scss',
 })
-export class MainPage {}
+export class MainPage implements OnInit {
+  constructor(private Data: Data) {}
+
+  ngOnInit(): void {
+    this.getAllTransactions();
+  }
+
+
+  transactions=signal<any>("")
+
+  getAllTransactions() {
+    this.Data.get('Transactions').subscribe((res) => {this.transactions.set(res)});
+  }
+}
