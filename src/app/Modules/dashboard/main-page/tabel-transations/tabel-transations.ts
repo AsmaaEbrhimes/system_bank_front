@@ -11,7 +11,6 @@ export class TabelTransations {
 
   @Input()
   set Transactions(value: any) {
-    console.log(value);
     this.data.set(value);
     this.boadyTabel();
   }
