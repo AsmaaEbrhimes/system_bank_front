@@ -1,9 +1,4 @@
-import {
-  Component,
-  ContentChild,
-  Input,
-  TemplateRef,
-} from '@angular/core';
+import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-tabel',
@@ -12,7 +7,6 @@ import {
   styleUrl: './tabel.scss',
 })
 export class Tabel<T extends object> {
-
   tableData: T[] = [];
 
   @Input() bodytabel: any[] = [];
@@ -29,7 +23,6 @@ export class Tabel<T extends object> {
   }
 
   getTemplate(name: string): TemplateRef<any> | null {
-
     if (name === 'status') {
       return this.statusTemplate ?? null;
     }

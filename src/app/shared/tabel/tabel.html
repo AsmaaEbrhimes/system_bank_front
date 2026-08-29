@@ -1,4 +1,4 @@
-<p-table [value]="tableData" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="10"
+<p-table [value]="tableData" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5"
   [rowsPerPageOptions]="[5, 10, 20, 50]">
 
   <!-- HEADER -->
@@ -37,8 +37,18 @@
 
         </ng-container>
 
+
+
         <ng-template #normalCell>
-          {{ row[col.value] }}
+          <!-- إذا كان العمود نوعه تاريخ -->
+          <ng-container *ngIf="col.type === 'date'; else standardCell">
+            {{ row[col.value] | date: (col.format || 'dd/MM/yyyy') }}
+          </ng-container>
+
+          <!-- باقي البيانات العادية -->
+          <ng-template #standardCell>
+            {{ row[col.value] }}
+          </ng-template>
         </ng-template>
 
       </td>
