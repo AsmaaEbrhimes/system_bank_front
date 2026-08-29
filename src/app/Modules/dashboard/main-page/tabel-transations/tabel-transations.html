@@ -6,15 +6,24 @@
     <a href=""><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
         src="/Icons/formkit--arrowright.svg"></svg-icon>The latest notebook moves</a>
   </div>
-  <app-tabel [data]="reportData" [bodytabel]="bodyTableCols">
+  <app-tabel [data]="data()" [bodytabel]="boadyTabel()">
 
     <ng-template #status let-row>
-
       <span class="status-badge" [class.success]="row.status === 'تم التنفيذ'"
         [class.pending]="row.status === 'قيد المعالجة'">
         {{ row.status }}
       </span>
-
     </ng-template>
+
+
+    <!-- <ng-template #actions>
+    <button>dfpoierpoi</button>
+    </ng-template> -->
+
+
+
+
+
+
   </app-tabel>
 </section>
