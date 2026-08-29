@@ -19,7 +19,7 @@ export class TabelTransations {
   boadyTabel() {
     return [
       { key: 'Amount', value: 'amount' },
-      { key: 'pament Amount', value: 'balanceAfter' },
+      { key: 'balance After', value: 'balanceAfter' },
       { key: 'CreatedAt', value: 'createdAt', type: 'date', format: 'dd/MM/yyyy' },
     ];
   }
