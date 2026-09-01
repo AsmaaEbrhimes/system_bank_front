@@ -14,7 +14,7 @@
 
 
     <div class="card-body">
-      <h2 class="value">8,912</h2>
+      <h2 class="value">{{cards().length}}</h2>
       <p class="subtitle">بطاقة مفعلة حالياً</p>
     </div>
 
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="card-body">
-      <h2 class="value">12,406</h2>
+      <h2 class="value">{{custmers().length}}</h2>
       <p class="subtitle">حساب نشط عبر جميع الفروع</p>
     </div>
     <app-sparkline-chart color="#10B981"></app-sparkline-chart>
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="card-body">
-      <h2 class="value">2.14M <span class="currency">ج.م</span></h2>
+      <h2 class="value">{{transactions().length}}<span class="currency">ج.م</span></h2>
       <p class="subtitle">1,208 عملية منذ منتصف الليل</p>
     </div>
     <app-sparkline-chart color="#8B5CF6"></app-sparkline-chart>
@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="card-body">
-      <h2 class="value">27</h2>
+      <h2 class="value">{{loans().length}}</h2>
       <p class="subtitle">بانتظار مراجعة الموظف</p>
     </div>
     <app-sparkline-chart color="#F43F5E"></app-sparkline-chart>
