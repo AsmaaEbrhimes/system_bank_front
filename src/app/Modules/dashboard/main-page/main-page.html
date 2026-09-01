@@ -16,6 +16,6 @@
 
 
 <main class="wrapper_main_paget">
-  <app-summary-card></app-summary-card>
+  <app-summary-card [CardsData]="cards()" [CustmersData]="custmers()" [TransactionsData]="transactions()" [loansData]="loans()"></app-summary-card>
   <app-tabel-transations [Transactions]="transactions()"></app-tabel-transations>
 </main>
