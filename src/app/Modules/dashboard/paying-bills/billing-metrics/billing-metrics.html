@@ -1,45 +1,45 @@
-
-  <div class="report_paying_custmer">
-    <div class="select_custmer">
-      <p-select placeholder="Select Customer" [style]="{ 'width': '100%' }" />
-    </div>
-
-
-    <div class="wrapper_report_paying">
-      <div class="card">
-        <div class="header_card">
-          <div class="icon">
-            <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }"
-              src="/Icons/solar--box-line-duotone.svg"></svg-icon>
-          </div>
-          <p>إجمالي المستحق</p>
-        </div>
-        <h4>2,100.75 ج.م</h4>
-      </div>
-
-      <div class="card">
-        <div class="header_card">
-          <div class="icon">
-            <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/stash--invoice.svg"></svg-icon>
-          </div>
-          <p>أكبر فاتورة</p>
-        </div>
-        <h4>2,100.75 ج.م</h4>
-      </div>
-
-
-
-      <div class="card">
-        <div class="header_card">
-          <div class="icon">
-            <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }"
-              src="/Icons/fluent-mdl2--receipt-check.svg"></svg-icon>
-          </div>
-          <p>تم السداد هذا الشهر</p>
-        </div>
-        <h4>2,100.75 ج.م</h4>
-      </div>
-
-
-    </div>
+<div class="report_paying_custmer">
+  <div class="select_custmer">
+    <p-select (onChange)="onSelectCustomer($event)" [options]="customers()" [optionLabel]="'fullName'" [optionValue]="'id'" placeholder="Select Customer"
+      [style]="{ 'width': '100%' }" />
   </div>
+
+
+  <div class="wrapper_report_paying">
+    <div class="card">
+      <div class="header_card">
+        <div class="icon">
+          <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }"
+            src="/Icons/solar--box-line-duotone.svg"></svg-icon>
+        </div>
+        <p>إجمالي المستحق</p>
+      </div>
+      <h4>2,100.75 ج.م</h4>
+    </div>
+
+    <div class="card">
+      <div class="header_card">
+        <div class="icon">
+          <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/stash--invoice.svg"></svg-icon>
+        </div>
+        <p>أكبر فاتورة</p>
+      </div>
+      <h4>2,100.75 ج.م</h4>
+    </div>
+
+
+
+    <div class="card">
+      <div class="header_card">
+        <div class="icon">
+          <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }"
+            src="/Icons/fluent-mdl2--receipt-check.svg"></svg-icon>
+        </div>
+        <p>تم السداد هذا الشهر</p>
+      </div>
+      <h4>2,100.75 ج.م</h4>
+    </div>
+
+
+  </div>
+</div>
