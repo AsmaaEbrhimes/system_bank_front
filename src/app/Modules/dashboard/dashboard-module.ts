@@ -19,6 +19,8 @@ import { Custmers } from './custmers/custmers';
 import { Loans } from './loans/loans';
 import { Notifications } from './notifications/notifications';
 import { Transactions } from './transactions/transactions';
+import { CreatePaying } from './paying-bills/create-paying/create-paying';
+import { DialogService } from 'primeng/dynamicdialog';
 @NgModule({
   declarations: [
     SideNav,
@@ -35,6 +37,7 @@ import { Transactions } from './transactions/transactions';
     Loans,
     Notifications,
     Transactions,
+    CreatePaying,
   ],
   imports: [
     CommonModule,
@@ -44,5 +47,6 @@ import { Transactions } from './transactions/transactions';
     SharedModule,
     SelectModule,
   ],
+  providers: [DialogService],
 })
 export class DashboardModule {}
