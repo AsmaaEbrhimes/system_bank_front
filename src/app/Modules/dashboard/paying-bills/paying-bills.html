@@ -1,8 +1,8 @@
 <section class="wrapper_paying_bills">
   <div class="wrapper_header_paying">
-    <button class="btn_download_report">
-      <span>Export the report </span>
-      <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/nimbus--download.svg"></svg-icon>
+    <button class="btn_download_report" (click)="onOpenComponentCreateInvoice()">
+      <span>Create Invoice</span>
+      <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--receipt-text-plus.svg"></svg-icon>
     </button>
 
 
@@ -21,7 +21,7 @@
   </div>
 
 
-  <app-billing-metrics></app-billing-metrics>
+  <app-billing-metrics (selectedCustomerId)="onSelectCustomer($event)"></app-billing-metrics>
 
 
 
@@ -30,18 +30,18 @@
     <div class="tabs_button">
       <div class="thumb" [class.pos-2]="activeTab === 'paid'"></div>
 
-      <button [class.active]="activeTab === 'unpaid'" (click)="activeTab = 'unpaid'">
+      <button [class.active]="activeTab === 'unpaid'" (click)="onActiveTap('unpaid')">
         <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
             src="/Icons/uil--receipt.svg"></svg-icon></span>
         <span>Unpaid</span>
-        <span class="count" [class.active_count]="activeTab === 'unpaid'">3</span>
+        <span class="count" [class.active_count]="activeTab === 'unpaid'">{{data().length}}</span>
       </button>
 
-      <button [class.active]="activeTab === 'paid'" (click)="activeTab = 'paid'">
+      <button [class.active]="activeTab === 'paid'" (click)="onActiveTap('paid')">
         <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
             src="/Icons/ep--circle-check-filled.svg"></svg-icon></span>
         <span>Paid</span>
-        <span class="count" [class.active_count]="activeTab === 'paid'">10</span>
+        <span class="count" [class.active_count]="activeTab === 'paid'">{{data().length}}</span>
       </button>
     </div>
 
@@ -49,15 +49,13 @@
       <app-search></app-search>
     </div>
 
-    <app-tabel>
+    <app-tabel [data]="data()" [bodytabel]="boadyTabel()">
 
       <ng-template #status let-row>
-
-        <span class="status-badge" [class.success]="row.status === 'تم التنفيذ'"
-          [class.pending]="row.status === 'قيد المعالجة'">
-          {{ row.status }}
+        <span class="status-badge" [class.success]="row.isPaid" [class.pending]="!row.isPaid">
+          <i class="dot"></i>
+          <span>{{ row.isPaid ? 'Paid' : 'Unpaid' }}</span>
         </span>
-
       </ng-template>
     </app-tabel>
   </div>

@@ -132,6 +132,55 @@
   margin-bottom: 20px;
 }
 
+
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: all 0.2s ease-in-out;
+
+  // النقطة الملونة الصغيرة
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  &.success {
+    background-color: #e6f7ed;
+    color: #0d8a43;
+    border: 1px solid rgba(13, 138, 67, 0.2);
+
+    .dot {
+      background-color: #10b981;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+  }
+
+  &.pending {
+    background-color: #fef2f2;
+    color: #e11d48;
+    border: 1px solid rgba(225, 29, 72, 0.2);
+
+    .dot {
+      background-color: #f43f5e;
+      box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.2);
+    }
+  }
+}
+
+
+
+
+
+
 @media (max-width: 767px) {
   .wrapper_header_paying {
     flex-direction: column;
