@@ -22,9 +22,10 @@ export class PayingBills {
 
   boadyTabel() {
     return [
-      { key: 'title Name', value: 'title' },
+      { key: 'Title', value: 'title' },
+      { key: 'Category', value: 'category' },
       { key: 'Paid Status', value: 'status' },
-      { key: 'Created At', value: 'dateTime', type: 'date', format: 'dd/MM/yyyy' },
+      { key: 'Due date', value: 'dateTime', type: 'date', format: 'dd/MM/yyyy' },
     ];
   }
 
@@ -50,7 +51,6 @@ export class PayingBills {
       showHeader: false,
       contentStyle: {
       'border-radius': '24px',
-      'padding': '2.2rem 1.8rem 1.6rem',
       'text-align': 'center'
     }
     });
