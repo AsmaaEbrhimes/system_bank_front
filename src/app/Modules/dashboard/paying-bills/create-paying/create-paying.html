@@ -1,0 +1,58 @@
+<div class="header_dilog">
+  <button class="close-button" (click)="onCloseDilog()">
+    <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }"
+      src="/Icons/material-symbols--close-rounded.svg"></svg-icon>
+  </button>
+
+
+
+  <div>
+    <h4>New invoice</h4>
+    <p>Fill in the details to create a payment.</p>
+  </div>
+</div>
+
+
+
+<form [formGroup]="Form()" (ngSubmit)="onSubmit()">
+  <!-- Title -->
+  <div class="Group">
+    <label>please Enter Title Invoice</label>
+    <input type="text" placeholder="Enter title" formControlName="title" />
+  </div>
+
+
+
+  <!-- category -->
+  <div class="Group">
+    <label>please Enter Category</label>
+    <input type="text" placeholder="Enter category" formControlName="category" />
+  </div>
+
+
+  <div class="parent_grouo">
+    <!-- dateTime -->
+    <div class="Group">
+      <label>please Enter Due Date</label>
+      <input type="date" placeholder="Enter due date" formControlName="dateTime" />
+    </div>
+
+    <!-- amount -->
+    <div class="Group">
+      <label>please Enter Amount</label>
+      <input type="number" placeholder="Enter amount" formControlName="amount" />
+    </div>
+  </div>
+
+
+  <!-- customerId -->
+  <div class="Group">
+    <label>please Enter Customer ID</label>
+    <p-select formControlName="customerId" [options]="customers()" [optionLabel]="'fullName'" [optionValue]="'id'" placeholder="Select Customer"
+      [style]="{ 'width': '100%' }" />
+  </div>
+
+  <button class="btn-submit" type="submit">Create Paying <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }"
+      src="/Icons/mdi--receipt-text-plus.svg"></svg-icon>
+  </button>
+</form>
