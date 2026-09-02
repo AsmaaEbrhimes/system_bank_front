@@ -21,6 +21,7 @@ import { Notifications } from './notifications/notifications';
 import { Transactions } from './transactions/transactions';
 import { CreatePaying } from './paying-bills/create-paying/create-paying';
 import { DialogService } from 'primeng/dynamicdialog';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     SideNav,
@@ -46,6 +47,7 @@ import { DialogService } from 'primeng/dynamicdialog';
     DatePickerModule,
     SharedModule,
     SelectModule,
+    ReactiveFormsModule,
   ],
   providers: [DialogService],
 })
