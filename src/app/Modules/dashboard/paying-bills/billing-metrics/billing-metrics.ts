@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { Data } from '../../../../core/Servies/data';
+import { panel } from '../../panel.service';
 
 @Component({
   selector: 'app-billing-metrics',
@@ -8,7 +9,10 @@ import { Data } from '../../../../core/Servies/data';
   styleUrl: './billing-metrics.scss',
 })
 export class BillingMetrics {
-  constructor(private Data: Data) {}
+  constructor(
+    private Data: Data,
+    private Panel: panel,
+  ) {}
 
   customers = signal<any[]>([]);
   @Output() selectedCustomerId = new EventEmitter<string>();
@@ -18,7 +22,7 @@ export class BillingMetrics {
   }
 
   getAllCustmers() {
-    this.Data.get(`Customers`).subscribe((res: any) => {
+    this.Panel.Customers$.subscribe((res) => {
       this.customers.set(res);
     });
   }
