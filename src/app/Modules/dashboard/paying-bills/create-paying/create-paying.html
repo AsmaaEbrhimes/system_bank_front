@@ -19,6 +19,12 @@
   <div class="Group">
     <label>please Enter Title Invoice</label>
     <input type="text" placeholder="Enter title" formControlName="title" />
+
+    @if (getControlName('title')?.touched && getControlName('title')?.invalid) {
+    <div class="wrapper-error">
+      <small class="error">*This Fild Is Reqiured</small>
+    </div>
+    }
   </div>
 
 
@@ -27,6 +33,11 @@
   <div class="Group">
     <label>please Enter Category</label>
     <input type="text" placeholder="Enter category" formControlName="category" />
+    @if (getControlName('category')?.touched && getControlName('category')?.invalid) {
+    <div class="wrapper-error">
+      <small class="error">*This Fild Is Reqiured</small>
+    </div>
+    }
   </div>
 
 
@@ -35,12 +46,22 @@
     <div class="Group">
       <label>please Enter Due Date</label>
       <input type="date" placeholder="Enter due date" formControlName="dateTime" />
+      @if (getControlName('dateTime')?.touched && getControlName('dateTime')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
 
     <!-- amount -->
     <div class="Group">
       <label>please Enter Amount</label>
       <input type="number" placeholder="Enter amount" formControlName="amount" />
+      @if (getControlName('amount')?.touched && getControlName('amount')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
   </div>
 
@@ -48,8 +69,13 @@
   <!-- customerId -->
   <div class="Group">
     <label>please Enter Customer ID</label>
-    <p-select formControlName="customerId" [options]="customers()" [optionLabel]="'fullName'" [optionValue]="'id'" placeholder="Select Customer"
-      [style]="{ 'width': '100%' }" />
+    <p-select appendTo="body" formControlName="customerId" [options]="customers()" [optionLabel]="'fullName'" [optionValue]="'id'"
+      placeholder="Select Customer" [style]="{ 'width': '100%' }" />
+    @if (getControlName('customerId')?.touched && getControlName('customerId')?.invalid) {
+    <div class="wrapper-error">
+      <small class="error">*This Fild Is Reqiured</small>
+    </div>
+    }
   </div>
 
   <button class="btn-submit" type="submit">Create Paying <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }"

@@ -48,6 +48,10 @@ export class CreatePaying implements OnInit {
   }
 
   onSubmit() {
+    if(this.Form().invalid) {
+      this.Form().markAllAsTouched();
+      return;
+    }
     this.Data.post('Bill', this.Form().value).subscribe((res) => {
       this.onCloseDilog();
       this.Form().reset();
@@ -56,5 +60,10 @@ export class CreatePaying implements OnInit {
 
   onCloseDilog() {
     this.ref.close();
+  }
+
+
+    getControlName(controlName: string) {
+    return this.Form().get(controlName);
   }
 }
