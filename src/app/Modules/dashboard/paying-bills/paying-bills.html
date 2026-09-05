@@ -34,14 +34,14 @@
         <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
             src="/Icons/uil--receipt.svg"></svg-icon></span>
         <span>Unpaid</span>
-        <span class="count" [class.active_count]="activeTab === 'unpaid'">{{data().length}}</span>
+        <span class="count" [class.active_count]="activeTab === 'unpaid'">{{getCount(false)}}</span>
       </button>
 
       <button [class.active]="activeTab === 'paid'" (click)="onActiveTap('paid')">
         <span class="icon"> <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
             src="/Icons/ep--circle-check-filled.svg"></svg-icon></span>
         <span>Paid</span>
-        <span class="count" [class.active_count]="activeTab === 'paid'">{{data().length}}</span>
+        <span class="count" [class.active_count]="activeTab === 'paid'">{{getCount(true)}}</span>
       </button>
     </div>
 
@@ -57,6 +57,14 @@
           <span>{{ row.isPaid ? 'Paid' : 'Unpaid' }}</span>
         </span>
       </ng-template>
+
+      <ng-template #actions let-row>
+        @if(row.isPaid == false) {
+        <button class="payment" (click)="onPaymentInvoice(row)">payment</button>
+        }@else{<span class="done_payment">Done Payment <svg-icon src="/Icons/ep--circle-check-filled.svg"
+            class="input-icon"></svg-icon></span>}
+      </ng-template>
+
     </app-tabel>
   </div>
 </section>

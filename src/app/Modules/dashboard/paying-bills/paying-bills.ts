@@ -45,14 +45,25 @@ export class PayingBills {
   }
 
   onOpenComponentCreateInvoice() {
-      this.ref = this.dialogService.open(CreatePaying, {
+    this.ref = this.dialogService.open(CreatePaying, {
       width: '25rem',
       modal: true,
       showHeader: false,
       contentStyle: {
-      'border-radius': '24px',
-      'text-align': 'center'
-    }
+        'border-radius': '24px',
+        'text-align': 'center',
+      },
     });
+  }
+
+  onPaymentInvoice(row: any) {
+    console.log(row);
+    this.Data.put(`Bill/${row.id}/pay`, { accountId: row.accountId }).subscribe((res: any) => {
+      this.onActiveTap(this.activeTab);
+    });
+  }
+
+  getCount(isPaidStatus: boolean): number {
+    return this.data().filter((item) => item.isPaid === isPaidStatus).length;
   }
 }

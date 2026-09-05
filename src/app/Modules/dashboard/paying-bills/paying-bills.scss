@@ -178,6 +178,36 @@
 
 
 
+.payment{
+  background-color: #6d5ae0;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  padding:10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  transition: 0.3s linear;
+  &:hover {
+    border: 1px solid #d6dfea;
+    background: #ffffff;
+    color: #1f2430;
+    transform: translateY(-5px);
+  }
+}
+
+
+.done_payment{
+  display: flex;
+  align-items: center;
+  svg{
+    color: #10b981;
+  }
+
+}
 
 
 @media (max-width: 767px) {
