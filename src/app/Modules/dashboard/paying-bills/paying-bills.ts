@@ -49,9 +49,10 @@ export class PayingBills {
       width: '25rem',
       modal: true,
       showHeader: false,
+      baseZIndex: 9999999999,
       contentStyle: {
         'border-radius': '24px',
-        'text-align': 'center',
+        'text-align': 'end',
       },
     });
   }
