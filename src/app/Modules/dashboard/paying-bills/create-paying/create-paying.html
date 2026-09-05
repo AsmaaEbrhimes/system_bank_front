@@ -69,8 +69,8 @@
   <!-- customerId -->
   <div class="Group">
     <label>please Enter Customer ID</label>
-    <p-select appendTo="body" formControlName="customerId" [options]="customers()" [optionLabel]="'fullName'" [optionValue]="'id'"
-      placeholder="Select Customer" [style]="{ 'width': '100%' }" />
+    <p-select appendTo="body" formControlName="customerId" [options]="customers()" [optionLabel]="'fullName'"
+      [optionValue]="'id'" placeholder="Select Customer" [style]="{ 'width': '100%' }" />
     @if (getControlName('customerId')?.touched && getControlName('customerId')?.invalid) {
     <div class="wrapper-error">
       <small class="error">*This Fild Is Reqiured</small>
