@@ -35,4 +35,16 @@ export class SignalRService {
       this.latestNotification.set(message);
     });
   }
+
+
+
+  public stopConnection(): void {
+    if (this.hubConnection) {
+      this.hubConnection.stop()
+        .then(() => {
+          this.latestNotification.set(null);
+        })
+        .catch((err) => console.error('❌ خطأ أثناء إغلاق SignalR:', err));
+    }
+  }
 }
