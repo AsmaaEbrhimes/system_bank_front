@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, Output, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,6 +8,7 @@ import { Component, EventEmitter, HostListener, Input, Output, signal } from '@a
   styleUrl: './side-nav.scss',
 })
 export class SideNav {
+  constructor(private Router: Router) {}
   status_toggel = signal(true);
 
   isMobileOrTablet = signal(false);
@@ -77,4 +79,9 @@ export class SideNav {
       Route: 'transactions',
     },
   ];
+
+  onLogOut() {
+    sessionStorage.removeItem('token');
+    this.Router.navigate(['/']);
+  }
 }

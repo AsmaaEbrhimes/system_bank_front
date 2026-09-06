@@ -63,7 +63,7 @@
   </ul>
 
 
-  <button class="btn_logout"><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+  <button (click)="onLogOut()" class="btn_logout"><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
       src="/Icons/material-symbols-light--logout.svg"></svg-icon>
 
     @if(!status_toggel() || isMobileOrTablet()){
