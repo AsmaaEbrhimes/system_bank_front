@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Data } from '../../../core/Servies/data';
@@ -44,7 +43,7 @@ export class Login implements OnInit {
 
   HandelResponseSuccess(res: any) {
     this.Router.navigate(['/ContentDashboard']);
-    sessionStorage.setItem("token",res.token)
+    sessionStorage.setItem('token', res.token);
   }
 
   getControlName(controlName: string) {
