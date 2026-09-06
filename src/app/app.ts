@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { SignalRService } from './shared/signal-r';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,5 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('SystemBank');
+  constructor(private signalRService: SignalRService) {}
 }
