@@ -1,0 +1,11 @@
+  <div class="wrapper_notifications success" *ngIf="signalRService.latestNotification() as message">
+     <div class="icon">
+      <svg-icon src="/Icons/ep--circle-check-filled.svg" [svgStyle]="{ 'width.px': 16, 'height.px': 16 }"></svg-icon>
+    </div>
+    <p>{{ message }}</p>
+    <button class="close-icon" (click)="closeNotification()">
+      <svg-icon src="/Icons/material-symbols--close-rounded.svg" [svgStyle]="{ 'width.px': 14, 'height.px': 14 }"></svg-icon>
+    </button>
+  </div>
+
+
