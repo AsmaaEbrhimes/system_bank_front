@@ -29,6 +29,17 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
 
   private extractErrorMessage(error: HttpErrorResponse): string {
+    switch (error.status) {
+      case 401:
+        return 'Unauthorized. Please log in to access this data.';
+      case 403:
+        return 'Forbidden. You do not have permission to access this resource.';
+      case 404:
+        return 'The requested resource was not found.';
+      case 500:
+        return 'Internal server error. Please try again later.';
+    }
+
     const errBody = error.error;
 
     if (errBody?.errors) {
