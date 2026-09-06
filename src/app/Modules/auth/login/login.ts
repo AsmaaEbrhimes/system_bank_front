@@ -35,6 +35,7 @@ export class Login implements OnInit {
   OnSubmit() {
     if (this.Form().invalid) {
       this.Form().markAllAsTouched();
+      return;
     }
     this.Data.post('Auth/Login', this.Form().value).subscribe((res) => {
       this.HandelResponseSuccess(res);
