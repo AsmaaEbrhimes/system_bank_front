@@ -58,7 +58,6 @@ export class PayingBills {
   }
 
   onPaymentInvoice(row: any) {
-    console.log(row);
     this.Data.put(`Bill/${row.id}/pay`, { accountId: row.accountId }).subscribe((res: any) => {
       this.onActiveTap(this.activeTab);
     });
