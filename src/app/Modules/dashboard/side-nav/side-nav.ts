@@ -1,6 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, Output, signal } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { SignalRService } from '../../../shared/signal-r';
 @Component({
   selector: 'app-side-nav',
   standalone: false,
@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
   styleUrl: './side-nav.scss',
 })
 export class SideNav {
-  constructor(private Router: Router) {}
+  constructor(
+    private Router: Router,
+    private signalRService: SignalRService,
+  ) {}
   status_toggel = signal(true);
 
   isMobileOrTablet = signal(false);
@@ -81,7 +84,8 @@ export class SideNav {
   ];
 
   onLogOut() {
-    sessionStorage.removeItem('token');
+    this.signalRService.stopConnection();
+    sessionStorage.clear();
     this.Router.navigate(['/']);
   }
 }
