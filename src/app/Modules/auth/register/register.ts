@@ -1,6 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Data } from '../../../core/Servies/data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ export class Register implements OnInit {
   constructor(
     private FB: FormBuilder,
     private Data: Data,
+    private Router:Router
   ) {}
 
   //=========================Varibels=============================//
@@ -38,7 +40,9 @@ export class Register implements OnInit {
       this.Form().markAllAsTouched();
       return;
     }
-    this.Data.post('Auth/Register', this.Form().value).subscribe((res) => {});
+    this.Data.post('Auth/Register', this.Form().value).subscribe((res) => {
+      this.Router.navigate(['/login']);
+    });
   }
 
   getControlName(controlName: string) {
