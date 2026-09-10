@@ -48,7 +48,7 @@ export class CreatePaying implements OnInit {
   }
 
   onSubmit() {
-    if(this.Form().invalid) {
+    if (this.Form().invalid) {
       this.Form().markAllAsTouched();
       return;
     }
@@ -62,8 +62,7 @@ export class CreatePaying implements OnInit {
     this.ref.close();
   }
 
-
-    getControlName(controlName: string) {
+  getControlName(controlName: string) {
     return this.Form().get(controlName);
   }
 }

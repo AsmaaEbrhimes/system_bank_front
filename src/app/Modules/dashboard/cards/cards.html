@@ -1,6 +1,6 @@
 <section>
   <div class="header_cards">
-    <button>Request to issue a card +</button>
+    <button (click)="ShowDilog()">Request to issue a card +</button>
     <div>
       <h3>Card Management</h3>
       <p>
@@ -15,24 +15,25 @@
 
 
   <div class="wrapper_cards">
+    @for(card of cards() ; track card?.id){
     <div class="action_and_details_card">
       <div class="card">
         <div class="header_card">
           <div class="title">
-            <p>KHIZANA</p>
+            <p>{{card?.cardType}}</p>
             <span></span>
           </div>
           <span class="chip"></span>
         </div>
         <div class="password_card">
-          <p>5412 7788 0093 4471</p>
+          <p>{{card?.cardNumber}}</p>
         </div>
 
         <div class="expird_card">
-          <p>09/29</p>
+          <p>{{card?.expiryDate |date}}</p>
           <div>
-            <span>Card Holder</span>
-            <p>MAHMOUD KAMEL</p>
+            <span>CVV</span>
+            <p>****</p>
           </div>
         </div>
 
@@ -55,215 +56,7 @@
 
       </div>
     </div>
+    }
 
-    <div class="action_and_details_card">
-      <div class="card">
-        <div class="header_card">
-          <div class="title">
-            <p>KHIZANA</p>
-            <span></span>
-          </div>
-          <span class="chip"></span>
-        </div>
-        <div class="password_card">
-          <p>5412 7788 0093 4471</p>
-        </div>
-
-        <div class="expird_card">
-          <p>09/29</p>
-          <div>
-            <span>Card Holder</span>
-            <p>MAHMOUD KAMEL</p>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div class="action_cards">
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/ant-design--stop-outlined.svg"></svg-icon></span>
-          <span>Stopped</span>
-        </button>
-
-
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/qlementine-icons--password-16.svg"></svg-icon></span>
-          <span>Change Pin</span>
-        </button>
-
-      </div>
-    </div>
-
-    <div class="action_and_details_card">
-      <div class="card">
-        <div class="header_card">
-          <div class="title">
-            <p>KHIZANA</p>
-            <span></span>
-          </div>
-          <span class="chip"></span>
-        </div>
-        <div class="password_card">
-          <p>5412 7788 0093 4471</p>
-        </div>
-
-        <div class="expird_card">
-          <p>09/29</p>
-          <div>
-            <span>Card Holder</span>
-            <p>MAHMOUD KAMEL</p>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div class="action_cards">
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/ant-design--stop-outlined.svg"></svg-icon></span>
-          <span>Stopped</span>
-        </button>
-
-
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/qlementine-icons--password-16.svg"></svg-icon></span>
-          <span>Change Pin</span>
-        </button>
-
-      </div>
-    </div>
-
-
-
-    <div class="action_and_details_card">
-      <div class="card">
-        <div class="header_card">
-          <div class="title">
-            <p>KHIZANA</p>
-            <span></span>
-          </div>
-          <span class="chip"></span>
-        </div>
-        <div class="password_card">
-          <p>5412 7788 0093 4471</p>
-        </div>
-
-        <div class="expird_card">
-          <p>09/29</p>
-          <div>
-            <span>Card Holder</span>
-            <p>MAHMOUD KAMEL</p>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div class="action_cards">
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/ant-design--stop-outlined.svg"></svg-icon></span>
-          <span>Stopped</span>
-        </button>
-
-
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/qlementine-icons--password-16.svg"></svg-icon></span>
-          <span>Change Pin</span>
-        </button>
-
-      </div>
-    </div>
-
-
-
-    <div class="action_and_details_card">
-      <div class="card">
-        <div class="header_card">
-          <div class="title">
-            <p>KHIZANA</p>
-            <span></span>
-          </div>
-          <span class="chip"></span>
-        </div>
-        <div class="password_card">
-          <p>5412 7788 0093 4471</p>
-        </div>
-
-        <div class="expird_card">
-          <p>09/29</p>
-          <div>
-            <span>Card Holder</span>
-            <p>MAHMOUD KAMEL</p>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div class="action_cards">
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/ant-design--stop-outlined.svg"></svg-icon></span>
-          <span>Stopped</span>
-        </button>
-
-
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/qlementine-icons--password-16.svg"></svg-icon></span>
-          <span>Change Pin</span>
-        </button>
-
-      </div>
-    </div>
-
-
-    <div class="action_and_details_card">
-      <div class="card">
-        <div class="header_card">
-          <div class="title">
-            <p>KHIZANA</p>
-            <span></span>
-          </div>
-          <span class="chip"></span>
-        </div>
-        <div class="password_card">
-          <p>5412 7788 0093 4471</p>
-        </div>
-
-        <div class="expird_card">
-          <p>09/29</p>
-          <div>
-            <span>Card Holder</span>
-            <p>MAHMOUD KAMEL</p>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div class="action_cards">
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/ant-design--stop-outlined.svg"></svg-icon></span>
-          <span>Stopped</span>
-        </button>
-
-
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/qlementine-icons--password-16.svg"></svg-icon></span>
-          <span>Change Pin</span>
-        </button>
-
-      </div>
-    </div>
   </div>
 </section>

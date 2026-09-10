@@ -1,0 +1,56 @@
+<section>
+  <div class="create_header_card">
+    <button class="close-button" (click)="onCloseDilog()" type="button">
+      <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }"
+        src="/Icons/material-symbols--close-rounded.svg"></svg-icon>
+    </button>
+
+
+    <div>
+      <h4>Issuing a new card</h4>
+      <p>Select customer and card type.</p>
+    </div>
+  </div>
+  <form>
+
+    <!-- Account -->
+    <div class="Group">
+      <label>please Select Account</label>
+      <div class="wrapper_input">
+        <p-select appendTo="body" [options]="accounts()" [optionLabel]="'accountNumber'" [optionValue]="'id'"
+          placeholder="Select Customer" [style]="{ 'width': '100%' }" />
+        <svg-icon src="/Icons/hugeicons--user-round-check.svg" class="input-icon"></svg-icon>
+      </div>
+    </div>
+
+
+    <!-- Cvv -->
+    <div class="Group">
+      <label>please Enter Cvv</label>
+      <div class="wrapper_input">
+        <input placeholder="Cvv" />
+        <svg-icon src="/Icons/bi--shield-check.svg" class="input-icon"></svg-icon>
+      </div>
+    </div>
+
+
+    <!-- CardType -->
+    <div class="Group">
+      <label>please Enter CardType</label>
+      <div class="wrapper_input">
+        <input placeholder="CardType" />
+        <svg-icon src="/Icons/fluent--wallet-16-regular.svg" class="input-icon"></svg-icon>
+      </div>
+
+    </div>
+
+
+
+    <!-- Action Button -->
+    <div class="action_form">
+      <button type="button" (click)="onCloseDilog()">Cansel <svg-icon src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
+      <button>Create Creadit <svg-icon src="/Icons/mdi--success.svg"></svg-icon>
+      </button>
+    </div>
+  </form>
+</section>

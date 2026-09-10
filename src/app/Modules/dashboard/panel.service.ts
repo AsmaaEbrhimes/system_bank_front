@@ -12,4 +12,10 @@ export class panel {
     map((res: any) => res),
     shareReplay(1),
   );
+
+
+
+
+
+  
 }
