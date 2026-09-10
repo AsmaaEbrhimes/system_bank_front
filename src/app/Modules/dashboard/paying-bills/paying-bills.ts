@@ -25,6 +25,7 @@ export class PayingBills {
       { key: 'Title', value: 'title' },
       { key: 'Category', value: 'category' },
       { key: 'Paid Status', value: 'status' },
+      { key: 'Amount', value: 'amount' },
       { key: 'Due date', value: 'dateTime', type: 'date', format: 'dd/MM/yyyy' },
     ];
   }

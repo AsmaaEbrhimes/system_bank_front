@@ -21,12 +21,11 @@
   </div>
 
 
-  <app-billing-metrics (selectedCustomerId)="onSelectCustomer($event)"></app-billing-metrics>
+  <app-billing-metrics [data]="data()" (selectedCustomerId)="onSelectCustomer($event)"></app-billing-metrics>
 
 
 
   <div class="Tabel">
-
     <div class="tabs_button">
       <div class="thumb" [class.pos-2]="activeTab === 'paid'"></div>
 
