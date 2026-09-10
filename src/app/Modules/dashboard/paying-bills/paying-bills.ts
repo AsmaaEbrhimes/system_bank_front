@@ -11,17 +11,20 @@ import { Core } from '../../../core/Servies/core';
   styleUrl: './paying-bills.scss',
 })
 export class PayingBills {
-  activeTab: 'unpaid' | 'paid' = 'paid';
-  IdCustomer = signal<number | null>(null);
-  data = signal<any[]>([]);
-  ref: DynamicDialogRef | any;
-
+  //===============================Implemantion================================//
   constructor(
     private Data: Data,
     private dialogService: DialogService,
     private Core: Core,
   ) {}
 
+  //===============================Vribels================================//
+  activeTab: 'unpaid' | 'paid' = 'paid';
+  IdCustomer = signal<number | null>(null);
+  data = signal<any[]>([]);
+  ref: DynamicDialogRef | any;
+
+  //===============================Functions================================//
   boadyTabel() {
     return [
       { key: 'Title', value: 'title' },
