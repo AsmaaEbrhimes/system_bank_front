@@ -2,6 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CreatePaying } from './create-paying/create-paying';
+import { Core } from '../../../core/Servies/core';
 
 @Component({
   selector: 'app-paying-bills',
@@ -18,6 +19,7 @@ export class PayingBills {
   constructor(
     private Data: Data,
     private dialogService: DialogService,
+    private Core: Core,
   ) {}
 
   boadyTabel() {
@@ -41,6 +43,7 @@ export class PayingBills {
     this.Data.get(`Bill/customer/${this.IdCustomer()}/all?status=${status}`).subscribe(
       (res: any) => {
         this.data.set(res);
+        this.Core.originalDataStore.set(this.data());
       },
     );
   }

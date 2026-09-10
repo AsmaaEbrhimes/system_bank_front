@@ -45,7 +45,7 @@
     </div>
 
     <div class="wrapper_search">
-      <app-search></app-search>
+      <app-search [ArrayColumns]="['title', 'category']" (DataFilter)="data.set($event)"></app-search>
     </div>
 
     <app-tabel [data]="data()" [bodytabel]="boadyTabel()">
