@@ -50,6 +50,8 @@ form {
     border: 1px solid #cbd5e1;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+      text-align: end;
+
     &:focus {
       outline: none;
       border: 1px solid #6d5ae0;
@@ -74,6 +76,9 @@ label,
   position: absolute;
   inset-inline-start: 10px;
   top: 8px;
+  svg{
+    color: #6d5ae0;
+  }
 }
 .action_form {
   width: 100%;

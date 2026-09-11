@@ -11,26 +11,38 @@
       <p>Select customer and card type.</p>
     </div>
   </div>
-  <form>
 
+
+  <form [formGroup]="Form()" (ngSubmit)="OnSubmit()">
     <!-- Account -->
     <div class="Group">
       <label>please Select Account</label>
       <div class="wrapper_input">
-        <p-select appendTo="body" [options]="accounts()" [optionLabel]="'accountNumber'" [optionValue]="'id'"
-          placeholder="Select Customer" [style]="{ 'width': '100%' }" />
+        <p-select formControlName="accountId" appendTo="body" [options]="accounts()" [optionLabel]="'accountNumber'"
+          [optionValue]="'id'" placeholder="Select Customer" [style]="{ 'width': '100%' }" />
         <svg-icon src="/Icons/hugeicons--user-round-check.svg" class="input-icon"></svg-icon>
       </div>
+      @if (getControlName('accountId')?.touched && getControlName('accountId')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
 
 
-    <!-- Cvv -->
+    <!-- Pin -->
     <div class="Group">
-      <label>please Enter Cvv</label>
+      <label>please Enter Pin</label>
       <div class="wrapper_input">
-        <input placeholder="Cvv" />
+        <input formControlName="pin" placeholder="Pin" />
         <svg-icon src="/Icons/bi--shield-check.svg" class="input-icon"></svg-icon>
       </div>
+
+      @if (getControlName('pin')?.touched && getControlName('pin')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
 
 
@@ -38,8 +50,13 @@
     <div class="Group">
       <label>please Enter CardType</label>
       <div class="wrapper_input">
-        <input placeholder="CardType" />
+        <input formControlName="cardType" placeholder="CardType" />
         <svg-icon src="/Icons/fluent--wallet-16-regular.svg" class="input-icon"></svg-icon>
+        @if (getControlName('cardType')?.touched && getControlName('cardType')?.invalid) {
+        <div class="wrapper-error">
+          <small class="error">*This Fild Is Reqiured</small>
+        </div>
+        }
       </div>
 
     </div>
@@ -48,9 +65,9 @@
 
     <!-- Action Button -->
     <div class="action_form">
-      <button type="button" (click)="onCloseDilog()">Cansel <svg-icon src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
-      <button>Create Creadit <svg-icon src="/Icons/mdi--success.svg"></svg-icon>
-      </button>
+      <button type="button" (click)="onCloseDilog()">Cansel <svg-icon
+          src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
+      <button type="submit">Create Creadit <svg-icon src="/Icons/mdi--success.svg"></svg-icon></button>
     </div>
   </form>
 </section>
