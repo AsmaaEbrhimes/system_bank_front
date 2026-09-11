@@ -42,5 +42,9 @@ export class Cards implements OnInit {
         'text-align': 'end',
       },
     });
+
+    this.ref.onClose.subscribe(() => {
+      this.GetAllCards();
+    });
   }
 }
