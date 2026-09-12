@@ -1,3 +1,8 @@
+.custom-modal-container{
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
 @keyframes heartBeatOpenSmooth {
   0% {
     transform: scale(0.6);
@@ -71,9 +76,33 @@
   box-shadow: 0 4px 18px rgba(229,57,53,0.45);
   transition: background 0.15s, box-shadow 0.15s, transform 0.12s;
 }
+
+
+
+
+
 .btn-yes:hover { background: #C62828; box-shadow: 0 6px 24px rgba(229,57,53,0.55); transform: translateY(-1px); }
 .btn-yes:active { transform: scale(0.97); }
 
 button {
-  font-family: "cairo";
+  font-family: "Cairo" !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
