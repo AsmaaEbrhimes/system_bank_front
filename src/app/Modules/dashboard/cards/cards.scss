@@ -111,9 +111,10 @@
   .action_cards {
     display: flex;
     justify-content: space-between;
+
     margin-top: 15px;
     width: 100%;
-    gap: 10px;
+    // gap: 10px;
     button {
       white-space: nowrap;
       display: flex;
@@ -124,7 +125,7 @@
       font-size: 15px;
       font-weight: 500;
       padding: 10px;
-      width: 100%;
+      // width: 100%;
       border-radius: 7px;
       background-color: rgba(255, 255, 255, 0.85);
       box-shadow:
@@ -208,7 +209,7 @@
   }
 }
 
-@media (min-width: 767px) and (max-width: 1200px) {
+@media (min-width: 767px) and (max-width: 1400px) {
   .wrapper_cards {
     grid-template-columns: repeat(2, 1fr);
   }
