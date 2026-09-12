@@ -1,6 +1,6 @@
 <section>
   <div class="header_cards">
-    <button (click)="ShowDilog()">Request to issue a card +</button>
+    <button (click)="ShowDilog(CreateCards)">Request to issue a card +</button>
     <div>
       <h3>Card Management</h3>
       <p>
@@ -48,7 +48,7 @@
         </button>
 
 
-        <button>
+        <button (click)="ShowDilog(ChangePin)">
           <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
               src="/Icons/qlementine-icons--password-16.svg"></svg-icon></span>
           <span>Change Pin</span>

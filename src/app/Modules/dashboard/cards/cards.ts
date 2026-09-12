@@ -1,8 +1,8 @@
+import { ChangePin } from './change-pin/change-pin';
 import { Component, OnInit, signal } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CreateCards } from './create-cards/create-cards';
-
 @Component({
   selector: 'app-cards',
   standalone: false,
@@ -23,6 +23,8 @@ export class Cards implements OnInit {
   //=========================Varibels===============================//
   cards = signal<any>([]);
   ref: DynamicDialogRef | any;
+  CreateCards = CreateCards;
+  ChangePin = ChangePin;
 
   //=========================Functions===============================//
   GetAllCards() {
@@ -31,8 +33,8 @@ export class Cards implements OnInit {
     });
   }
 
-  ShowDilog() {
-    this.ref = this.dialogService.open(CreateCards, {
+  ShowDilog(component:any) {
+    this.ref = this.dialogService.open(component, {
       width: '25rem',
       modal: true,
       showHeader: false,
@@ -46,5 +48,10 @@ export class Cards implements OnInit {
     this.ref.onClose.subscribe(() => {
       this.GetAllCards();
     });
+  }
+
+
+  OpenDilogChangePin(){
+
   }
 }
