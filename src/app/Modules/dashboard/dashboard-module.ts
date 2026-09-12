@@ -23,6 +23,7 @@ import { CreatePaying } from './paying-bills/create-paying/create-paying';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCards } from './cards/create-cards/create-cards';
+import { ChangePin } from './cards/change-pin/change-pin';
 @NgModule({
   declarations: [
     SideNav,
@@ -41,6 +42,7 @@ import { CreateCards } from './cards/create-cards/create-cards';
     Transactions,
     CreatePaying,
     CreateCards,
+    ChangePin,
   ],
   imports: [
     CommonModule,
