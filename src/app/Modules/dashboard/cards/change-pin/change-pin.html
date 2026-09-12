@@ -1,1 +1,65 @@
-<p>change-pin works!</p>
+<section>
+  <div class="changepin_header_card">
+    <button class="close-button" type="button" (click)="onCloseDilog()">
+      <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }"
+        src="/Icons/material-symbols--close-rounded.svg"></svg-icon>
+    </button>
+
+
+    <div>
+      <h4>Change Card PIN</h4>
+      <p>Change your card security PIN.</p>
+    </div>
+  </div>
+
+
+  <form [formGroup]="Form()" (ngSubmit)="onSubmit()">
+    <!-- Old Pin -->
+    <div class="Group">
+      <label>please Enter Old Pin</label>
+      <div class="wrapper_input">
+        <input maxlength="4" formControlName="oldPin" placeholder="Old Pin" />
+      </div>
+      @if (getControlName('oldPin')?.touched && getControlName('oldPin')?.invalid) {
+      <div class="wrapper-error">
+        @if (getControlName('oldPin')?.hasError('required')) {
+        <small class="error">*This Field Is Required</small>
+        } @else if (getControlName('oldPin')?.hasError('minlength') || getControlName('oldPin')?.hasError('pattern')) {
+        <small class="error">*PIN must be exactly 4 digits</small>
+        }
+      </div>
+      }
+    </div>
+
+
+
+
+    <!-- New Pin -->
+    <div class="Group">
+      <label>please Enter New Pin</label>
+      <div class="wrapper_input">
+        <input maxlength="4" formControlName="newPin" placeholder="New Pin" />
+      </div>
+
+      @if (getControlName('newPin')?.touched && getControlName('newPin')?.invalid) {
+      <div class="wrapper-error">
+        @if (getControlName('newPin')?.hasError('required')) {
+        <small class="error">*This Field Is Required</small>
+        } @else if (getControlName('newPin')?.hasError('minlength') || getControlName('newPin')?.hasError('pattern')) {
+        <small class="error">*PIN must be exactly 4 digits</small>
+        }
+      </div>
+      }
+    </div>
+
+
+
+    <!-- Action Button -->
+    <div class="action_form">
+      <button type="button" (click)="onCloseDilog()">Cansel <svg-icon
+          src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
+      <button type="submit">Edit Pin <svg-icon src="/Icons/mdi--success.svg"></svg-icon></button>
+    </div>
+  </form>
+
+</section>
