@@ -34,13 +34,17 @@
     <div class="Group">
       <label>please Enter Pin</label>
       <div class="wrapper_input">
-        <input formControlName="pin" placeholder="Pin" />
+        <input formControlName="pin" maxlength="4" placeholder="Pin" />
         <svg-icon src="/Icons/bi--shield-check.svg" class="input-icon"></svg-icon>
       </div>
 
       @if (getControlName('pin')?.touched && getControlName('pin')?.invalid) {
       <div class="wrapper-error">
-        <small class="error">*This Fild Is Reqiured</small>
+        @if (getControlName('pin')?.hasError('required')) {
+        <small class="error">*This Field Is Required</small>
+        } @else if (getControlName('pin')?.hasError('minlength') || getControlName('pin')?.hasError('pattern')) {
+        <small class="error">*PIN must be exactly 4 digits</small>
+        }
       </div>
       }
     </div>

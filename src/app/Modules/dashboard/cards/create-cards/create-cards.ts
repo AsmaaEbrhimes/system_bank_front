@@ -37,7 +37,7 @@ export class CreateCards implements OnInit {
     this.Form.set(
       this.FB.group({
         accountId: ['', Validators.required],
-        pin: ['', Validators.required],
+        pin: ['', [Validators.required, Validators.pattern('^[0-9]{4}$'), Validators.minLength(4)]],
         cardType: ['', Validators.required],
       }),
     );
