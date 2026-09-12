@@ -145,6 +145,11 @@
         top: 4px;
       }
     }
+
+    .delete_btn {
+      color: white;
+      background-color: red;
+    }
   }
 }
 
@@ -178,6 +183,12 @@
       linear-gradient(rgba(120, 90, 20, 0.3) 1px, transparent 1px) 0 0 / 100% 33.33%,
       linear-gradient(90deg, rgba(120, 90, 20, 0.3) 1px, transparent 1px) 0 0 / 33.33% 100%;
   }
+}
+
+.disibeld_card {
+  pointer-events: none !important;
+  opacity: 0.3 !important;
+  background-color: gray !important;
 }
 
 @media (max-width: 767px) {

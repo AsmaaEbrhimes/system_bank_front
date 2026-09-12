@@ -17,7 +17,7 @@
   <div class="wrapper_cards">
     @for(card of cards() ; track card?.id){
     <div class="action_and_details_card">
-      <div class="card">
+      <div class="card" [ngClass]="{'disibeld_card':card?.isBlocked}">
         <div class="header_card">
           <div class="title">
             <p>{{card?.cardType}}</p>
@@ -41,18 +41,30 @@
       </div>
 
       <div class="action_cards">
-        <button>
-          <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-              src="/Icons/ant-design--stop-outlined.svg"></svg-icon></span>
-          <span>Stopped</span>
+        <button (click)="toggleCardStatus(card)">
+          <span>
+            <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+              [src]="card?.isBlocked ? '/Icons/hugeicons--user-unlock-02.svg' : '/Icons/ant-design--stop-outlined.svg'">
+            </svg-icon>
+
+          </span>
+          <span>{{card?.isBlocked?'Enable Card':'Stopped Card'}}</span>
         </button>
 
 
-        <button (click)="ShowDilog(ChangePin)">
+        <button [ngClass]="{'disibeld_card':card?.isBlocked}" (click)="ShowDilog(ChangePin , card?.id)">
           <span><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
               src="/Icons/qlementine-icons--password-16.svg"></svg-icon></span>
           <span>Change Pin</span>
         </button>
+
+
+        @if(!card?.isBlocked){
+        <button (click)="OnDelete(card)" class="delete_btn"><svg-icon [svgStyle]="{ 'width.px': 19, 'height.px': 19 }"
+            src="/Icons/ant-design--delete-outlined.svg"></svg-icon>Delete</button>
+
+        }
+
 
       </div>
     </div>
