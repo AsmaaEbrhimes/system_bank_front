@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
 div[style*='position: fixed'][style*='bottom'][style*='right'][style*='z-index'] {
   display: none !important;
   opacity: 0 !important;
@@ -22,12 +23,13 @@ body {
   background-color: #f6f5fb;
   user-select: none;
   direction: rtl;
+  font-family: "cairo";
   // direction: ltr;
 }
 
 button {
   cursor: pointer;
-    border: none;
+  border: none;
 }
 
 ::-webkit-scrollbar {
@@ -49,8 +51,6 @@ button {
 li {
   list-style: none;
 }
-
-
 
 .wrapper-error {
   .error {
@@ -84,8 +84,3 @@ li {
     transform: translate3d(3px, 0, 0);
   }
 }
-
-
-
-
-
