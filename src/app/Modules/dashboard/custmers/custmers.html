@@ -20,15 +20,28 @@
 
   <div class="tabel_custmer">
     <app-search></app-search>
-    <app-tabel [data]="reportData" [bodytabel]="bodyTabel()">
-      <ng-template #status let-row>
-
-        <span class="status-badge" [class.success]="row.status === 'نشط'" [class.pending]="row.status === 'مراجعة KYC'">
-          {{ row.status }}
-        </span>
-
-      </ng-template>
-
+    <app-tabel [data]="data()" [bodytabel]="bodyTabel()">
+     <ng-template #actions let-item>
+  <div class="account-badge-container">
+    @if (item.accounts?.length > 0) {
+      <span class="badge-accounts has-accounts">
+        <svg-icon
+          [svgStyle]="{ 'width.px': 15, 'height.px': 15 }"
+          src="/Icons/akar-icons--link-chain.svg">
+        </svg-icon>
+        <span class="count-text">{{ item.accounts.length }} Accounts</span>
+      </span>
+    } @else {
+      <span class="badge-accounts no-accounts">
+      <svg-icon
+          [svgStyle]="{ 'width.px': 15, 'height.px': 15 }"
+          src="/Icons/material-symbols--close-rounded.svg">
+        </svg-icon>
+        <span class="count-text">No Accounts</span>
+      </span>
+    }
+  </div>
+</ng-template>
     </app-tabel>
   </div>
 </section>
