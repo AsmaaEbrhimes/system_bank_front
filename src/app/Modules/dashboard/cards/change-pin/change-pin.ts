@@ -1,7 +1,9 @@
+import { Core } from './../../../../core/Servies/core';
 import { Component, OnInit, signal } from '@angular/core';
 import { Data } from '../../../../core/Servies/data';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoreModule } from '../../../../core/core-module';
 
 @Component({
   selector: 'app-change-pin',
@@ -14,12 +16,14 @@ export class ChangePin implements OnInit {
   ngOnInit(): void {
     this.GetIdCards();
     this.CreateForm();
+    this.listenPinChangese();
   }
   constructor(
     private Data: Data,
     private ref: DynamicDialogRef,
     private FB: FormBuilder,
     private config: DynamicDialogConfig,
+    private Core: Core,
   ) {}
 
   //=========================Varibels===============================//
@@ -45,6 +49,36 @@ export class ChangePin implements OnInit {
         ],
       }),
     );
+  }
+
+  listenPinChangese() {
+    this.Form()
+      .get('newPin')
+      ?.valueChanges.subscribe((pin) => {
+        if (pin && pin.length == 4) {
+          this.ExsistPin(pin);
+          this.Core._loading.next(false);
+        }
+      });
+  }
+
+  ExsistPin(event: any) {
+    let payload = {
+      pin: event,
+    };
+    const newPinControl = this.getControlName('newPin');
+    this.Data.post(`Cards/check-pin`, payload).subscribe((res: any) => {
+      this.Core._Sussess.next('');
+      if (res?.isUsed) {
+        newPinControl?.setErrors({ ...newPinControl.errors, pinExists: true });
+      } else {
+        if (newPinControl?.hasError('pinExists')) {
+          const errors = { ...newPinControl.errors };
+          delete errors['pinExists'];
+          newPinControl.setErrors(Object.keys(errors).length ? errors : null);
+        }
+      }
+    });
   }
 
   onSubmit() {

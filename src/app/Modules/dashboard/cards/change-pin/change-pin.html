@@ -18,7 +18,7 @@
     <div class="Group">
       <label>please Enter Old Pin</label>
       <div class="wrapper_input">
-        <input maxlength="4" formControlName="oldPin" placeholder="Old Pin" />
+        <input ((keyup))="ExsistPin($event)" maxlength="4" formControlName="oldPin" placeholder="Old Pin" />
       </div>
       @if (getControlName('oldPin')?.touched && getControlName('oldPin')?.invalid) {
       <div class="wrapper-error">
@@ -47,6 +47,8 @@
         <small class="error">*This Field Is Required</small>
         } @else if (getControlName('newPin')?.hasError('minlength') || getControlName('newPin')?.hasError('pattern')) {
         <small class="error">*PIN must be exactly 4 digits</small>
+        } @else if (getControlName('newPin')?.hasError('pinExists')) {
+        <small class="error">*This PIN is already used in another card</small>
         }
       </div>
       }
