@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
 
 @Component({
@@ -17,6 +17,8 @@ export class Custmers {
   constructor(private Data: Data) {}
   //=========================Varibels===============================//
   data = signal<any>([]);
+  accounts = signal<any>([]);
+  @ViewChild('accountsSection', { read: ElementRef }) accountsSection!: ElementRef;
 
   //=========================Functions===============================//
 
@@ -34,5 +36,15 @@ export class Custmers {
       { key: 'Phone Number', value: 'phoneNumber' },
       { key: 'Created At', value: 'createdAt', type: 'date', format: 'dd/MM/yyyy' },
     ];
+  }
+
+  getAccounts(accounts: any) {
+    this.accounts.set(accounts);
+    setTimeout(() => {
+      this.accountsSection?.nativeElement?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 100);
   }
 }
