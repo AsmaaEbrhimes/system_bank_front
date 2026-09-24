@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCards } from './cards/create-cards/create-cards';
 import { ChangePin } from './cards/change-pin/change-pin';
 import { CustmerHaveAccounts } from './custmers/custmer-have-accounts/custmer-have-accounts';
+import { AddCustmerAndCreateAccount } from './custmers/add-custmer-and-create-account/add-custmer-and-create-account';
 @NgModule({
   declarations: [
     SideNav,
@@ -45,6 +46,7 @@ import { CustmerHaveAccounts } from './custmers/custmer-have-accounts/custmer-ha
     CreateCards,
     ChangePin,
     CustmerHaveAccounts,
+    AddCustmerAndCreateAccount,
   ],
   imports: [
     CommonModule,
