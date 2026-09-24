@@ -1,5 +1,7 @@
 import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
+import { DialogService } from 'primeng/dynamicdialog';
+import { AddCustmerAndCreateAccount } from './add-custmer-and-create-account/add-custmer-and-create-account';
 
 @Component({
   selector: 'app-custmers',
@@ -14,7 +16,10 @@ export class Custmers {
     this.getData();
   }
 
-  constructor(private Data: Data) {}
+  constructor(
+    private Data: Data,
+    private dialogService: DialogService,
+  ) {}
   //=========================Varibels===============================//
   data = signal<any>([]);
   accounts = signal<any>([]);
@@ -46,5 +51,18 @@ export class Custmers {
         block: 'start',
       });
     }, 100);
+  }
+
+  AddCustmer() {
+    this.dialogService.open(AddCustmerAndCreateAccount, {
+          width: '25rem',
+          modal: true,
+          showHeader: false,
+          baseZIndex: 9999999999,
+          contentStyle: {
+            'border-radius': '24px',
+            'text-align': 'end',
+          },
+        });
   }
 }
