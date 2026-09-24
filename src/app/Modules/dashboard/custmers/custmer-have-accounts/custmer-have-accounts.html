@@ -1,0 +1,41 @@
+
+@if(data() && data().length>0){
+  <div class="accounts-wrapper">
+    <!-- Summary Cards Header -->
+    <div class="summary-cards">
+      <div class="stat-card">
+        <span class="title">عدد الحسابات</span>
+        <strong class="value">{{data()?.length}}</strong>
+      </div>
+
+      <div class="stat-card">
+        <span class="title">إجمالي الرصيد</span>
+        <strong class="value">{{TotalBalanceInAccounting()}} <small>ج.م</small></strong>
+      </div>
+    </div>
+
+
+
+
+    <div class="accounts-grid">
+      <!-- Accounts-->
+       @for(item of data() ; track item?.id){
+         <div class="bank-card active">
+           <div class="card-header">
+             <span class="type">{{item?.accountType}}</span>
+             <span class="status-badge active">{{item?.status}}</span>
+           </div>
+           <div class="card-number">{{item?.accountNumber}}</div>
+           <div class="card-footer">
+             <div class="balance">
+               <label>Balance</label>
+               <strong>{{item?.balance}}EG</strong>
+             </div>
+             <span class="date">{{item?.createdAt | date:"dd/mm/yyyy"}}</span>
+           </div>
+         </div>
+       }
+    </div>
+
+  </div>
+}
