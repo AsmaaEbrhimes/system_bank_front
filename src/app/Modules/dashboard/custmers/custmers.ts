@@ -55,14 +55,19 @@ export class Custmers {
 
   AddCustmer() {
     this.dialogService.open(AddCustmerAndCreateAccount, {
-          width: '25rem',
-          modal: true,
-          showHeader: false,
-          baseZIndex: 9999999999,
-          contentStyle: {
-            'border-radius': '24px',
-            'text-align': 'end',
-          },
-        });
+      width: '90%',
+      style: {
+        'max-width': '580px',
+        width: '100%',
+      },
+      modal: true,
+      showHeader: false,
+      baseZIndex: 99999999,
+      contentStyle: {
+        'border-radius': '24px',
+        padding: '0',
+        overflow: 'hidden',
+      },
+    });
   }
 }
