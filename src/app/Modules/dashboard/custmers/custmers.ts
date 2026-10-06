@@ -54,14 +54,14 @@ export class Custmers {
   }
 
   AddCustmer() {
-    this.dialogService.open(AddCustmerAndCreateAccount, {
+    const ref: any = this.dialogService.open(AddCustmerAndCreateAccount, {
       width: '90%',
       style: {
-        'max-width': '580px',
+        'max-width': '720px',
         width: '100%',
         'max-height': '100vh',
       },
-      data:this.data(),
+      data: this.data(),
       modal: true,
       showHeader: false,
       baseZIndex: 99999999,
@@ -69,9 +69,15 @@ export class Custmers {
       contentStyle: {
         'border-radius': '24px',
         padding: '0',
-     'overflow-y': 'auto',
-      height: 'auto'
+        'overflow-y': 'auto',
+        height: 'auto',
       },
+    });
+
+    ref.onClose.subscribe((message:any) => {
+      if(message === 'success') {
+        this.getData();
+      }
     });
   }
 }
