@@ -9,10 +9,14 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Core } from '../Servies/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private core: Core) {}
+  constructor(
+    private core: Core,
+    private Router: Router,
+  ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
@@ -31,6 +35,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   private extractErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
       case 401:
+        this.Router.navigate(['/']);
         return 'Unauthorized. Please log in to access this data.';
       case 403:
         return 'Forbidden. You do not have permission to access this resource.';
