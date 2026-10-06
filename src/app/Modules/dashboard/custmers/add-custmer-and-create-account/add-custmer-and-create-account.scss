@@ -1,0 +1,185 @@
+form {
+  padding: 15px;
+  overflow-y: auto;
+  label {
+    display: block;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 0.25rem;
+    text-align: end;
+    font-size: 12px;
+  }
+
+  .Group {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+  }
+
+  .custem_group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  ::placeholder {
+    text-align: end;
+    font-size: 15px;
+  }
+
+  input {
+    text-align: end;
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #6d5ae0;
+      box-shadow: 0 0 0 3px rgba(109, 90, 224, 0.2);
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+
+    button {
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.5rem;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      background-color: #6d5ae0;
+      color: #fff;
+    }
+
+    .btn-close {
+      background-color: #f1f5f9;
+      color: #64748b;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+  button:hover {
+    opacity: 0.5;
+  }
+
+  .btn_submit {
+    background-color: #6d5ae0;
+    color: white;
+  }
+
+  .cansel_btn {
+    background-color: red;
+    color: white;
+  }
+}
+
+:host {
+  ::ng-deep .p-select-label {
+    text-align: end;
+  }
+}
+
+.accounts_container {
+  height: 298px;
+  overflow-y: auto;
+}
+
+.Group_accounts {
+  border: 1px solid #e2e0ee;
+  border-left: 4px solid #6c4fdb;
+  background-color: #f8f7fc;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 12px;
+}
+
+.add_account {
+  padding: 8px 14px;
+  background: #ede9fe;
+  color: #6c4fdb;
+  border: 1px dashed #6c4fdb;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  &:hover {
+    background: #6c4fdb;
+    color: #fff;
+  }
+}
+
+.delete_icon_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #fee2e2;
+  background-color: #fef2f2;
+  color: #ef4444;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  .input-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    background-color: #ef4444;
+    border-color: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.25);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.header_account_custmer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center !important;
+  span {
+    background: #ede9fe;
+    color: #6c4fdb;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+  form {
+    .custem_group {
+      flex-direction: column;
+    }
+  }
+}

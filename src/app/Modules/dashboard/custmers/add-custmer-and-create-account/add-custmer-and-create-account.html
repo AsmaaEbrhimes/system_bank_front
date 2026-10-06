@@ -1,1 +1,153 @@
-<p>add-custmer-and-create-account works!</p>
+<form [formGroup]="Form()" (ngSubmit)="onSubmit()">
+  <!-- fullName -->
+  <div class="Group">
+    <label>Please Enter User Name</label>
+    <input formControlName="fullName" placeholder="fullName" />
+
+
+    @if (getControlName('fullName')?.touched && getControlName('fullName')?.invalid) {
+    <div class="wrapper-error">
+      <small class="error">*This Fild Is Reqiured</small>
+    </div>
+    }
+  </div>
+
+  <div class="custem_group">
+    <!-- nationalId -->
+    <div class="Group">
+      <label>Please Enter User National Id</label>
+      <input formControlName="nationalId" placeholder="nationalId" />
+      @if (getControlName('nationalId')?.touched && getControlName('nationalId')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
+    </div>
+
+
+    <!-- email -->
+    <div class="Group">
+      <label>Please Enter Email</label>
+      <input formControlName="email" type="email" placeholder="email" />
+      @if (getControlName('email')?.touched && getControlName('email')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
+    </div>
+  </div>
+
+
+
+  <!-- phoneNumber -->
+  <div class="Group">
+    <label>Please Enter Phone Number</label>
+    <input formControlName="phoneNumber" placeholder="phoneNumber" />
+    @if (getControlName('phoneNumber')?.touched && getControlName('phoneNumber')?.invalid) {
+    <div class="wrapper-error">
+      <small class="error">*This Fild Is Reqiured</small>
+    </div>
+    }
+  </div>
+
+  <div class="header_account_custmer">
+    <button type="button" class="add_account" (click)="addAccount()">+ Add Account</button>
+    <h4>Accounts <span>{{ accountsArray.length }}</span></h4>
+  </div>
+
+  <!-- Accounts -->
+  <div formArrayName="accounts" class="accounts_container">
+    @for (accountGroup of accountsArray.controls; track $index; let i = $index){
+    <div class="Group_accounts" [formGroupName]="i">
+
+      @if(accountsArray.length > 1){
+      <button type="button" class="delete_icon_btn" (click)="removeAccount(i)">
+        <svg-icon src="/Icons/ant-design--delete-outlined.svg" class="input-icon"></svg-icon>
+      </button>
+      }
+
+      <div class="custem_group">
+
+        <!-- accountNumber -->
+        <div class="Group">
+          <label>Please Enter Account Number</label>
+          <input formControlName="accountNumber" placeholder="Account Number" />
+          @if (getAccountControl(i, 'accountNumber')?.touched && getAccountControl(i, 'accountNumber')?.invalid) {
+          <div class="wrapper-error">
+            <small class="error">*This Field Is Required</small>
+          </div>
+          }
+        </div>
+
+
+
+
+        <!-- Balance -->
+        <div class="Group">
+          <label>Please Enter Balance</label>
+          <input formControlName="balance" type="number" placeholder="Balance" />
+          @if (getAccountControl(i, 'balance')?.touched && getAccountControl(i, 'balance')?.invalid) {
+          <div class="wrapper-error">
+            <small class="error">*This Field Is Required</small>
+          </div>
+          }
+        </div>
+      </div>
+
+
+
+      <div class="custem_group">
+        <!-- AccountType -->
+        <div class="Group">
+          <label>Please Enter Account Type</label>
+          <p-select formControlName="accountType" [options]="accountType" [optionLabel]="'value'"
+            [optionValue]="'value'" placeholder="Select Account Type" [style]="{ 'width': '100%' }" />
+          @if (getAccountControl(i, 'accountType')?.touched && getAccountControl(i, 'accountType')?.invalid) {
+          <div class="wrapper-error">
+            <small class="error">*This Field Is Required</small>
+          </div>
+          }
+        </div>
+
+
+
+        <!-- Add Accounts For accountStatus -->
+        <div class="Group">
+          <label>Please Enter Account Status</label>
+          <p-select formControlName="status" [options]="accountStatus" [optionLabel]="'code'" [optionValue]="'code'"
+            placeholder="Select Account Status" [style]="{ 'width': '100%' }" />
+          @if (getAccountControl(i, 'status')?.touched && getAccountControl(i, 'status')?.invalid) {
+          <div class="wrapper-error">
+            <small class="error">*This Field Is Required</small>
+          </div>
+          }
+        </div>
+
+      </div>
+
+
+
+      <!-- Add Accounts For Custmer -->
+      <div class="Group">
+        <label>Please Enter Accounts</label>
+        <p-select formControlName="customerId" [options]="data_custmer()" [optionLabel]="'fullName'"
+          [optionValue]="'id'" placeholder="Select Customer" [style]="{ 'width': '100%' }" />
+        @if (getAccountControl(i, 'customerId')?.touched && getAccountControl(i, 'customerId')?.invalid) {
+        <div class="wrapper-error">
+          <small class="error">*This Field Is Required</small>
+        </div>
+        }
+      </div>
+
+
+    </div>
+    }
+  </div>
+
+
+
+  <div class="actions">
+    <button type="button" class="cansel_btn" (click)="ref.close()">Close</button>
+    <button type="submit" class="btn_submit">Submit</button>
+  </div>
+</form>
