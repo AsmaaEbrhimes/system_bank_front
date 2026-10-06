@@ -53,12 +53,14 @@ li {
 }
 
 .wrapper-error {
+      width: 100%;
+    text-align: left;
   .error {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-    font-weight: bold;
-    display: block;
+  color: #ef4444;
+      font-size: 11px;
+      font-weight: 500;
+      display: block;
+      text-align: left ;
     animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   }
 }
