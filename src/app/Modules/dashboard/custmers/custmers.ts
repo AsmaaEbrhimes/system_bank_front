@@ -59,14 +59,18 @@ export class Custmers {
       style: {
         'max-width': '580px',
         width: '100%',
+        'max-height': '100vh',
       },
+      data:this.data(),
       modal: true,
       showHeader: false,
       baseZIndex: 99999999,
+
       contentStyle: {
         'border-radius': '24px',
         padding: '0',
-        overflow: 'hidden',
+     'overflow-y': 'auto',
+      height: 'auto'
       },
     });
   }
