@@ -56,7 +56,7 @@ export class AddCustmerAndCreateAccount implements OnInit {
         id: [0],
         fullName: ['', Validators.required],
         nationalId: ['', Validators.required],
-        email: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
         phoneNumber: ['', Validators.required],
         createdAt: [currentIsoDate],
         accounts: this.FB.array([
@@ -99,14 +99,16 @@ export class AddCustmerAndCreateAccount implements OnInit {
   }
 
   onSubmit() {
-    if (this.Form().invalid) {
-      this.Form().markAllAsTouched();
-      return;
-    }
-    this.Data.post('Customers', this.Form().value).subscribe((res: any) => {
-      this.ref.close('success');
-      this.Form().reset();
-    });
+
+    console.log(this.Form().value)
+    // if (this.Form().invalid) {
+    //   this.Form().markAllAsTouched();
+    //   return;
+    // }
+    // this.Data.post('Customers', this.Form().value).subscribe((res: any) => {
+    //   this.ref.close('success');
+    //   this.Form().reset();
+    // });
   }
 
   getControlName(controlName: string) {

@@ -31,7 +31,12 @@
       <input formControlName="email" type="email" placeholder="email" />
       @if (getControlName('email')?.touched && getControlName('email')?.invalid) {
       <div class="wrapper-error">
-        <small class="error">*This Fild Is Reqiured</small>
+        @if (getControlName('email')?.hasError('required')) {
+        <small class="error">*This Field Is Required</small>
+        }
+        @if (getControlName('email')?.hasError('email')) {
+        <small class="error">*Please enter a valid email address</small>
+        }
       </div>
       }
     </div>
@@ -40,7 +45,7 @@
 
 
   <!-- phoneNumber -->
-  <div class="Group">
+  <!-- <div class="Group">
     <label>Please Enter Phone Number</label>
     <input formControlName="phoneNumber" placeholder="phoneNumber" />
     @if (getControlName('phoneNumber')?.touched && getControlName('phoneNumber')?.invalid) {
@@ -48,7 +53,14 @@
       <small class="error">*This Fild Is Reqiured</small>
     </div>
     }
-  </div>
+  </div> -->
+
+ <div class="Group">
+   <app-telephone formControlName="phoneNumber"></app-telephone>
+ </div>
+
+
+
 
   <div class="header_account_custmer">
     <button type="button" class="add_account" (click)="addAccount()">+ Add Account</button>

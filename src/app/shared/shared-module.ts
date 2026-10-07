@@ -10,10 +10,22 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { LoaderComponent } from './loader/loader.component';
 import { Notifications } from './notifications/notifications';
 import { SignalRService } from './signal-r';
+import { Telephone } from './telephone/telephone';
+import { SvgIconComponent } from 'angular-svg-icon';
+
 @NgModule({
-  declarations: [Success, NoData, Error, Tabel, SearchComponent, LoaderComponent, Notifications],
-  imports: [CommonModule, AsyncPipe, TableModule, AngularSvgIconModule],
-  exports: [Success, NoData, Error, Tabel, SearchComponent, LoaderComponent , Notifications],
-  providers: [DatePipe , SignalRService],
+  declarations: [
+    Success,
+    NoData,
+    Error,
+    Tabel,
+    SearchComponent,
+    LoaderComponent,
+    Notifications,
+    Telephone,
+  ],
+  imports: [CommonModule, AsyncPipe, TableModule, AngularSvgIconModule , SvgIconComponent],
+  exports: [Success, NoData, Error, Tabel, SearchComponent, LoaderComponent, Notifications , Telephone],
+  providers: [DatePipe, SignalRService],
 })
 export class SharedModule {}
