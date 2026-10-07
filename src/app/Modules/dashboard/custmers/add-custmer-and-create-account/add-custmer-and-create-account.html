@@ -44,20 +44,14 @@
 
 
 
-  <!-- phoneNumber -->
-  <!-- <div class="Group">
-    <label>Please Enter Phone Number</label>
-    <input formControlName="phoneNumber" placeholder="phoneNumber" />
+  <div class="Group">
+    <app-telephone formControlName="phoneNumber"></app-telephone>
     @if (getControlName('phoneNumber')?.touched && getControlName('phoneNumber')?.invalid) {
     <div class="wrapper-error">
       <small class="error">*This Fild Is Reqiured</small>
     </div>
     }
-  </div> -->
-
- <div class="Group">
-   <app-telephone formControlName="phoneNumber"></app-telephone>
- </div>
+  </div>
 
 
 
