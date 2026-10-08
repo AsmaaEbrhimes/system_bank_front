@@ -13,7 +13,7 @@
 
 
 
-
+  @if(cards() && cards()?.length > 0){
   <div class="wrapper_cards">
     @for(card of cards() ; track card?.id){
     <div class="action_and_details_card">
@@ -64,11 +64,11 @@
             src="/Icons/ant-design--delete-outlined.svg"></svg-icon>Delete</button>
 
         }
-
-
       </div>
     </div>
     }
-
   </div>
+  }@else {<app-no-data></app-no-data>}
+
+
 </section>
