@@ -1,68 +1,43 @@
 @if (Core._loading | async) {
-<div class="wrapper_loader">
-  <div class="loader-card">
-    <div class="top-bar"></div>
+<div class="sys-overlay" role="status" aria-live="polite">
+  <div class="sys-loader">
+    <div class="sys-loader__stage">
+      <div class="sys-loader__glow"></div>
+      <svg viewBox="0 0 120 140" aria-hidden="true">
+        <defs>
+          <clipPath id="shieldClip">
+            <path d="M60 8 L108 26 V66 C108 98 88 120 60 132 C32 120 12 98 12 66 V26 Z" />
+          </clipPath>
+          <linearGradient id="shineGrad" x1="0" x2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity="0" />
+            <stop offset=".5" stop-color="#fff" stop-opacity=".8" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+          </linearGradient>
+        </defs>
 
-    <div class="loader-body">
-      <div class="spinner-wrap">
-        <svg class="spinner-svg" width="72" height="72" viewBox="0 0 72 72">
-          <circle cx="36" cy="36" r="32" fill="none" stroke="#CECBF6" stroke-width="4"></circle>
-          <circle cx="36" cy="36" r="32" fill="none" stroke="#534AB7" stroke-width="4" stroke-linecap="round"
-            stroke-dasharray="60 141"></circle>
-        </svg>
-        <div class="spinner-icon">
-          <svg viewBox="0 0 100 100" class="shield_icon" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#5b21b6" />
-              </linearGradient>
-            </defs>
+        <path class="shield-fill" d="M60 8 L108 26 V66 C108 98 88 120 60 132 C32 120 12 98 12 66 V26 Z" />
 
-            <path d="M50 4
-             L86 18
-             V46
-             C86 70 70 89 50 97
-             C30 89 14 70 14 46
-             V18
-             Z" fill="url(#shieldGradient)" />
+        <path class="part roof" d="M60 40 L88 55 H32 Z" />
+        <rect class="part col" x="38" y="60" width="8" height="28" rx="1.5" />
+        <rect class="part col" x="51" y="60" width="8" height="28" rx="1.5" />
+        <rect class="part col" x="64" y="60" width="8" height="28" rx="1.5" />
+        <rect class="part col" x="77" y="60" width="8" height="28" rx="1.5" />
+        <rect class="part base1" x="32" y="92" width="56" height="5" rx="1.5" />
+        <rect class="part base2" x="27" y="100" width="66" height="5" rx="1.5" />
 
-            <path d="M50 12
-             L78 23
-             V46
-             C78 65 66 80 50 87
-             C34 80 22 65 22 46
-             V23
-             Z" fill="#ffffff" />
+        <g clip-path="url(#shieldClip)">
+          <rect class="shine" x="0" y="0" width="40" height="140" fill="url(#shineGrad)" transform="skewX(-18)" />
+        </g>
 
-            <g fill="url(#shieldGradient)">
-              <path d="M35 40 A15 15 0 0 1 65 40 Z" />
-              <rect x="33" y="40" width="34" height="3" rx="1" />
-              <rect x="36" y="46" width="4" height="20" />
-              <rect x="45" y="46" width="4" height="20" />
-              <rect x="51" y="46" width="4" height="20" />
-              <rect x="60" y="46" width="4" height="20" />
-              <rect x="32" y="68" width="36" height="4" rx="1" />
-            </g>
-          </svg>
-
-
-
-
-        </div>
-      </div>
-
-      <p class="loader-text">جاري التحميل...</p>
-
-      <div class="progress-track">
-        <div class="progress-fill"></div>
-      </div>
-
-      <div class="progress-labels">
-        <span>0%</span>
-        <span>100%</span>
-      </div>
+        <path class="shield-line" d="M60 8 L108 26 V66 C108 98 88 120 60 132 C32 120 12 98 12 66 V26 Z" />
+      </svg>
     </div>
+
+    <div class="sys-loader__label">
+      Loading data<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+    </div>
+    <div class="sys-loader__sub">Just a moment, and we'll show you everything</div>
+    <div class="sys-loader__bar"><i></i></div>
   </div>
 </div>
 
