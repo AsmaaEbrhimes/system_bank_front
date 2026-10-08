@@ -43,7 +43,7 @@
   </div>
 
 
-
+  <!-- Phone -->
   <div class="Group">
     <app-telephone formControlName="phoneNumber"></app-telephone>
     @if (getControlName('phoneNumber')?.touched && getControlName('phoneNumber')?.invalid) {
@@ -77,7 +77,7 @@
         <!-- accountNumber -->
         <div class="Group">
           <label>Please Enter Account Number</label>
-          <input formControlName="accountNumber" placeholder="Account Number" />
+          <input  formControlName="accountNumber" placeholder="Account Number" />
           @if (getAccountControl(i, 'accountNumber')?.touched && getAccountControl(i, 'accountNumber')?.invalid) {
           <div class="wrapper-error">
             <small class="error">*This Field Is Required</small>

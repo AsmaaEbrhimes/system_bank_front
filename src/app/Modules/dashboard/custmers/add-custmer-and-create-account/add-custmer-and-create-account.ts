@@ -99,16 +99,14 @@ export class AddCustmerAndCreateAccount implements OnInit {
   }
 
   onSubmit() {
-
-    console.log(this.Form().value)
-    // if (this.Form().invalid) {
-    //   this.Form().markAllAsTouched();
-    //   return;
-    // }
-    // this.Data.post('Customers', this.Form().value).subscribe((res: any) => {
-    //   this.ref.close('success');
-    //   this.Form().reset();
-    // });
+    if (this.Form().invalid) {
+      this.Form().markAllAsTouched();
+      return;
+    }
+    this.Data.post('Customers', this.Form().value).subscribe((res: any) => {
+      this.ref.close('success');
+      this.Form().reset();
+    });
   }
 
   getControlName(controlName: string) {
