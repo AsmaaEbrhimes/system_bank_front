@@ -62,11 +62,10 @@
   box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
 }
 
-
-
 .account-badge-container {
   display: flex;
   align-items: center;
+  gap: 10px;
 
   .badge-accounts {
     display: inline-flex;
@@ -114,7 +113,46 @@
   }
 }
 
+.btn_delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #6b7280; 
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
 
+  svg-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease-in-out;
+  }
+
+  &:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+
+    svg-icon {
+      color: #ef4444;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background-color: #fca5a5;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px #f87171;
+  }
+}
 @media (max-width: 767px) {
   .header_custmer {
     flex-direction: column;

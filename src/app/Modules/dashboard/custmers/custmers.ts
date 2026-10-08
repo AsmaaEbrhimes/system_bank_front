@@ -2,6 +2,8 @@ import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
 import { DialogService } from 'primeng/dynamicdialog';
 import { AddCustmerAndCreateAccount } from './add-custmer-and-create-account/add-custmer-and-create-account';
+import { ConfirmationDelted } from '../../../shared/confirmation-deleted/confirmation-deleted';
+import { Core } from '../../../core/Servies/core';
 
 @Component({
   selector: 'app-custmers',
@@ -19,6 +21,7 @@ export class Custmers {
   constructor(
     private Data: Data,
     private dialogService: DialogService,
+    private Core: Core,
   ) {}
   //=========================Varibels===============================//
   data = signal<any>([]);
@@ -30,6 +33,7 @@ export class Custmers {
   getData() {
     this.Data.get(`Customers`).subscribe((res: any) => {
       this.data.set(res);
+      this.Core.originalDataStore.set(this.data());
       this.bodyTabel();
     });
   }
@@ -65,7 +69,6 @@ export class Custmers {
       modal: true,
       showHeader: false,
       baseZIndex: 99999999,
-
       contentStyle: {
         'border-radius': '24px',
         padding: '0',
@@ -74,9 +77,32 @@ export class Custmers {
       },
     });
 
-    ref.onClose.subscribe((message:any) => {
-      if(message === 'success') {
+    ref.onClose.subscribe((message: any) => {
+      if (message === 'success') {
         this.getData();
+      }
+    });
+  }
+
+  onDelete(id: number) {
+    let ref: any = this.dialogService.open(ConfirmationDelted, {
+      width: '25rem',
+      modal: true,
+      showHeader: false,
+      baseZIndex: 9999999999,
+      contentStyle: {
+        'border-radius': '24px',
+        'text-align': 'center',
+      },
+    });
+    ref.onClose.subscribe((res: boolean) => {
+      if (res) {
+        this.Data.delete(`Customers/${id}`).subscribe({
+          next: () => {
+            this.getData();
+            this.accounts.set([]);
+          },
+        });
       }
     });
   }
