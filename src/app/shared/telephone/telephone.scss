@@ -1,5 +1,5 @@
-.wrapper_phonr{
-position: relative;
+.wrapper_phonr {
+  position: relative;
 }
 
 .fild_number_usre {
@@ -25,7 +25,7 @@ position: relative;
     border-radius: 0.5rem;
     width: fit-content;
     transition: 0.3s linear;
-    &:hover{
+    &:hover {
       background-color: #cbd5e1;
     }
   }
@@ -51,26 +51,21 @@ position: relative;
   margin-top: 10px;
   border-radius: 10px;
   overflow-y: auto;
-height: 0;
-position: absolute;
-opacity: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
   visibility: hidden;
   transform: translateY(-10px) scale(0.95);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index:999999999;
-
+  z-index: 999999999;
 }
 
 .content_country.active {
-    height: 254px;
+  height: 254px;
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
 }
-
-
-
-
 
 .flag_country {
   display: flex;
@@ -81,7 +76,7 @@ opacity: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 4px;
   padding: 10px;
   width: 100%;
   background-color: transparent;
@@ -94,6 +89,11 @@ opacity: 0;
 
 .code_country {
   font-weight: 700;
+  background-color: #f8f7fc;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  width: 9%;
+  padding: 2px 0;
 }
 
 .search {

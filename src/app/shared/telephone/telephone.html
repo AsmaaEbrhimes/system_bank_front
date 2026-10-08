@@ -2,11 +2,13 @@
   <!-- Number -->
   <div class="fild_number_usre">
     <div class="wrapper_code_country">
-      <input [value]="value" #phoneInput [placeholder]="select_item()?.placeholder || '100 123 4567'" (input)="onPhoneInput($event)" [attr.maxlength]="select_item()?.maxLength"/>
+      <input [value]="value" #phoneInput [placeholder]="select_item()?.placeholder || '100 123 4567'"
+        (input)="onPhoneInput($event)" [attr.maxlength]="select_item()?.maxLength" />
       <div class="code_country" (click)="toggleDropdown()">
         <span><svg-icon src="/Icons/fa7-solid--angle-down.svg" class="input-icon"></svg-icon></span>
         <span>{{select_item()?.dialCode}}</span>
-        <span><svg-icon [src]="'/Flags/' + select_item()?.icon + '.svg'" class="input-icon" class="input-icon"></svg-icon></span>
+        <span><svg-icon [src]="'/Flags/' + select_item()?.icon + '.svg'" class="input-icon"
+            class="input-icon"></svg-icon></span>
       </div>
     </div>
   </div>
@@ -14,13 +16,18 @@
   <!-- content_country -->
   <div class="content_country" [class.active]="isOpen()" (click)="$event.stopPropagation()">
     <div class="search">
-      <input placeholder="Search Country Or Code" />
+      <input #searchInput (input)="0" placeholder="Search Country Or Code" />
       <svg-icon [svgStyle]="{ 'width.px': 16, 'height.px': 16 }" src="/Icons/material-symbols--search.svg"
         class="search-icon"></svg-icon>
     </div>
 
     @for (item of COUNTRIES; track $index) {
-    <button class="country" (click)="onChooesCountry(item , $event , phoneInput)">
+    @if (
+    !searchInput.value ||
+    item.name.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+    item.dialCode.includes(searchInput.value)
+    ) {
+    <button class="country" (click)="onChooesCountry(item, $event, phoneInput)">
       <div class="code_country">
         <span>{{item?.dialCode}}</span>
       </div>
@@ -30,6 +37,7 @@
         <span><svg-icon [src]="'/Flags/' + item?.icon + '.svg'" class="input-icon"></svg-icon></span>
       </div>
     </button>
+    }
     }
   </div>
 </section>

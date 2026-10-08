@@ -223,7 +223,6 @@ export class Telephone implements ControlValueAccessor {
     this.isOpen.set(!this.isOpen());
   }
 
-  
   onPhoneInput(event: Event) {
     const input = event.target as HTMLInputElement;
     let value = input.value.replace(/\D/g, '');
