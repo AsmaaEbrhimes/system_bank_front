@@ -47,7 +47,7 @@
 
             <!-- باقي البيانات العادية -->
             <ng-template #standardCell>
-              {{ row[col.value] }}
+              {{ row[col.value] || '_' }}
             </ng-template>
           </ng-template>
 
