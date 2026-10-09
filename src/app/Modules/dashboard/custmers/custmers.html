@@ -24,7 +24,7 @@
       <ng-template #actions let-item>
         <div class="account-badge-container">
 
-          @if(item?.hasLoans == false){
+          @if(item?.hasLoans == false && item?.exsisitCard == false){
           <button (click)="onDelete(item?.id)" class="btn_delete"><svg-icon
               [svgStyle]="{ 'width.px': 15, 'height.px': 15 }" src="/Icons/ant-design--delete-outlined.svg">
             </svg-icon></button>
