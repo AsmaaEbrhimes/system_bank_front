@@ -77,7 +77,7 @@
         <!-- accountNumber -->
         <div class="Group">
           <label>Please Enter Account Number</label>
-          <input  formControlName="accountNumber" placeholder="Account Number" />
+          <input formControlName="accountNumber" placeholder="Account Number" />
           @if (getAccountControl(i, 'accountNumber')?.touched && getAccountControl(i, 'accountNumber')?.invalid) {
           <div class="wrapper-error">
             <small class="error">*This Field Is Required</small>
@@ -106,7 +106,7 @@
         <!-- AccountType -->
         <div class="Group">
           <label>Please Enter Account Type</label>
-          <p-select formControlName="accountType" [options]="accountType" [optionLabel]="'value'"
+          <p-select appendTo="body" formControlName="accountType" [options]="accountType" [optionLabel]="'value'"
             [optionValue]="'value'" placeholder="Select Account Type" [style]="{ 'width': '100%' }" />
           @if (getAccountControl(i, 'accountType')?.touched && getAccountControl(i, 'accountType')?.invalid) {
           <div class="wrapper-error">
@@ -120,8 +120,8 @@
         <!-- Add Accounts For accountStatus -->
         <div class="Group">
           <label>Please Enter Account Status</label>
-          <p-select formControlName="status" [options]="accountStatus" [optionLabel]="'code'" [optionValue]="'code'"
-            placeholder="Select Account Status" [style]="{ 'width': '100%' }" />
+          <p-select appendTo="body" formControlName="status" [options]="accountStatus" [optionLabel]="'code'"
+            [optionValue]="'code'" placeholder="Select Account Status" [style]="{ 'width': '100%' }" />
           @if (getAccountControl(i, 'status')?.touched && getAccountControl(i, 'status')?.invalid) {
           <div class="wrapper-error">
             <small class="error">*This Field Is Required</small>
@@ -136,16 +136,15 @@
       <!-- Add Accounts For Custmer -->
       <div class="Group">
         <label>Please Enter Accounts</label>
-        <p-select formControlName="customerId" [options]="data_custmer()" [optionLabel]="'fullName'"
-          [optionValue]="'id'" placeholder="Select Customer" [style]="{ 'width': '100%' }" />
+        <p-select formControlName="customerId" appendTo="body" [options]="data_custmer()" [optionLabel]="'fullName'"
+          [optionValue]="'id'" placeholder="Select Accounts" [style]="{ 'width': '100%' }" />
         @if (getAccountControl(i, 'customerId')?.touched && getAccountControl(i, 'customerId')?.invalid) {
         <div class="wrapper-error">
           <small class="error">*This Field Is Required</small>
         </div>
         }
       </div>
-
-
+      
     </div>
     }
   </div>
