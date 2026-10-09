@@ -203,34 +203,26 @@
   background-color: #94a3b8;
 }
 
-
-
-
-@media(max-width:767px) {
-  .wrapper_Statistics{
+@media (max-width: 767px) {
+  .wrapper_Statistics {
     grid-template-columns: 1fr;
   }
 
-  .header_loans{
-
-    .content_header{
-
-      .container_svg{
+  .header_loans {
+    .content_header {
+      .container_svg {
         width: 80px;
         height: 30px;
       }
     }
   }
-  .arrow{
+  .arrow {
     display: none;
   }
 }
 
-
-@media(min-width:767px) and (max-width:1200px){
-  .wrapper_Statistics{
+@media (min-width: 767px) and (max-width: 1200px) {
+  .wrapper_Statistics {
     grid-template-columns: 1fr 1fr;
   }
 }
-
-
