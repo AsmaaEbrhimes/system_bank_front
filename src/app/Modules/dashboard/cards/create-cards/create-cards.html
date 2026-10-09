@@ -19,7 +19,7 @@
       <label>please Select Account</label>
       <div class="wrapper_input">
         <p-select formControlName="accountId" appendTo="body" [options]="accounts()" [optionLabel]="'accountNumber'"
-          [optionValue]="'id'" placeholder="Select Customer" [style]="{ 'width': '100%' }" />
+          [optionValue]="'id'" placeholder="Select Account" [style]="{ 'width': '100%' }" />
         <svg-icon src="/Icons/hugeicons--user-round-check.svg" class="input-icon"></svg-icon>
       </div>
       @if (getControlName('accountId')?.touched && getControlName('accountId')?.invalid) {
