@@ -19,7 +19,9 @@
     margin-top: 10px;
     font-size: 13.5px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-end;
     gap: 7px;
     .title {
       color: #6d5ae0;
@@ -28,6 +30,7 @@
       padding: 10px;
       border-radius: 30px;
       font-weight: 600;
+      white-space: nowrap;
     }
     .arrow {
       color: gray;
@@ -77,8 +80,6 @@
   }
 }
 
-
-
 .wrapper_Statistics {
   margin-top: 30px;
   display: grid;
@@ -126,16 +127,16 @@
     $card-theme-colors: (
       'warning': (
         'bg': #fef3e2,
-        'color': #b07219
+        'color': #b07219,
       ),
       'success': (
         'bg': #e6f4ea,
-        'color': #137333
+        'color': #137333,
       ),
       'danger': (
         'bg': #fce8e6,
-        'color': #c5221f
-      )
+        'color': #c5221f,
+      ),
     );
 
     @each $state, $colors in $card-theme-colors {
@@ -143,11 +144,92 @@
         .icon {
           background-color: map-get($colors, 'bg');
           color: map-get($colors, 'color');
-
-
         }
       }
     }
+  }
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 1.2;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-badge.approved {
+  background-color: #e6f7ed;
+  color: #0e8a45;
+}
+.status-badge.approved .status-dot {
+  background-color: #10b981;
+}
+
+.status-badge.pending,
+.status-badge.under-review {
+  background-color: #fff7ed;
+  color: #c2410c;
+}
+.status-badge.pending .status-dot,
+.status-badge.under-review .status-dot {
+  background-color: #f97316;
+}
+
+.status-badge.rejected {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+.status-badge.rejected .status-dot {
+  background-color: #ef4444;
+}
+
+.status-badge {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+.status-badge .status-dot {
+  background-color: #94a3b8;
+}
+
+
+
+
+@media(max-width:767px) {
+  .wrapper_Statistics{
+    grid-template-columns: 1fr;
+  }
+
+  .header_loans{
+
+    .content_header{
+
+      .container_svg{
+        width: 80px;
+        height: 30px;
+      }
+    }
+  }
+  .arrow{
+    display: none;
+  }
+}
+
+
+@media(min-width:767px) and (max-width:1200px){
+  .wrapper_Statistics{
+    grid-template-columns: 1fr 1fr;
   }
 }
 

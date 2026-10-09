@@ -1,4 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { Data } from '../../../core/Servies/data';
+import { Core } from '../../../core/Servies/core';
 
 @Component({
   selector: 'app-loans',
@@ -6,50 +8,40 @@ import { Component, signal } from '@angular/core';
   templateUrl: './loans.html',
   styleUrl: './loans.scss',
 })
-export class Loans {
-  active_tap=signal<number>(0)
-  reportData = [
-    {
-      initials: 'د.ف',
-      customer: 'دينا فؤاد',
-      type: 'قرض شخصي',
-      requestedAmount: '45,000',
-      interestRate: '14.5%',
-      monthlyInstallment: '24 × 2,145',
-      status: 'قيد المراجعة'
-    },
-    {
-      initials: 'ع.ص',
-      customer: 'عمرو صلاح',
-      type: 'قرض سيارة',
-      requestedAmount: '120,000',
-      interestRate: '11.2%',
-      monthlyInstallment: '48 × 3,105',
-      status: 'قيد المراجعة'
-    },
-    {
-      initials: 'م.إ',
-      customer: 'منى إبراهيم',
-      type: 'قرض تعليمي',
-      requestedAmount: '18,500',
-      interestRate: '9.0%',
-      monthlyInstallment: '12 × 1,624',
-      status: 'قيد المراجعة'
-    }
-  ];
+export class Loans implements OnInit {
+  // ==========================Implemantion===============================//
+  ngOnInit(): void {
+    this.getAllLoans();
+  }
+
+  constructor(private Data: Data , private Core:Core) {}
+  //=========================Varibels===============================//
+  active_tap = signal<number>(0);
+  data = signal<any>([]);
+
+  // =========================Functions=============================== //
+
+  getAllLoans() {
+    this.Data.get('Loans/GetAllLoans').subscribe((res:any) => {
+      this.data.set(res);
+      this.Core.originalDataStore.set(res)
+      this.boayTabel()
+    });
+  }
 
   boayTabel() {
     return [
-      { key: 'العميل', value: 'customer' },
-      { key: 'نوع القرض', value: 'type' },
-      { key: 'المبلغ المطلوب', value: 'requestedAmount' },
-      { key: 'نسبة الفائدة', value: 'interestRate' },
-      { key: 'الأقساط الشهرية', value: 'monthlyInstallment' }
+      { key: 'Application Date', value:'applicationDate', type: 'date', format: 'dd/MM/yyyy'},
+      { key: 'Status', value: 'status' },
+      { key: 'Monthly Installment', value: 'monthlyInstallment' },
+      { key: 'Total Amount Payable', value: 'totalAmountPayable' },
+      { key: 'Interest Rate', value: 'interestRate' },
+      { key: 'Duration In Months', value: 'durationInMonths' },
+      { key: 'Amount', value: 'amount' },
     ];
   }
 
-
-  SetActive(number:number){
-this.active_tap.set(number)
+  SetActive(number: number) {
+    this.active_tap.set(number);
   }
 }
