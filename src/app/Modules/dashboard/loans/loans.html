@@ -73,6 +73,16 @@
     <app-search [ArrayColumns]="['applicationDate', 'status']" (DataFilter)="data.set($event)"></app-search>
 
     <app-tabel [data]="data()" [bodytabel]="boayTabel()">
+
+      <ng-template #actions let-item>
+        @if(item?.status == "Pending"){
+          <div class="action_tabel">
+            <button (click)="onAccept(item)" class="btn_accept" pTooltip="Accept" tooltipPosition="top">Accept <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--success.svg"></svg-icon></button>
+            <button (click)="onReject(item)" class="btn_reject" pTooltip="Reject" tooltipPosition="top">Reject <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
+          </div>
+        }
+      </ng-template>
+
       <ng-template #status let-item>
         <span class="status-badge" [ngClass]="item?.status?.toLowerCase()">
           <span class="status-dot"></span>

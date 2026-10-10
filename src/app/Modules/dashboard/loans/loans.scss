@@ -219,7 +219,7 @@
     padding: 7px;
     border-radius: 5px;
     border: 1px solid #6d5ae0;
-        font-weight: 600;
+    font-weight: 600;
     white-space: nowrap;
     transition: 0.3s linear;
 
@@ -228,6 +228,29 @@
       background-color: white;
       color: #6d5ae0;
     }
+  }
+}
+
+.action_tabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  button{
+    padding: 7px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+  .btn_accept {
+    color: #1fa971;
+    background: #e4f7ee;
+  }
+
+  .btn_reject {
+    color: #e5484d;
+    background: #fdecec;
   }
 }
 

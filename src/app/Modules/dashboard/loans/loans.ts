@@ -61,7 +61,7 @@ export class Loans implements OnInit {
   }
 
   OpenDilog() {
-    let ref:any = this.dialogService.open(CreateLoans, {
+    let ref: any = this.dialogService.open(CreateLoans, {
       width: '30rem',
       modal: true,
       showHeader: false,
@@ -72,10 +72,18 @@ export class Loans implements OnInit {
       },
     });
 
-     ref.onClose.subscribe((message: any) => {
+    ref.onClose.subscribe((message: any) => {
       if (message === 'success') {
         this.getAllLoans();
       }
+    });
+  }
+
+  onAccept(item: any) {}
+
+  onReject(item: any) {
+    this.Data.put(`Loans/${item?.id}/reject`, {}).subscribe((res) => {
+      this.getAllLoans();
     });
   }
 }
