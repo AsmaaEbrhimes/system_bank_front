@@ -61,7 +61,7 @@ export class Loans implements OnInit {
   }
 
   OpenDilog() {
-    let ref = this.dialogService.open(CreateLoans, {
+    let ref:any = this.dialogService.open(CreateLoans, {
       width: '30rem',
       modal: true,
       showHeader: false,
@@ -70,6 +70,12 @@ export class Loans implements OnInit {
         'border-radius': '24px',
         'text-align': 'end',
       },
+    });
+
+     ref.onClose.subscribe((message: any) => {
+      if (message === 'success') {
+        this.getAllLoans();
+      }
     });
   }
 }
