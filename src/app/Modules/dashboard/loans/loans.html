@@ -4,7 +4,7 @@
       <div class="wrapper_header">
         <h3>Loans</h3>
         <div class="flex_header">
-          <button>Applying for a loan +</button>
+          <button (click)="OpenDilog()">Applying for a loan +</button>
 
           <p>
             <span class="title">Submitting the application</span><span class="arrow">←</span>
@@ -64,7 +64,7 @@
       <button (click)="GetLoansWithStstus('All')" [class.active]="active_tap()==0" (click)="SetActive(0)">All</button>
       <button (click)="GetLoansWithStstus('Pending')" [class.active]="active_tap()==1" (click)="SetActive(1)">Under
         review</button>
-      <button (click)="GetLoansWithStstus('Approved')" [class.active]="active_tap()==2" (click)="SetActive(1)"
+      <button (click)="GetLoansWithStstus('Approved')" [class.active]="active_tap()==2" (click)="SetActive(2)"
         class="active">Approved</button>
       <button (click)="GetLoansWithStstus('Rejected')" [class.active]="active_tap()==3"
         (click)="SetActive(3)">Rejected</button>

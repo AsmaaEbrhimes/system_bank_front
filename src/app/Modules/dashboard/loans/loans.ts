@@ -1,6 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
 import { Core } from '../../../core/Servies/core';
+import { DialogService } from 'primeng/dynamicdialog';
+import { CreateLoans } from './create-loans/create-loans';
 
 @Component({
   selector: 'app-loans',
@@ -17,6 +19,7 @@ export class Loans implements OnInit {
   constructor(
     private Data: Data,
     private Core: Core,
+    private dialogService: DialogService,
   ) {}
   //=========================Varibels===============================//
   active_tap = signal<number>(0);
@@ -55,5 +58,18 @@ export class Loans implements OnInit {
   GetLoansWithStstus(status: string) {
     this.status.set(status);
     this.getAllLoans();
+  }
+
+  OpenDilog() {
+    let ref = this.dialogService.open(CreateLoans, {
+      width: '30rem',
+      modal: true,
+      showHeader: false,
+      baseZIndex: 9999999999,
+      contentStyle: {
+        'border-radius': '24px',
+        'text-align': 'end',
+      },
+    });
   }
 }
