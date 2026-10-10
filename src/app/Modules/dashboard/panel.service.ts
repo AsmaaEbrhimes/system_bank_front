@@ -15,7 +15,14 @@ export class panel {
 
 
 
+  public readonly Accounts$ = this.dataService.get('Customers/Accounts').pipe(
+    map((res: any) => res),
+    shareReplay(1),
+  );
 
 
-  
+
+
+
+
 }
