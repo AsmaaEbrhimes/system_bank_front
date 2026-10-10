@@ -1,1 +1,86 @@
-<p>approved-loans works!</p>
+<section class="wrapper_approved_loan">
+  <div class="header_approved_loans">
+    <div class="wrapper_icon">
+      <svg-icon [svgStyle]="{ 'width.px': 30, 'height.px': 30 }" src="/Icons/mdi--success.svg"
+        class="input-icon"></svg-icon>
+    </div>
+    <h4>Approve this loan</h4>
+    <p>Set the terms for this loan. The customer is</p>
+    <p>notified once you confirm.</p>
+  </div>
+
+  <form>
+    <div class="Group">
+      <label>Duration</label>
+      <input type="number" />
+    </div>
+
+
+    <div class="Group">
+      <label>Interest rate</label>
+      <input type="number" />
+    </div>
+    <div class="loans_after_add_Interest">
+      <div class="header">
+        <span class="status">Approved</span>
+        <span class="title">Customer pays</span>
+      </div>
+
+      <h4 class="requested_amount">EGP 9,166.67</h4>
+      <span class="month">Month</span>
+      <div class="flex_line">
+        <span class="blue_line"></span>
+        <span class="orange_line"></span>
+      </div>
+
+
+      <div class="amount_after_and_before">
+        <ul>
+          <li>
+            <p class="amount">
+              EGP 100,000.00
+            </p>
+            <p class="text_amount">
+              <span class="text">Amount before discount</span>
+              <span class="circle_blue circle"></span>
+            </p>
+
+          </li>
+
+
+          <li>
+            <p class="amount">
+              EGP 100,000.00
+            </p>
+            <p class="text_amount">
+              <span class="text">Interest rate</span>
+              <span class="circle_orange circle"></span>
+            </p>
+
+          </li>
+
+
+
+          <li>
+            <p class="amount">
+              EGP 100,000.00
+            </p>
+
+            <p class="text_amount">
+              <span class="text">Amount after interest</span>
+              <span class="circle_black circle"></span>
+            </p>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <div class="action_form">
+      <button type="submit" class="btn_submit">Approve loan</button>
+      <button type="button" class="btn_cansel" (click)="onCloseDilog()">Cancel</button>
+    </div>
+  </form>
+</section>
