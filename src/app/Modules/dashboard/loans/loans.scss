@@ -3,6 +3,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 5px;
+    width: 100%;
     .container_svg {
       height: 30px;
       width: 30px;
@@ -13,6 +14,9 @@
       justify-content: center;
       align-items: center;
       border-radius: 5px;
+    }
+    .wrapper_header{
+          width: 100%;
     }
   }
   p {
@@ -201,6 +205,28 @@
 }
 .status-badge .status-dot {
   background-color: #94a3b8;
+}
+
+
+.flex_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100% !important;
+  button{
+    background-color: #6d5ae0;
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+         border: 1px solid #6d5ae0;
+    transition: 0.3s linear;
+
+    &:hover{
+      transform: scale(1.1);
+      background-color: white;
+      color: #6d5ae0;
+    }
+  }
 }
 
 @media (max-width: 767px) {

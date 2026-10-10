@@ -1,14 +1,20 @@
 <section>
   <div class="header_loans">
     <div class="content_header">
-      <div>
+      <div class="wrapper_header">
         <h3>Loans</h3>
-        <p >
-          <span class="title">Submitting the application</span><span class="arrow">←</span>
-          <span class="title">Review</span><span class="arrow">←</span>
-          <span class="title">Identifying the benefit Review</span><span class="arrow">←</span>
-          <span class="title">Approval or rejection</span>
-        </p>
+        <div class="flex_header">
+          <button>Applying for a loan +</button>
+
+          <p>
+            <span class="title">Submitting the application</span><span class="arrow">←</span>
+            <span class="title">Review</span><span class="arrow">←</span>
+            <span class="title">Identifying the benefit Review</span><span class="arrow">←</span>
+            <span class="title">Approval or rejection</span>
+          </p>
+
+        </div>
+
       </div>
       <div class="container_svg">
         <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/griddy-icons--loan.svg"></svg-icon>
@@ -55,9 +61,13 @@
 
   <div class="tabel_loans">
     <div class="buttons_tap">
-      <button [class.active]="active_tap()==0" (click)="SetActive(0)">Under review</button>
-      <button [class.active]="active_tap()==1" (click)="SetActive(1)" class="active">Approved</button>
-      <button [class.active]="active_tap()==2" (click)="SetActive(2)">Rejected</button>
+      <button (click)="GetLoansWithStstus('All')" [class.active]="active_tap()==0" (click)="SetActive(0)">All</button>
+      <button (click)="GetLoansWithStstus('Pending')" [class.active]="active_tap()==1" (click)="SetActive(1)">Under
+        review</button>
+      <button (click)="GetLoansWithStstus('Approved')" [class.active]="active_tap()==2" (click)="SetActive(1)"
+        class="active">Approved</button>
+      <button (click)="GetLoansWithStstus('Rejected')" [class.active]="active_tap()==3"
+        (click)="SetActive(3)">Rejected</button>
     </div>
 
     <app-search [ArrayColumns]="['applicationDate', 'status']" (DataFilter)="data.set($event)"></app-search>
