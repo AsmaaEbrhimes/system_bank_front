@@ -1,0 +1,51 @@
+<section class="create_loans">
+  <div class="header_form">
+    <button type="button" class="close-button" (click)="onCloseDilog()">
+      <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }"
+        src="/Icons/material-symbols--close-rounded.svg"></svg-icon>
+    </button>
+
+    <div class="text_header">
+      <div>
+        <h4>Applying for a loan</h4>
+        <p>Fill in the details below to submit your application</p>
+      </div>
+      <div class="wrapper_icon">
+        <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/griddy-icons--loan.svg"></svg-icon>
+      </div>
+    </div>
+
+
+  </div>
+
+  <form>
+    <!-- Amount -->
+    <div class="Group">
+      <label>Loan amount</label>
+      <div class="inputs">
+        <input placeholder="0.00" />
+        <span>EGP</span>
+      </div>
+    </div>
+
+
+
+<!-- Account -->
+    <div class="Group">
+      <label>Account</label>
+      <p-select appendTo="body" [options]="[]" [optionLabel]="'accountNumber'" [optionValue]="'id'"
+        placeholder="Select Account" [style]="{ 'width': '100%' }" />
+    </div>
+
+    <div class="aleart_loan">
+      <p>Your application goes through review first. Interest rate and monthly installment are calculated after
+        approval.</p>
+      <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }" src="/Icons/si--warning-duotone.svg"></svg-icon>
+    </div>
+    <div class="action_form">
+      <button class="btn_submit">Submit Application</button>
+      <button type="button" class="btn_cansel" (click)="onCloseDilog()">Cansel</button>
+    </div>
+
+  </form>
+</section>

@@ -1,0 +1,239 @@
+
+.header_form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e3e5f1;
+  position: relative;
+  overflow: hidden;
+
+  animation: fadeInDown 0.5s ease-out forwards;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    left: 10px;
+    top: -50px;
+    background: radial-gradient(circle, rgba(95, 79, 230, 0.16), transparent 65%);
+    z-index: -1;
+  }
+}
+
+.text_header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  align-items: center;
+  width: 100%;
+  h4 {
+    color: #000000;
+    font-size: 18px;
+  }
+  p {
+    color: #7b7e99;
+    font-size: 13px;
+  }
+}
+
+.close-button {
+  top: 5px;
+  inset-inline-start: 5px;
+  height: 2rem;
+  width: 2rem;
+  line-height: 3rem;
+  background: #e6e0ff;
+  color: #6d5ae0;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s linear;
+
+  &:hover {
+    background: #6d5ae0;
+    color: white;
+    transform: rotate(90deg);
+  }
+}
+
+.wrapper_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  color: #5f4fe6;
+  background: #eeecff;
+  border: 1px solid #d9d5ff;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.Group {
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: end;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  &:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border: 1.5px solid #e3e5f1;
+  height: 52px;
+  line-height: 52px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+
+  &:focus-within {
+    border-color: #5f4fe6;
+    box-shadow: 0 0 0 4px rgba(95, 79, 230, 0.12);
+    transform: translateY(-1px);
+  }
+
+  span {
+    color: #5f4fe6;
+    border-right: 1.5px solid #e3e5f1;
+    background-color: #e3e5f1;
+    padding: 0 10px;
+    border-radius: 12px 0 0 12px;
+    height: 100%;
+    display: inline-block;
+  }
+
+  input {
+    border: none;
+    height: 100%;
+    width: 100%;
+    text-align: end;
+    display: inline-block;
+    background-color: transparent;
+    outline: none;
+  }
+
+  ::placeholder {
+    color: #1f2037;
+    font-size: 16px;
+  }
+}
+
+.aleart_loan {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #eeecff;
+  color: #4b4a7a;
+  font-size: 12.5px;
+  line-height: 1.55;
+
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out 0.3s forwards;
+}
+
+.action_form {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out 0.4s forwards;
+
+  button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .btn_submit {
+    color: #fff;
+    background: #5f4fe6;
+    box-shadow: 0 8px 18px rgba(95, 79, 230, 0.32);
+    transition: 0.3s linear;
+
+    &:hover {
+      background-color: transparent;
+      color: #6d5ae0;
+      transform: translateY(-2px);
+    }
+  }
+
+  .btn_cansel {
+    background: #fff;
+    color: #7b7e99;
+    border: 1.5px solid #e3e5f1;
+    transition: 0.3s linear;
+
+    &:hover {
+      background-color: #7b7e99;
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* ==========================================
+   Keyframes الخاصة بالـ Animations
+   ========================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
