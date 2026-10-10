@@ -18,32 +18,46 @@
 
   </div>
 
-  <form>
+  <form [formGroup]="Form()" (ngSubmit)="onSubmit()">
     <!-- Amount -->
     <div class="Group">
       <label>Loan amount</label>
       <div class="inputs">
-        <input placeholder="0.00" />
+        <input type="number" formControlName="amount" placeholder="0.00" />
         <span>EGP</span>
       </div>
+
+      @if (getControlName('amount')?.touched && getControlName('amount')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
 
 
-
-<!-- Account -->
+    <!-- Account -->
     <div class="Group">
       <label>Account</label>
-      <p-select appendTo="body" [options]="[]" [optionLabel]="'accountNumber'" [optionValue]="'id'"
-        placeholder="Select Account" [style]="{ 'width': '100%' }" />
+      <p-select formControlName="accountId" appendTo="body" [options]="accounts()" [optionLabel]="'accountNumber'"
+        [optionValue]="'id'" placeholder="Select Account" [style]="{ 'width': '100%' }" />
+      @if (getControlName('accountId')?.touched && getControlName('accountId')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
 
+
+    <!-- Aleart Loan -->
     <div class="aleart_loan">
       <p>Your application goes through review first. Interest rate and monthly installment are calculated after
         approval.</p>
       <svg-icon [svgStyle]="{ 'width.px': 25, 'height.px': 25 }" src="/Icons/si--warning-duotone.svg"></svg-icon>
     </div>
+
+    <!-- Action Form -->
     <div class="action_form">
-      <button class="btn_submit">Submit Application</button>
+      <button type="submit" class="btn_submit">Submit Application</button>
       <button type="button" class="btn_cansel" (click)="onCloseDilog()">Cansel</button>
     </div>
 
