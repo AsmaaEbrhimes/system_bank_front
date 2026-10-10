@@ -27,6 +27,8 @@ import { ChangePin } from './cards/change-pin/change-pin';
 import { CustmerHaveAccounts } from './custmers/custmer-have-accounts/custmer-have-accounts';
 import { AddCustmerAndCreateAccount } from './custmers/add-custmer-and-create-account/add-custmer-and-create-account';
 import { CreateLoans } from './loans/create-loans/create-loans';
+import { TooltipModule } from 'primeng/tooltip';
+import { ApprovedLoans } from './loans/approved-loans/approved-loans';
 @NgModule({
   declarations: [
     SideNav,
@@ -49,6 +51,7 @@ import { CreateLoans } from './loans/create-loans/create-loans';
     CustmerHaveAccounts,
     AddCustmerAndCreateAccount,
     CreateLoans,
+    ApprovedLoans,
   ],
   imports: [
     CommonModule,
@@ -58,6 +61,7 @@ import { CreateLoans } from './loans/create-loans/create-loans';
     SharedModule,
     SelectModule,
     ReactiveFormsModule,
+    TooltipModule,
   ],
   providers: [DialogService],
 })
