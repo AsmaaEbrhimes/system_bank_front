@@ -26,6 +26,7 @@ import { CreateCards } from './cards/create-cards/create-cards';
 import { ChangePin } from './cards/change-pin/change-pin';
 import { CustmerHaveAccounts } from './custmers/custmer-have-accounts/custmer-have-accounts';
 import { AddCustmerAndCreateAccount } from './custmers/add-custmer-and-create-account/add-custmer-and-create-account';
+import { CreateLoans } from './loans/create-loans/create-loans';
 @NgModule({
   declarations: [
     SideNav,
@@ -47,6 +48,7 @@ import { AddCustmerAndCreateAccount } from './custmers/add-custmer-and-create-ac
     ChangePin,
     CustmerHaveAccounts,
     AddCustmerAndCreateAccount,
+    CreateLoans,
   ],
   imports: [
     CommonModule,
