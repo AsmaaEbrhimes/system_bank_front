@@ -1,3 +1,4 @@
+import { ApprovedLoans } from './approved-loans/approved-loans';
 import { Component, OnInit, signal } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
 import { Core } from '../../../core/Servies/core';
@@ -25,6 +26,8 @@ export class Loans implements OnInit {
   active_tap = signal<number>(0);
   data = signal<any>([]);
   status = signal<string>('All');
+  CreateLoans = CreateLoans;
+  ApprovedLoans = ApprovedLoans;
 
   // =========================Functions=============================== //
 
@@ -60,18 +63,18 @@ export class Loans implements OnInit {
     this.getAllLoans();
   }
 
-  OpenDilog() {
-    let ref: any = this.dialogService.open(CreateLoans, {
+  OpenDilog(componet:any, rowData?: any) {
+    let ref: any = this.dialogService.open(componet, {
       width: '30rem',
       modal: true,
       showHeader: false,
       baseZIndex: 9999999999,
+      data:{item:rowData},
       contentStyle: {
         'border-radius': '24px',
         'text-align': 'end',
       },
     });
-
     ref.onClose.subscribe((message: any) => {
       if (message === 'success') {
         this.getAllLoans();

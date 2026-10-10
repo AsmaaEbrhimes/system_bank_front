@@ -4,7 +4,7 @@
       <div class="wrapper_header">
         <h3>Loans</h3>
         <div class="flex_header">
-          <button (click)="OpenDilog()">Applying for a loan +</button>
+          <button (click)="OpenDilog(CreateLoans)">Applying for a loan +</button>
 
           <p>
             <span class="title">Submitting the application</span><span class="arrow">←</span>
@@ -77,7 +77,7 @@
       <ng-template #actions let-item>
         @if(item?.status == "Pending"){
           <div class="action_tabel">
-            <button (click)="onAccept(item)" class="btn_accept" pTooltip="Accept" tooltipPosition="top">Accept <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--success.svg"></svg-icon></button>
+            <button (click)="OpenDilog(ApprovedLoans ,item )" class="btn_accept" pTooltip="Accept" tooltipPosition="top">Accept <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--success.svg"></svg-icon></button>
             <button (click)="onReject(item)" class="btn_reject" pTooltip="Reject" tooltipPosition="top">Reject <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
           </div>
         }
