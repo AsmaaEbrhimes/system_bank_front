@@ -15,8 +15,8 @@
       align-items: center;
       border-radius: 5px;
     }
-    .wrapper_header{
-          width: 100%;
+    .wrapper_header {
+      width: 100%;
     }
   }
   p {
@@ -207,21 +207,22 @@
   background-color: #94a3b8;
 }
 
-
-.flex_header{
+.flex_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100% !important;
-  button{
+  button {
     background-color: #6d5ae0;
     color: white;
     padding: 7px;
     border-radius: 5px;
-         border: 1px solid #6d5ae0;
+    border: 1px solid #6d5ae0;
+    white-space: nowrap;
     transition: 0.3s linear;
 
-    &:hover{
+    &:hover {
       transform: scale(1.1);
       background-color: white;
       color: #6d5ae0;
