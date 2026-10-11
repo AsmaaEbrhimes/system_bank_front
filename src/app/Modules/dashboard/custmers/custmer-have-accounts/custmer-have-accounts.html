@@ -29,9 +29,9 @@
            <div class="card-footer">
              <div class="balance">
                <label>Balance</label>
-               <strong>{{item?.balance}}EG</strong>
+               <strong>{{item?.balance | number}}EG</strong>
              </div>
-             <span class="date">{{item?.createdAt | date:"dd/mm/yyyy"}}</span>
+             <span class="date">{{item?.createdAt | date:"dd/MM/yyyy"}}</span>
            </div>
          </div>
        }
