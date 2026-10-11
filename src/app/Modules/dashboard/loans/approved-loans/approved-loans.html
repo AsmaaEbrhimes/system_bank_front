@@ -1,4 +1,6 @@
 <section class="wrapper_approved_loan">
+
+  <!-- Header Form -->
   <div class="header_approved_loans">
     <div class="wrapper_icon">
       <svg-icon [svgStyle]="{ 'width.px': 30, 'height.px': 30 }" src="/Icons/mdi--success.svg"
@@ -9,24 +11,40 @@
     <p>notified once you confirm.</p>
   </div>
 
-  <form>
+  <form [formGroup]="Form()" (ngSubmit)="onSubmit()">
+    <!-- durationInMonths -->
     <div class="Group">
       <label>Duration</label>
-      <input type="number" />
+      <input formControlName="durationInMonths" placeholder="Please Enter Duration Loans" type="number" />
+      @if (getControlName('durationInMonths')?.touched && getControlName('durationInMonths')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
 
-
+    <!-- interestRate -->
     <div class="Group">
       <label>Interest rate</label>
-      <input type="number" />
+      <input formControlName="interestRate" placeholder="Please Enter Interest" type="number" />
+      @if (getControlName('interestRate')?.touched && getControlName('interestRate')?.invalid) {
+      <div class="wrapper-error">
+        <small class="error">*This Fild Is Reqiured</small>
+      </div>
+      }
     </div>
+
+
+    <!-- details loans -->
     <div class="loans_after_add_Interest">
       <div class="header">
         <span class="status">Approved</span>
         <span class="title">Customer pays</span>
       </div>
 
-      <h4 class="requested_amount">EGP 9,166.67</h4>
+      <h4 class="requested_amount">EGP {{(data_loan()?.amount || 0) + (((data_loan()?.amount || 0) *
+        (Form().get('interestRate')?.value || 0)
+        / 100) * ((Form().get('durationInMonths')?.value || 0) / 12))|number}}</h4>
       <span class="month">Month</span>
       <div class="flex_line">
         <span class="blue_line"></span>
@@ -38,7 +56,7 @@
         <ul>
           <li>
             <p class="amount">
-              EGP 100,000.00
+              EGP {{data_loan()?.amount|number}}
             </p>
             <p class="text_amount">
               <span class="text">Amount before discount</span>
@@ -50,7 +68,7 @@
 
           <li>
             <p class="amount">
-              EGP 100,000.00
+              {{Form().get('interestRate')?.value || 0}}%
             </p>
             <p class="text_amount">
               <span class="text">Interest rate</span>
@@ -63,7 +81,8 @@
 
           <li>
             <p class="amount">
-              EGP 100,000.00
+              EGP {{(data_loan()?.amount || 0) + (((data_loan()?.amount || 0) * (Form().get('interestRate')?.value || 0)
+              / 100) * ((Form().get('durationInMonths')?.value || 0) / 12))|number}}
             </p>
 
             <p class="text_amount">
@@ -77,7 +96,7 @@
 
     </div>
 
-
+    <!-- Action Form -->
     <div class="action_form">
       <button type="submit" class="btn_submit">Approve loan</button>
       <button type="button" class="btn_cansel" (click)="onCloseDilog()">Cancel</button>

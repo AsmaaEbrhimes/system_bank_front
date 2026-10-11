@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Data } from '../../../../core/Servies/data';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-approved-loans',
@@ -12,24 +12,53 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ApprovedLoans implements OnInit {
   // ==========================Implemantion===============================//
   ngOnInit(): void {
-
+    this.GetDataLoans();
+    this.CreateForm();
   }
 
   constructor(
     private ref: DynamicDialogRef,
-    private Data:Data,
+    private Data: Data,
     private FB: FormBuilder,
+    private config: DynamicDialogConfig,
   ) {}
 
-
-   //=========================Varibels===============================//
+  //=========================Varibels===============================//
   Form = signal<FormGroup>(new FormGroup({}));
+  data_loan = signal<any>({});
 
+  // =========================Functions=============================== //
+  GetDataLoans() {
+    this.data_loan.set(this.config.data?.item);
+  }
 
-    // =========================Functions=============================== //
+  CreateForm() {
+    this.Form.set(
+      this.FB.group({
+        status: ['Approved'],
+        durationInMonths: ['', Validators.required],
+        interestRate: ['', Validators.required],
+      }),
+    );
+  }
+
+  onSubmit() {
+    if (this.Form().invalid) {
+      this.Form().markAllAsTouched();
+      return;
+    }
+
+    this.Data.put(`Loans/${this.data_loan()?.id}/approve`, this.Form().value).subscribe((res) => {
+      this.onCloseDilog();
+    });
+  }
 
   onCloseDilog() {
     this.ref.close('success');
     this.Form().reset();
+  }
+
+  getControlName(controlName: string) {
+    return this.Form().get(controlName);
   }
 }
