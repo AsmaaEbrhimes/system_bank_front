@@ -28,7 +28,7 @@
   <div class="wrapper_Statistics">
     <div class="card warning">
       <div class="card-content">
-        <h3>4</h3>
+        <h3>{{data()?.filter((item)=>item.status == "Pending")?.length}}</h3>
         <p>Under review</p>
       </div>
       <div class="icon">
@@ -38,7 +38,7 @@
 
     <div class="card success">
       <div class="card-content">
-        <h3>128</h3>
+        <h3>{{data()?.filter((item)=>item.status == "Approved")?.length}}</h3>
         <p>Approved this month</p>
       </div>
       <div class="icon">
@@ -48,7 +48,7 @@
 
     <div class="card danger">
       <div class="card-content">
-        <h3>14</h3>
+        <h3>{{data()?.filter((item)=>item.status == "Rejected")?.length}}</h3>
         <p>Rejected this month</p>
       </div>
       <div class="icon">
@@ -76,10 +76,14 @@
 
       <ng-template #actions let-item>
         @if(item?.status == "Pending"){
-          <div class="action_tabel">
-            <button (click)="OpenDilog(ApprovedLoans ,item )" class="btn_accept" pTooltip="Accept" tooltipPosition="top">Accept <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--success.svg"></svg-icon></button>
-            <button (click)="onReject(item)" class="btn_reject" pTooltip="Reject" tooltipPosition="top">Reject <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
-          </div>
+        <div class="action_tabel">
+          <button (click)="OpenDilog(ApprovedLoans ,item )" class="btn_accept" pTooltip="Accept"
+            tooltipPosition="top">Accept <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+              src="/Icons/mdi--success.svg"></svg-icon></button>
+          <button (click)="onReject(item)" class="btn_reject" pTooltip="Reject" tooltipPosition="top">Reject <svg-icon
+              [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+              src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
+        </div>
         }
       </ng-template>
 
