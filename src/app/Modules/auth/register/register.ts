@@ -41,7 +41,7 @@ export class Register implements OnInit {
       return;
     }
     this.Data.post('Auth/Register', this.Form().value).subscribe((res) => {
-      this.Router.navigate(['/login']);
+      this.Router.navigate(['/']);
     });
   }
 
