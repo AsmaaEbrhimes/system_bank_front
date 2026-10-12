@@ -75,16 +75,20 @@
     <app-tabel [data]="data()" [bodytabel]="boayTabel()">
 
       <ng-template #actions let-item>
-        @if(item?.status == "Pending"){
         <div class="action_tabel">
+          @if(item?.status == "Pending"){
           <button (click)="OpenDilog(ApprovedLoans ,item )" class="btn_accept" pTooltip="Accept"
             tooltipPosition="top">Accept <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
               src="/Icons/mdi--success.svg"></svg-icon></button>
           <button (click)="onReject(item)" class="btn_reject" pTooltip="Reject" tooltipPosition="top">Reject <svg-icon
               [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
               src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
-        </div>
         }
+        @if(item?.installments?.length > 0){
+        <button class="show_installments">عرض الأقساط <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+            src="/Icons/mdi--eye.svg"></svg-icon></button>
+        }
+        </div>
       </ng-template>
 
       <ng-template #status let-item>
@@ -93,7 +97,6 @@
           {{ item?.status }}
         </span>
       </ng-template>
-
     </app-tabel>
   </div>
 </section>
