@@ -1,3 +1,7 @@
+.wrapper_approved_loan{
+  position: relative;
+}
+
 .header_approved_loans {
   text-align: center;
   margin: auto;
@@ -219,6 +223,9 @@ input {
 }
 
 .action_form {
+  position: sticky !important;
+  bottom: 0;
+  background-color: white;
   margin-top: 15px;
   display: flex;
   gap: 10px;
@@ -314,16 +321,48 @@ input {
   font-size: 12px;
 }
 
-// @media(max-width:767px){
-//   li{
-//     flex-direction: column;
 
-//     .text_amount{
-//       order: 1;
-//     }
+.Group_installment{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .delete_icon{
+    background-color: #FDF0F0;
+    color: #D14343;
+    padding: 9px;
+    border-radius: 7px;
+    transition: 0.3s linear;
+    &:hover{
+      background-color: #D14343;
+      color: white;
+    }
+  }
 
-//     .amount{
-//       order: 2;
-//     }
-//   }
-// }
+}
+
+
+.add_installments{
+  color: #5f4fe6;
+  border: 1px dashed #5f4fe6;
+  padding: 10px;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.3s linear;
+  &:hover{
+    background-color: #5f4fe6;
+    color: white;
+    transform: translateY(-10px);
+  }
+
+}
+
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.4;
+  
+}
+

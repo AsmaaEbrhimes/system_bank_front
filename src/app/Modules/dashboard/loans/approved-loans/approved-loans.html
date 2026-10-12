@@ -34,6 +34,43 @@
       }
     </div>
 
+    <!-- Installments -->
+    <div class="content_installments" formArrayName="installments">
+      @for (installment of installmentsArray.controls; track $index ; let i = $index) {
+      <div class="Group_installment" [formGroupName]="i">
+        <!-- Delete Installments -->
+        @if(installmentsArray.length > 1){
+        <button type="button" class="delete_icon" (click)="removeInstallments(i)">
+          <svg-icon src="/Icons/ant-design--delete-outlined.svg" class="input-icon"></svg-icon>
+        </button>
+        }
+
+
+        <!-- Payment Date -->
+        <div class="Group">
+          <label>Enter Payment Date</label>
+          <input formControlName="paymentDate" type="date" placeholder="Payment date" />
+        </div>
+
+        <!-- Amount -->
+        <div class="Group">
+          <label>Enter Amount (EGP)</label>
+          <input formControlName="amount" type="number" placeholder="Amount (EGP)" />
+        </div>
+
+        <!-- Name -->
+        <div class="Group">
+          <label>Enter Name</label>
+          <input formControlName="name" placeholder="Name" />
+        </div>
+      </div>
+      }
+    </div>
+
+    <button type="button" (click)="AddInstallments()" class="add_installments"
+      [ngClass]="{'disabled':installmentsArray.length == Form().get('durationInMonths')?.value}">Add Installments
+      +</button>
+
 
     <!-- details loans -->
     <div class="loans_after_add_Interest">
@@ -98,7 +135,9 @@
 
     <!-- Action Form -->
     <div class="action_form">
-      <button type="submit" class="btn_submit">Approve loan</button>
+      <button type="submit" class="btn_submit"
+        [ngClass]="{'disabled':installmentsArray.length !== Form().get('durationInMonths')?.value}">Approve
+        loan</button>
       <button type="button" class="btn_cansel" (click)="onCloseDilog()">Cancel</button>
     </div>
   </form>

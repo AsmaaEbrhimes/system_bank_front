@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Data } from '../../../../core/Servies/data';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-approved-loans',
@@ -38,8 +38,39 @@ export class ApprovedLoans implements OnInit {
         status: ['Approved'],
         durationInMonths: ['', Validators.required],
         interestRate: ['', Validators.required],
+        installments: this.FB.array([
+          this.FB.group({
+            id: [0],
+            name: ['', Validators.required],
+            amount: ['', Validators.required],
+            status: false,
+            paymentDate: ['', Validators.required],
+          }),
+        ]),
       }),
     );
+  }
+
+  get installmentsArray() {
+    return this.Form().get('installments') as FormArray;
+  }
+
+  AddInstallments() {
+    this.installmentsArray.push(
+      this.FB.group({
+        id: [0],
+        name: [''],
+        amount: [''],
+        status: false,
+        paymentDate: [''],
+      }),
+    );
+  }
+
+  removeInstallments(index: number) {
+    if (this.installmentsArray.length > 0) {
+      this.installmentsArray.removeAt(index);
+    }
   }
 
   onSubmit() {
