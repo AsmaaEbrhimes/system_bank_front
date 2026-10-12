@@ -83,11 +83,11 @@
           <button (click)="onReject(item)" class="btn_reject" pTooltip="Reject" tooltipPosition="top">Reject <svg-icon
               [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
               src="/Icons/material-symbols--close-rounded.svg"></svg-icon></button>
-        }
-        @if(item?.installments?.length > 0){
-        <button class="show_installments">عرض الأقساط <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-            src="/Icons/mdi--eye.svg"></svg-icon></button>
-        }
+          }
+          @if(item?.installments?.length > 0){
+          <button pTooltip="Installment" tooltipPosition="top" class="show_installments">show Installments <svg-icon
+              [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--eye.svg"></svg-icon></button>
+          }
         </div>
       </ng-template>
 
