@@ -65,7 +65,7 @@ export class Loans implements OnInit {
 
   OpenDilog(componet:any, rowData?: any) {
     let ref: any = this.dialogService.open(componet, {
-      width: '30rem',
+      width: '40rem',
       modal: true,
       showHeader: false,
       baseZIndex: 9999999999,
