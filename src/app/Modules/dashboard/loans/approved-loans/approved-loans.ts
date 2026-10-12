@@ -92,4 +92,9 @@ export class ApprovedLoans implements OnInit {
   getControlName(controlName: string) {
     return this.Form().get(controlName);
   }
+
+   getInstallmentControl(index: number, controlName: string) {
+    const accountGroup = this.installmentsArray.at(index) as FormGroup;
+    return accountGroup?.get(controlName);
+  }
 }

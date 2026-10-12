@@ -50,18 +50,34 @@
         <div class="Group">
           <label>Enter Payment Date</label>
           <input formControlName="paymentDate" type="date" placeholder="Payment date" />
+
+          @if (getInstallmentControl(i, 'paymentDate')?.touched && getInstallmentControl(i, 'paymentDate')?.invalid) {
+          <div class="wrapper-error">
+            <small class="error">*This Field Is Required</small>
+          </div>
+          }
         </div>
 
         <!-- Amount -->
         <div class="Group">
           <label>Enter Amount (EGP)</label>
           <input formControlName="amount" type="number" placeholder="Amount (EGP)" />
+          @if (getInstallmentControl(i, 'amount')?.touched && getInstallmentControl(i, 'amount')?.invalid) {
+          <div class="wrapper-error">
+            <small class="error">*This Field Is Required</small>
+          </div>
+          }
         </div>
 
         <!-- Name -->
         <div class="Group">
           <label>Enter Name</label>
           <input formControlName="name" placeholder="Name" />
+          @if (getInstallmentControl(i, 'name')?.touched && getInstallmentControl(i, 'name')?.invalid) {
+          <div class="wrapper-error">
+            <small class="error">*This Field Is Required</small>
+          </div>
+          }
         </div>
       </div>
       }
