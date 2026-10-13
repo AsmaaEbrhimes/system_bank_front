@@ -44,8 +44,9 @@ export class Loans implements OnInit {
 
   boayTabel() {
     return [
+      { key: 'installments', value: 'installments', type: 'template' },
       { key: 'Application Date', value: 'applicationDate', type: 'date', format: 'dd/MM/yyyy' },
-      { key: 'Status', value: 'status' , type: 'template' },
+      { key: 'Status', value: 'status', type: 'template' },
       { key: 'Monthly Installment', value: 'monthlyInstallment' },
       { key: 'Total Amount Payable', value: 'totalAmountPayable' },
       { key: 'Interest Rate', value: 'interestRate' },
@@ -63,13 +64,13 @@ export class Loans implements OnInit {
     this.getAllLoans();
   }
 
-  OpenDilog(componet:any, rowData?: any) {
+  OpenDilog(componet: any, rowData?: any) {
     let ref: any = this.dialogService.open(componet, {
       width: '40rem',
       modal: true,
       showHeader: false,
       baseZIndex: 9999999999,
-      data:{item:rowData},
+      data: { item: rowData },
       contentStyle: {
         'border-radius': '24px',
         'text-align': 'end',

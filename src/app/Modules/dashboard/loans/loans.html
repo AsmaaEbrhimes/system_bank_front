@@ -72,7 +72,8 @@
 
     <app-search [ArrayColumns]="['applicationDate', 'status']" (DataFilter)="data.set($event)"></app-search>
 
-    <app-tabel [data]="data()" [bodytabel]="boayTabel()" [templates]="{ actions: actions, status: status }">
+    <app-tabel [data]="data()" [bodytabel]="boayTabel()"
+      [templates]="{ actions: actions, status: status , installments:installments}">
 
       <ng-template #actions let-item>
         <div class="action_tabel">
@@ -96,6 +97,10 @@
           <span class="status-dot"></span>
           {{ item?.status }}
         </span>
+      </ng-template>
+
+      <ng-template #installments let-item>
+        <!-- <h1>eiroeiroei</h1> -->
       </ng-template>
     </app-tabel>
   </div>
