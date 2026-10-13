@@ -75,6 +75,7 @@
     <app-tabel [data]="data()" [bodytabel]="boayTabel()"
       [templates]="{ actions: actions, status: status , installments:installments}">
 
+      <!-- actions -->
       <ng-template #actions let-item>
         <div class="action_tabel">
           @if(item?.status == "Pending"){
@@ -92,6 +93,7 @@
         </div>
       </ng-template>
 
+      <!-- status -->
       <ng-template #status let-item>
         <span class="status-badge" [ngClass]="item?.status?.toLowerCase()">
           <span class="status-dot"></span>
@@ -99,9 +101,51 @@
         </span>
       </ng-template>
 
+
+      <!-- installments -->
       <ng-template #installments let-item>
-        <!-- <h1>eiroeiroei</h1> -->
+        @let list = item?.installments ?? [];
+        @let total = list.length;
+        @let paid = list.filter(i => i.status).length;
+        @let next = list.find(i => !i.status);
+
+        @if (total > 0) {
+        <div class="installments-container">
+
+          <div class="icons-row">
+            @for (installment of list; track $index) {
+            <div class="step" [class.pay_installment]="installment?.status" [class.no_pay]="!installment?.status"
+              [pTooltip]="(installment?.paymentDate | date:'dd/MM/yyyy') + (installment?.status ? ' - Paid' : ' - Unpaid')"
+              tooltipPosition="top">
+              <svg-icon [svgStyle]="{ 'width.px': 14, 'height.px': 14 }"
+                [src]="installment?.status ? '/Icons/mdi--success.svg' : '/Icons/mdi-light--clock.svg'">
+              </svg-icon>
+            </div>
+            }
+          </div>
+
+          <div class="inst-progress">
+            <span [style.width.%]="item?.installments?.length"></span>
+            <pre>{{ list[0] | json }}</pre>
+          </div>
+
+          <div class="installments-info">
+            @if (paid === total) {
+            <span class="done">Fully paid</span>
+            } @else {
+            <span>{{ paid }} of {{ total }} paid</span>
+            @if (next) {
+            <span> · next {{ next.paymentDate | date:'dd/MM/yyyy' }}</span>
+            }
+            }
+          </div>
+
+        </div>
+        } @else {
+        <small class="no-installments">No installments</small>
+        }
       </ng-template>
+
     </app-tabel>
   </div>
 </section>

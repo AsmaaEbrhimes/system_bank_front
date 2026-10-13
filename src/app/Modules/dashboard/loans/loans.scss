@@ -235,7 +235,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  button{
+  button {
     padding: 7px;
     border-radius: 5px;
     display: flex;
@@ -254,23 +254,112 @@
   }
 }
 
-.show_installments{
+.show_installments {
   border: 1px solid #6d5ae0;
   color: #6d5ae0;
- border-radius: 20px !important;
- display: flex;
- align-items: center;
- gap: 7px;
- padding: 5px 10px;
- background-color: transparent;
- transition: 0.3s linear;
- &:hover{
-  background-color: #6d5ae0;
-  color: white;
-  transform: translateY(-10px);
- }
+  border-radius: 20px !important;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  background-color: transparent;
+  transition: 0.3s linear;
+  &:hover {
+    background-color: #6d5ae0;
+    color: white;
+    transform: translateY(-10px);
+  }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.installments-container {
+  direction: ltr;
+  text-align: left;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.icons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.step {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: scale(1.12);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.pay_installment {
+  background: #e8f8ee;
+  border: 1px solid #b7e8cb;
+
+}
+
+.no_pay {
+  background: #fff7e6;
+  border: 1px solid #f5d9a6;
+
+}
+
+.inst-progress {
+  height: 7px;
+  background: #e2e5ff;
+  border-radius: 999px;
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    background: #22c55e;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+}
+
+.installments-info {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+
+  .done {
+    color: #1f9d55;
+    font-weight: 600;
+  }
+}
+
+.no-installments {
+  font-size: 11px;
+  color: #94a3b8;
+}
 @media (max-width: 767px) {
   .wrapper_Statistics {
     grid-template-columns: 1fr;
