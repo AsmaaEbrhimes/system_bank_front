@@ -45,7 +45,7 @@ export class Loans implements OnInit {
   boayTabel() {
     return [
       { key: 'Application Date', value: 'applicationDate', type: 'date', format: 'dd/MM/yyyy' },
-      { key: 'Status', value: 'status' },
+      { key: 'Status', value: 'status' , type: 'template' },
       { key: 'Monthly Installment', value: 'monthlyInstallment' },
       { key: 'Total Amount Payable', value: 'totalAmountPayable' },
       { key: 'Interest Rate', value: 'interestRate' },

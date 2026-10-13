@@ -72,7 +72,7 @@
 
     <app-search [ArrayColumns]="['applicationDate', 'status']" (DataFilter)="data.set($event)"></app-search>
 
-    <app-tabel [data]="data()" [bodytabel]="boayTabel()">
+    <app-tabel [data]="data()" [bodytabel]="boayTabel()" [templates]="{ actions: actions, status: status }">
 
       <ng-template #actions let-item>
         <div class="action_tabel">
