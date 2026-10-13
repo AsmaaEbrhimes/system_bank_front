@@ -8,6 +8,7 @@ import { Custmers } from './custmers/custmers';
 import { Loans } from './loans/loans';
 import { Notifications } from './notifications/notifications';
 import { Transactions } from './transactions/transactions';
+import { ShowInstallmentRelationsLoan } from './loans/show-installment-relations-loan/show-installment-relations-loan';
 {
 }
 
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'loans', component: Loans },
       { path: 'notifications', component: Notifications },
       { path: 'transactions', component: Transactions },
+      { path: 'installments_relation_loan/:id', component: ShowInstallmentRelationsLoan },
     ],
   },
 ];

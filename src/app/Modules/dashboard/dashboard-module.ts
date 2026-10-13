@@ -29,6 +29,7 @@ import { AddCustmerAndCreateAccount } from './custmers/add-custmer-and-create-ac
 import { CreateLoans } from './loans/create-loans/create-loans';
 import { TooltipModule } from 'primeng/tooltip';
 import { ApprovedLoans } from './loans/approved-loans/approved-loans';
+import { ShowInstallmentRelationsLoan } from './loans/show-installment-relations-loan/show-installment-relations-loan';
 @NgModule({
   declarations: [
     SideNav,
@@ -52,6 +53,7 @@ import { ApprovedLoans } from './loans/approved-loans/approved-loans';
     AddCustmerAndCreateAccount,
     CreateLoans,
     ApprovedLoans,
+    ShowInstallmentRelationsLoan,
   ],
   imports: [
     CommonModule,
