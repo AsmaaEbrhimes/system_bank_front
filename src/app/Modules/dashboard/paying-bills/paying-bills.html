@@ -48,7 +48,7 @@
       <app-search [ArrayColumns]="['title', 'category']" (DataFilter)="data.set($event)"></app-search>
     </div>
 
-    <app-tabel [data]="data()" [bodytabel]="boadyTabel()">
+    <app-tabel [data]="data()" [bodytabel]="boadyTabel()"  [templates]="{ actions: actions, status: status }">
 
       <ng-template #status let-row>
         <span class="status-badge" [class.success]="row.isPaid" [class.pending]="!row.isPaid">

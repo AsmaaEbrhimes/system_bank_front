@@ -203,9 +203,12 @@
 .done_payment{
   display: flex;
   align-items: center;
-  svg{
-    color: #10b981;
-  }
+  justify-content: center;
+  gap: 5px;
+  background-color: #10b981;
+  color: white;
+padding:5px;
+ border-radius: 20px;
 
 }
 
