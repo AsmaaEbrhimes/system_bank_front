@@ -1,0 +1,74 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  display: inline-block;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  &.badge-success {
+    background-color: rgba(40, 167, 69, 0.12);
+    color: #28a745;
+
+    .dot {
+      background-color: #28a745;
+      box-shadow: 0 0 6px rgba(40, 167, 69, 0.6);
+    }
+  }
+
+  &.badge-danger {
+    background-color: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+
+    .dot {
+      background-color: #dc3545;
+      box-shadow: 0 0 6px rgba(220, 53, 69, 0.6);
+    }
+  }
+}
+
+
+
+.wrapper_tabel{
+  display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+
+
+
+
+.btn-pay {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #6366f1;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+}
