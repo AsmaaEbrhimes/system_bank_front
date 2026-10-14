@@ -151,9 +151,19 @@
 
     <!-- Action Form -->
     <div class="action_form">
-      <button type="submit" class="btn_submit"
-        [ngClass]="{'disabled':installmentsArray.length !== Form().get('durationInMonths')?.value}">Approve
-        loan</button>
+      <!-- <button type="submit" class="btn_submit"
+        [ngClass]="{'disabled':
+        installmentsArray.length !== Form().get('durationInMonths')?.value
+        }">Approve
+        loan</button> -->
+
+
+      <button type="submit" class="btn_submit" [ngClass]="{'disabled': isApproveDisabled()}"
+        [disabled]="isApproveDisabled()">
+        Approve loan
+      </button>
+
+
       <button type="button" class="btn_cansel" (click)="onCloseDilog()">Cancel</button>
     </div>
   </form>

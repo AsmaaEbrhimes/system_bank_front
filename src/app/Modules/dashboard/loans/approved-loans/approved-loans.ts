@@ -55,6 +55,36 @@ export class ApprovedLoans implements OnInit {
     return this.Form().get('installments') as FormArray;
   }
 
+  TotalBalanceInAmount(): number {
+    return (
+      this.installmentsArray.controls.reduce(
+        (acc: number, item: any) => acc + (Number(item.get('amount')?.value) || 0),
+        0,
+      ) || 0
+    );
+  }
+
+isApproveDisabled(): boolean {
+  const duration = Number(this.Form().get('durationInMonths')?.value) || 0;
+  const interestRate = Number(this.Form().get('interestRate')?.value) || 0;
+  const amount = Number(this.data_loan()?.amount) || 0;
+  const totalBalance = Number(this.TotalBalanceInAmount()) || 0;
+
+  // التقريب لخانتين عشريتين
+  const round2 = (n: number) => Math.round((n + Number.EPSILON) * 100) / 100;
+
+  // الشرط 1: عدد الأقساط لازم يساوي مدة القرض
+  const installmentsMismatch = this.installmentsArray.length !== duration;
+
+  // الشرط 2: المبلغ + الفايدة لازم يساوي إجمالي الأقساط
+  const totalWithInterest = amount + ((amount * interestRate) / 100) * (duration / 12);
+  const totalMismatch = round2(totalWithInterest) !== round2(totalBalance);
+
+  return installmentsMismatch || totalMismatch;
+}
+
+
+
   AddInstallments() {
     this.installmentsArray.push(
       this.FB.group({
@@ -93,7 +123,7 @@ export class ApprovedLoans implements OnInit {
     return this.Form().get(controlName);
   }
 
-   getInstallmentControl(index: number, controlName: string) {
+  getInstallmentControl(index: number, controlName: string) {
     const accountGroup = this.installmentsArray.at(index) as FormGroup;
     return accountGroup?.get(controlName);
   }
