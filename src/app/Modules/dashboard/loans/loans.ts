@@ -83,7 +83,6 @@ export class Loans implements OnInit {
     });
   }
 
-  onAccept(item: any) {}
 
   onReject(item: any) {
     this.Data.put(`Loans/${item?.id}/reject`, {}).subscribe((res) => {
