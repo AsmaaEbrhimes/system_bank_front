@@ -1,34 +1,82 @@
-<div class="wrapper_tabel">
-  <app-search [ArrayColumns]="['name']" (DataFilter)="installments.set($event)"></app-search>
+<div class="loan-installments-wrapper">
 
-  <app-tabel [data]="installments()" [bodytabel]="boayTabel()" [templates]="{status: status , actions: actions}">
+  <!-- الهيدر العلوي -->
+  <div class="top-header">
+    <div class="status-badge-fully">
+      <span class="check-icon">✓</span> Fully paid
+    </div>
 
-    <!-- Actions -->
+
+    <div class="title-area">
+      <div>
+        <span class="breadcrumb">Loans / Loan #{{LoanId()}}</span>
+        <h2>Loan #{{LoanId()}} installments</h2>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- بطاقة شريط التقدم (Repayment Progress) -->
+  <div class="progress-card">
+    <div class="progress-info-header">
+      <span class="label">Repayment progress</span>
+      <span class="sub-label">4 of 4 installments paid · 100%</span>
+    </div>
+
+    <!-- شريط التقدم -->
+    <div class="progress-bar-container">
+      <div class="progress-fill"  style="width: 100%;"></div>
+    </div>
+
+    <!-- الإحصائيات الثلاثة -->
+    <div class="progress-stats">
+      <div class="stat-item">
+        <span class="stat-title">Total scheduled</span>
+        <span class="stat-value">EGP 100,000</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-title">Paid so far</span>
+        <span class="stat-value paid-color">EGP 100,000</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-title">Remaining</span>
+        <span class="stat-value">EGP 0</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="search-box">
+    <app-search [ArrayColumns]="['name']" (DataFilter)="installments.set($event)"></app-search>
+  </div>
+
+  <!-- الجدول (Table) -->
+  <app-tabel [data]="installments()" [bodytabel]="boayTabel()" [templates]="{status: status, actions: actions}">
+
+    <!-- Actions (Receipt button) -->
     <ng-template #actions let-item>
       @if(item?.status == false){
-        <button class="btn-pay">
-      <svg-icon [svgStyle]="{ 'width.px': 16, 'height.px': 16 }" src="/Icons/hugeicons--payment-02.svg"></svg-icon>
-      Pay Now
-    </button>
+      <button class="btn-receipt" (click)="onPayInstallment(item)">
+        <svg-icon [svgStyle]="{ 'width.px': 14, 'height.px': 14 }" src="/Icons/hugeicons--payment-02.svg"></svg-icon>
+        Receipt
+      </button>
       }
     </ng-template>
 
-
-
-
-    <!-- status -->
     <ng-template #status let-item>
       @if (item.status) {
       <span class="badge badge-success">
         <span class="dot"></span>
-        {{item.status??"Paid"}}
+        {{item.status?"Paid":"No Paid"}}
       </span>
       } @else {
       <span class="badge badge-danger">
         <span class="dot"></span>
-        {{item.status ? "No Paid":"Paid"}}
+        {{item.status == false ? "No Paid":"Paid"}}
       </span>
       }
     </ng-template>
+
   </app-tabel>
 </div>

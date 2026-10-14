@@ -12,24 +12,26 @@ import { Core } from '../../../../core/Servies/core';
 export class ShowInstallmentRelationsLoan implements OnInit {
   // ==========================Implemantion===============================//
   ngOnInit(): void {
-    this.getIdParams();
+    this.getInstallmentRelatedLoan();
   }
 
   constructor(
     private ActivatedRoute: ActivatedRoute,
     private Data: Data,
-    private Core:Core
+    private Core: Core,
   ) {}
 
   //=========================Varibels===============================//
   installments = signal<any>([]);
+  LoanId = signal<any>(0);
   // =========================Functions=============================== //
-  getIdParams() {
+  getInstallmentRelatedLoan() {
     let LoanId = this.ActivatedRoute.snapshot.paramMap.get('id');
     if (LoanId) {
       this.Data.get(`Installments/${LoanId}`).subscribe((res: any) => {
+        this.LoanId.set(LoanId)
         this.installments.set(res);
-        this.Core.originalDataStore.set(res)
+        this.Core.originalDataStore.set(res);
         this.boayTabel();
       });
     }
@@ -44,4 +46,12 @@ export class ShowInstallmentRelationsLoan implements OnInit {
     ];
   }
 
+  onPayInstallment(item: any) {
+    let payload = {
+      amount: item?.amount,
+    };
+    this.Data.post(`Installments?idInstallment=${item?.id}`, payload).subscribe((rse) => {
+      this.getInstallmentRelatedLoan();
+    });
+  }
 }
