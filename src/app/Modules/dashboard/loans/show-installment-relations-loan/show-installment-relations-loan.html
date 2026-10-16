@@ -21,27 +21,20 @@
   <div class="progress-card">
     <div class="progress-info-header">
       <span class="label">Repayment progress</span>
-      <span class="sub-label">4 of 4 installments paid · 100%</span>
+      <span class="sub-label">{{installments().filter((ele)=>ele.status).length}} of
+        {{installments().filter((ele)=>ele.status).length}} installments paid · 100%</span>
     </div>
 
     <!-- شريط التقدم -->
     <div class="progress-bar-container">
-      <div class="progress-fill"  style="width: 100%;"></div>
+      <div class="progress-fill" style="width: 100%;"></div>
     </div>
 
     <!-- الإحصائيات الثلاثة -->
     <div class="progress-stats">
       <div class="stat-item">
-        <span class="stat-title">Total scheduled</span>
-        <span class="stat-value">EGP 100,000</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-title">Paid so far</span>
-        <span class="stat-value paid-color">EGP 100,000</span>
-      </div>
-      <div class="stat-item">
         <span class="stat-title">Remaining</span>
-        <span class="stat-value">EGP 0</span>
+        <span class="stat-value">EGP {{CalculateRaminigAmount()}}</span>
       </div>
     </div>
   </div>

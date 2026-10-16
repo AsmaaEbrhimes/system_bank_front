@@ -24,6 +24,10 @@ export class ShowInstallmentRelationsLoan implements OnInit {
   //=========================Varibels===============================//
   installments = signal<any>([]);
   LoanId = signal<any>(0);
+
+
+
+
   // =========================Functions=============================== //
   getInstallmentRelatedLoan() {
     let LoanId = this.ActivatedRoute.snapshot.paramMap.get('id');
@@ -53,5 +57,10 @@ export class ShowInstallmentRelationsLoan implements OnInit {
     this.Data.post(`Installments?idInstallment=${item?.id}`, payload).subscribe((rse) => {
       this.getInstallmentRelatedLoan();
     });
+  }
+
+
+  CalculateRaminigAmount(){
+    return this.installments().reduce((acc:number,item:any)=> acc+ (item?.amount||0),0)
   }
 }
