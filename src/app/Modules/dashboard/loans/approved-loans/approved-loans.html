@@ -38,6 +38,8 @@
     <div class="content_installments" formArrayName="installments">
       @for (installment of installmentsArray.controls; track $index ; let i = $index) {
       <div class="Group_installment" [formGroupName]="i">
+
+        
         <!-- Delete Installments -->
         @if(installmentsArray.length > 1){
         <button type="button" class="delete_icon" (click)="removeInstallments(i)">
