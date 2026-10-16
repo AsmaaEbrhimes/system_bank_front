@@ -10,7 +10,7 @@ import { Core } from '../../../core/Servies/core';
   templateUrl: './paying-bills.html',
   styleUrl: './paying-bills.scss',
 })
-export class PayingBills {
+export class PayingBills implements OnInit {
   //===============================Implemantion================================//
   constructor(
     private Data: Data,
@@ -18,6 +18,9 @@ export class PayingBills {
     private Core: Core,
   ) {}
 
+  ngOnInit(): void {
+    this.getAllPaying();
+  }
   //===============================Vribels================================//
   activeTab: 'unpaid' | 'paid' = 'paid';
   IdCustomer = signal<number | null>(null);
@@ -25,6 +28,13 @@ export class PayingBills {
   ref: DynamicDialogRef | any;
 
   //===============================Functions================================//
+
+  getAllPaying() {
+    this.Data.get('Bill/all').subscribe((res: any) => {
+      this.data.set(res);
+    });
+  }
+
   boadyTabel() {
     return [
       { key: 'Title', value: 'title' },
@@ -41,9 +51,10 @@ export class PayingBills {
   }
 
   onActiveTap(tab: 'unpaid' | 'paid' = 'paid') {
+    let exststCustmer= this.IdCustomer()?this.IdCustomer():''
     this.activeTab = tab;
     let status = tab === 'paid' ? true : false;
-    this.Data.get(`Bill/customer/${this.IdCustomer()}/all?status=${status}`).subscribe(
+    this.Data.get(`Bill/all?customerId=${exststCustmer}&status=${status}`).subscribe(
       (res: any) => {
         this.data.set(res);
         this.Core.originalDataStore.set(this.data());
