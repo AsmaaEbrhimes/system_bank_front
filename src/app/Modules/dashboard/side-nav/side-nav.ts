@@ -71,11 +71,11 @@ export class SideNav {
       icon: 'material-symbols--notifications-outline-rounded.svg',
       Route: 'notifications',
     },
-    {
-      name: 'Reports',
-      icon: 'oui--nav-reports.svg',
-      Route: '',
-    },
+    // {
+    //   name: 'Reports',
+    //   icon: 'oui--nav-reports.svg',
+    //   Route: '',
+    // },
     {
       name: 'Transactions',
       icon: 'hugeicons--transaction.svg',
