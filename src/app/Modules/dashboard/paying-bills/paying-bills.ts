@@ -1,8 +1,10 @@
+import { Panel } from './../Panel/Panel';
+import { Data } from './../../../core/Servies/data';
 import { Component, OnInit, signal } from '@angular/core';
-import { Data } from '../../../core/Servies/data';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CreatePaying } from './create-paying/create-paying';
 import { Core } from '../../../core/Servies/core';
+import { panel } from '../panel.service';
 
 @Component({
   selector: 'app-paying-bills',
@@ -16,6 +18,7 @@ export class PayingBills implements OnInit {
     private Data: Data,
     private dialogService: DialogService,
     private Core: Core,
+    private Panel: panel,
   ) {}
 
   ngOnInit(): void {
@@ -51,15 +54,13 @@ export class PayingBills implements OnInit {
   }
 
   onActiveTap(tab: 'unpaid' | 'paid' = 'paid') {
-    let exststCustmer= this.IdCustomer()?this.IdCustomer():''
+    let exststCustmer = this.IdCustomer() ? this.IdCustomer() : '';
     this.activeTab = tab;
     let status = tab === 'paid' ? true : false;
-    this.Data.get(`Bill/all?customerId=${exststCustmer}&status=${status}`).subscribe(
-      (res: any) => {
-        this.data.set(res);
-        this.Core.originalDataStore.set(this.data());
-      },
-    );
+    this.Data.get(`Bill/all?customerId=${exststCustmer}&status=${status}`).subscribe((res: any) => {
+      this.data.set(res);
+      this.Core.originalDataStore.set(this.data());
+    });
   }
 
   onOpenComponentCreateInvoice() {
@@ -78,6 +79,7 @@ export class PayingBills implements OnInit {
   onPaymentInvoice(row: any) {
     this.Data.put(`Bill/${row.id}/pay`, { accountId: row.accountId }).subscribe((res: any) => {
       this.onActiveTap(this.activeTab);
+      this.Panel.triggerRefresh();
     });
   }
 
