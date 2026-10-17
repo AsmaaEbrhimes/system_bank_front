@@ -1,32 +1,29 @@
 <div class="clean-dialog-wrapper">
 
   <div class="clean-header">
-        <button type="button" class="x-close-btn">&times;</button>
+    <button (click)="onCloseDilog()" type="button" class="x-close-btn">&times;</button>
 
     <div class="header-left">
 
-       <div>
+      <div>
         <h2>Withdraw</h2>
         <p>Take money out of an account</p>
       </div>
 
 
       <div class="icon-box withdraw">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M7 17L17 7M17 7H7M17 7V17"/>
-        </svg>
+        <svg-icon src="/Icons/akar-icons--arrow-up-right.svg" class="input-icon"></svg-icon>
       </div>
-
-
 
     </div>
   </div>
 
   <div class="clean-body">
+
     <form>
 
       <!-- Account ID -->
-      <div class="field-group">
+      <div class="Group">
         <label>Account ID</label>
         <div class="input-container">
           <span class="prefix-symbol">#</span>
@@ -35,11 +32,12 @@
       </div>
 
       <!-- Amount -->
-      <div class="field-group">
+      <div class="Group">
         <label>Amount</label>
         <div class="input-container">
           <span class="prefix-symbol">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            <svg-icon src="/Icons/fluent--wallet-16-regular.svg" class="input-icon"></svg-icon>
+
           </span>
           <input type="number" placeholder="500" />
         </div>
@@ -52,7 +50,7 @@
 
 
       <div class="dialog-actions">
-        <button type="button" class="btn-cancel">Cancel</button>
+        <button type="button" class="btn-cancel" (click)="onCloseDilog()">Cancel</button>
         <button type="submit" class="btn-action withdraw">Withdraw</button>
       </div>
 
