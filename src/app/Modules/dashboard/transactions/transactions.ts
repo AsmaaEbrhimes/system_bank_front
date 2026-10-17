@@ -44,11 +44,33 @@ export class Transactions implements OnInit {
   }
 
   onShowDilogTransactions(type: string) {
+    let desc = '';
+    let icon = '';
+
+    if (type == 'Deposit') {
+      desc = 'Add money to your account';
+      icon = 'akar-icons--arrow-down-right';
+    } else if (type == 'Withdraw') {
+      desc = 'Take money out of an account';
+      icon = 'akar-icons--arrow-up-right';
+    } else {
+      desc = 'General account transaction';
+      icon = 'grommet-icons--transaction';
+    }
+
+    let dataTransactions = {
+      title: type,
+      descrption: desc,
+      icon: icon,
+      transfared: type == 'Transfer' ? true : false,
+    };
+
     let ref = this.dialogService.open(ActionTransactionDialog, {
       width: '25rem',
       modal: true,
       showHeader: false,
       baseZIndex: 9999999999,
+      data: dataTransactions,
       contentStyle: {
         'border-radius': '24px',
         'text-align': 'end',
