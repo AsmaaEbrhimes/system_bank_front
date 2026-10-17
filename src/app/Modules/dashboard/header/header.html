@@ -10,10 +10,13 @@
 
 
       <div class="notification_wrapper">
-        <button class="notification_btn" aria-label="Notifications">
+        <button class="notification_btn" aria-label="Notifications" (click)="markAsRead()"
+          [routerLink]="['/ContentDashboard/notifications']">
           <svg-icon [svgStyle]="{ 'width.px': 22, 'height.px': 22 }"
             src="/Icons/material-symbols--notifications-outline-rounded.svg"></svg-icon>
-          <span class="notification_badge">3</span>
+          @if (getUnreadCount() > 0) {
+          <span class="notification_badge">{{ getUnreadCount() }}</span>
+          }
         </button>
       </div>
     </div>
