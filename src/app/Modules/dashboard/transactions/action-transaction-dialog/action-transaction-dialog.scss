@@ -13,27 +13,27 @@
       align-items: center;
 
       .icon-box {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        &.withdraw {
-          background: #fff3e5;
-          color: #c2410c;
-          border: 1px solid #ffedd5;
-        }
-        &.deposit {
+        &.Deposit {
           background: #e8f8ef;
           color: #15803d;
-          border: 1px solid #d1fae5;
+          border: 2px solid #d1fae5;
         }
-        &.transfer {
+        &.Withdraw {
+          background: #fff3e5;
+          color: #c2410c;
+          border: 2px solid #ffedd5;
+        }
+        &.Transfer {
           background: #f5f3ff;
           color: #6d5ae0;
-          border: 1px solid #ede9fe;
+          border: 2px solid #ede9fe;
         }
       }
 
@@ -88,15 +88,6 @@
         position: relative;
         display: flex;
         align-items: center;
-
-        .prefix-symbol {
-          position: absolute;
-          inset-inline-end: 14px;
-          color: #6d5ae0;
-          display: flex;
-          align-items: center;
-          font-weight: 600;
-        }
 
         input {
           width: 100%;
@@ -165,19 +156,19 @@
       .btn-action {
         color: #ffffff;
 
-        &.withdraw {
+        &.Withdraw {
           background: #c2410c;
           &:hover {
             background: #9a3412;
           }
         }
-        &.deposit {
+        &.Deposit {
           background: #15803d;
           &:hover {
             background: #166534;
           }
         }
-        &.transfer {
+        &.Transfer {
           background: #6d5ae0;
           &:hover {
             background: #5b4ac7;
@@ -187,7 +178,14 @@
     }
   }
 }
-
+.prefix-symbol {
+  position: absolute;
+  inset-inline-end: 14px;
+  color: #6d5ae0;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
 /* ==========================================
    Keyframes الخاصة بالـ Animations
    ========================================== */

@@ -6,13 +6,13 @@
     <div class="header-left">
 
       <div>
-        <h2>Withdraw</h2>
-        <p>Take money out of an account</p>
+        <h2>{{data_transactions()?.title}}</h2>
+        <p>{{data_transactions()?.descrption}}</p>
       </div>
 
 
-      <div class="icon-box withdraw">
-        <svg-icon src="/Icons/akar-icons--arrow-up-right.svg" class="input-icon"></svg-icon>
+      <div class="icon-box" [ngClass]="data_transactions()?.title">
+        <svg-icon [src]="'/Icons/'+ data_transactions()?.icon +'.svg'" class="input-icon"></svg-icon>
       </div>
 
     </div>
@@ -20,15 +20,20 @@
 
   <div class="clean-body">
 
-    <form>
+    <form [formGroup]="Form()" (ngSubmit)="onSubmit()">
 
       <!-- Account ID -->
       <div class="Group">
         <label>Account ID</label>
         <div class="input-container">
-          <span class="prefix-symbol">#</span>
-          <input type="text" placeholder="Enter account ID" />
+          <p-select formControlName="accountId" appendTo="body" [options]="accounts()" [optionLabel]="'accountNumber'"
+            [optionValue]="'id'" placeholder="Select Account" [style]="{ 'width': '100%' }" />
         </div>
+        @if (getControlName('accountId')?.touched && getControlName('accountId')?.invalid) {
+        <div class="wrapper-error">
+          <small class="error">*This Fild Is Reqiured</small>
+        </div>
+        }
       </div>
 
       <!-- Amount -->
@@ -37,21 +42,41 @@
         <div class="input-container">
           <span class="prefix-symbol">
             <svg-icon src="/Icons/fluent--wallet-16-regular.svg" class="input-icon"></svg-icon>
-
           </span>
-          <input type="number" placeholder="500" />
+          <input formControlName="amount" type="number" placeholder="500" />
         </div>
+        @if (getControlName('amount')?.touched && getControlName('amount')?.invalid) {
+        <div class="wrapper-error">
+          <small class="error">*This Fild Is Reqiured</small>
+        </div>
+        }
         <small class="helper-text">Must be less than the account balance</small>
       </div>
 
 
 
+      <!-- Account Transform -->
+      @if (data_transactions()?.transfared == true) {
+      <div class="Group">
+        <label>Account Transform</label>
+        <div class="input-container">
+          <p-select formControlName="toAccountId" appendTo="body" [options]="accounts()" [optionLabel]="'accountNumber'"
+            [optionValue]="'id'" placeholder="Select Account" [style]="{ 'width': '100%' }" />
+        </div>
 
+        @if (getControlName('toAccountId')?.touched && getControlName('toAccountId')?.invalid) {
+        <div class="wrapper-error">
+          <small class="error">*This Fild Is Reqiured</small>
+        </div>
+        }
 
+      </div>
+      }
 
       <div class="dialog-actions">
         <button type="button" class="btn-cancel" (click)="onCloseDilog()">Cancel</button>
-        <button type="submit" class="btn-action withdraw">Withdraw</button>
+        <button type="submit" class="btn-action"
+          [ngClass]="data_transactions()?.title">{{data_transactions()?.title}}</button>
       </div>
 
     </form>
