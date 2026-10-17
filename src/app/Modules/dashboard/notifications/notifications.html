@@ -13,60 +13,15 @@
 
 
   <div class="content_notifications">
+    @for(notificate of notifications() ; track notificate?.id){
     <div class="card">
-      <span>20 minutes ago</span>
+      <span>{{notificate?.createdAt | date}}</span>
       <div>
-        <h4>New deposit</h4>
-        <p>5,000 EGP has been deposited into Ahmed Mahmoud's account</p>
+        <h4>{{notificate?.title}}</h4>
+        <p>{{notificate?.message}}</p>
       </div>
     </div>
-
-
-    <div class="card">
-      <span>20 minutes ago</span>
-      <div>
-        <h4>New deposit</h4>
-        <p>5,000 EGP has been deposited into Ahmed Mahmoud's account</p>
-      </div>
-    </div>
-
-
-    <div class="card">
-      <span>20 minutes ago</span>
-      <div>
-        <h4>New deposit</h4>
-        <p>5,000 EGP has been deposited into Ahmed Mahmoud's account</p>
-      </div>
-    </div>
-
-
-
-    <div class="card">
-      <span>20 minutes ago</span>
-      <div>
-        <h4>New deposit</h4>
-        <p>5,000 EGP has been deposited into Ahmed Mahmoud's account</p>
-      </div>
-    </div>
-
-
-    <div class="card">
-      <span>20 minutes ago</span>
-      <div>
-        <h4>New deposit</h4>
-        <p>5,000 EGP has been deposited into Ahmed Mahmoud's account</p>
-      </div>
-    </div>
-
-
-    <div class="card">
-      <span>20 minutes ago</span>
-      <div>
-        <h4>New deposit</h4>
-        <p>5,000 EGP has been deposited into Ahmed Mahmoud's account</p>
-      </div>
-    </div>
-
+    }
   </div>
 
 </section>
