@@ -1,6 +1,8 @@
 import { Core } from './../../../core/Servies/core';
 import { Component, OnInit, signal } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ActionTransactionDialog } from './action-transaction-dialog/action-transaction-dialog';
 
 @Component({
   selector: 'app-transactions',
@@ -17,10 +19,10 @@ export class Transactions implements OnInit {
   constructor(
     private Data: Data,
     private Core: Core,
+    private dialogService: DialogService,
   ) {}
 
   //===============================Vribels================================//
-  // selectedFilterIndex: number = 0;
   data = signal<any>([]);
 
   //===============================Functions================================//
@@ -41,7 +43,22 @@ export class Transactions implements OnInit {
     ];
   }
 
-  // setFilter(index: number) {
-  //   this.selectedFilterIndex = index;
-  // }
+  onShowDilogTransactions(type: string) {
+    let ref = this.dialogService.open(ActionTransactionDialog, {
+      width: '25rem',
+      modal: true,
+      showHeader: false,
+      baseZIndex: 9999999999,
+      contentStyle: {
+        'border-radius': '24px',
+        'text-align': 'end',
+      },
+    });
+
+    ref?.onClose.subscribe((res) => {
+      if (res == 'success') {
+        this.getDataTransactions();
+      }
+    });
+  }
 }
