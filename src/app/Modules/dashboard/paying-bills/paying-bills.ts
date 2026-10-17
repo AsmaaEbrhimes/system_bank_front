@@ -80,6 +80,7 @@ export class PayingBills implements OnInit {
     this.Data.put(`Bill/${row.id}/pay`, { accountId: row.accountId }).subscribe((res: any) => {
       this.onActiveTap(this.activeTab);
       this.Panel.triggerRefresh();
+      this.getAllPaying();
     });
   }
 
