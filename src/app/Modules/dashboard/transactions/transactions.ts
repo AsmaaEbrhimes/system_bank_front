@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Core } from './../../../core/Servies/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { Data } from '../../../core/Servies/data';
 
 @Component({
   selector: 'app-transactions',
@@ -7,61 +9,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './transactions.scss',
 })
 export class Transactions implements OnInit {
-
+  //===============================Implemantion================================//
   ngOnInit(): void {
-    this.bodyTabel();
+    this.getDataTransactions();
   }
 
-  reportData = [
-    {
-      initials: 'م.ك',
-      customer: 'محمود كامل',
-      type: 'تحويل صادر',
-      amount: '-1,250.00 ج.م',
-      status: 'تم التنفيذ',
-      time: '10:30 صباحاً',
-    },
-    {
-      initials: 'أ.ع',
-      customer: 'أحمد علي',
-      type: 'إيداع وارد',
-      amount: '+5,000.00 ج.م',
-      status: 'تم التنفيذ',
-      time: '11:15 صباحاً',
-    },
-    {
-      initials: 'س.م',
-      customer: 'سارة محمد',
-      type: 'دفع فاتورة',
-      amount: '-450.00 ج.م',
-      status: 'قيد المعالجة',
-      time: '01:45 مساءً',
-    },
-    {
-      initials: 'ع.ح',
-      customer: 'عمر حسن',
-      type: 'تحويل وارد',
-      amount: '+2,100.00 ج.م',
-      status: 'تم التنفيذ',
-      time: '03:20 مساءً',
-    },
-  ];
+  constructor(
+    private Data: Data,
+    private Core: Core,
+  ) {}
+
+  //===============================Vribels================================//
+  // selectedFilterIndex: number = 0;
+  data = signal<any>([]);
+
+  //===============================Functions================================//
+
+  getDataTransactions() {
+    this.Data.get('Transactions').subscribe((res: any) => {
+      this.data.set(res);
+      this.Core.originalDataStore.set(res);
+      this.bodyTabel();
+    });
+  }
 
   bodyTabel() {
     return [
-      { key: 'العميل', value: 'customer' },
-      { key: 'النوع', value: 'type' },
-      { key: 'المبلغ', value: 'amount' },
-      { key: 'الحالة', value: 'status' },
-      { key: 'الوقت', value: 'time' },
+      { key: 'Transaction Type', value: 'transactionType', type: 'template' },
+      { key: 'Amount', value: 'amount' },
+      { key: 'Created At', value: 'createdAt', type: 'date', format: 'dd/MM/yyyy' },
     ];
   }
 
-
-  selectedFilterIndex: number = 0; // الزر الافتراضي (All)
-
-  setFilter(index: number) {
-    this.selectedFilterIndex = index;
-    // هنا يمكنك إضافة كود تصفية الجدول حسب الفلتر المختار
-  }
+  // setFilter(index: number) {
+  //   this.selectedFilterIndex = index;
+  // }
 }

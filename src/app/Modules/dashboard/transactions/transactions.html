@@ -13,39 +13,50 @@
 
 
   <div class="tabel_transactions">
-   <div class="btns_transactions" [style.--active-index]="selectedFilterIndex">
-  <div class="thumb"></div>
+    <!-- <div class="btns_transactions" [style.--active-index]="selectedFilterIndex">
+      <div class="thumb"></div>
 
-  <button [class.active]="selectedFilterIndex === 0" (click)="setFilter(0)">
-    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mingcute--grid-2-line.svg"></svg-icon>
-    All
-  </button>
+      <button [class.active]="selectedFilterIndex === 0" (click)="setFilter(0)">
+        <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mingcute--grid-2-line.svg"></svg-icon>
+        All
+      </button>
 
-  <button [class.active]="selectedFilterIndex === 1" (click)="setFilter(1)">
-    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--arrow-down-left-bold.svg"></svg-icon>
-    Deposit
-  </button>
+      <button [class.active]="selectedFilterIndex === 1" (click)="setFilter(1)">
+        <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+          src="/Icons/mdi--arrow-down-left-bold.svg"></svg-icon>
+        Deposit
+      </button>
 
-  <button [class.active]="selectedFilterIndex === 2" (click)="setFilter(2)">
-    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--arrow-up-right-bold.svg"></svg-icon>
-    Pull
-  </button>
+      <button [class.active]="selectedFilterIndex === 2" (click)="setFilter(2)">
+        <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/mdi--arrow-up-right-bold.svg"></svg-icon>
+        Pull
+      </button>
 
-  <button [class.active]="selectedFilterIndex === 3" (click)="setFilter(3)">
-    <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/grommet-icons--transaction.svg"></svg-icon>
-    Transfer
-  </button>
+      <button [class.active]="selectedFilterIndex === 3" (click)="setFilter(3)">
+        <svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
+          src="/Icons/grommet-icons--transaction.svg"></svg-icon>
+        Transfer
+      </button>
+    </div> -->
 
 
-</div>
-    <app-search></app-search>
-    <app-tabel [data]="reportData" [bodytabel]="bodyTabel()">
 
-      <ng-template #status let-row>
 
-        <span class="status-badge" [class.success]="row.status === 'تم التنفيذ'"
-          [class.pending]="row.status === 'قيد المعالجة'">
-          {{ row.status }}
+  <div class="action_buttons">
+<button class="btn_deposit">Deposit  <svg-icon src="/Icons/akar-icons--arrow-down-right.svg"></svg-icon></button>
+<button class="btn_Withdraw">Withdraw <svg-icon src="/Icons/akar-icons--arrow-up-right.svg"></svg-icon></button>
+<button class="btn_transfare">Transfer <svg-icon src="/Icons/grommet-icons--transaction.svg"></svg-icon></button>
+  </div>
+
+
+
+    <app-search [ArrayColumns]="['transactionType']" (DataFilter)="data.set($event)"></app-search>
+    <app-tabel [data]="data()" [bodytabel]="bodyTabel()" [templates]="{ transactionType: type }">
+
+      <ng-template #type let-row>
+
+        <span class="status-badge" [attr.data-type]="row.transactionType">
+          {{ row.transactionType }}
         </span>
 
       </ng-template>

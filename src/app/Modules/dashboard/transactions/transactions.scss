@@ -20,55 +20,55 @@
   }
 }
 
-.btns_transactions {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: #e6e0ff;
-  padding: 6px;
-  border-radius: 12px;
-  width: 100%;
-  overflow-x: auto;
-  --count: 4;
-  --w: calc(100% / var(--count));
-  --active-index: 0; // القيمة الافتراضية
+// .btns_transactions {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   background: #e6e0ff;
+//   padding: 6px;
+//   border-radius: 12px;
+//   width: 100%;
+//   overflow-x: auto;
+//   --count: 4;
+//   --w: calc(100% / var(--count));
+//   --active-index: 0;
 
-  .thumb {
-    position: absolute;
-    top: 6px;
-    bottom: 6px;
-    right: calc(6px + var(--w) * var(--active-index));
-    width: calc(var(--w) - 3px);
-    background-color: #6d5ae0;
-    border-radius: 9px;
-    box-shadow: 0 8px 16px -6px rgba(109, 90, 224, 0.5);
-    transition: right 0.3s cubic-bezier(0.5, 0, 0.15, 1);
-    z-index: 0;
-  }
+//   .thumb {
+//     position: absolute;
+//     top: 6px;
+//     bottom: 6px;
+//     right: calc(6px + var(--w) * var(--active-index));
+//     width: calc(var(--w) - 3px);
+//     background-color: #6d5ae0;
+//     border-radius: 9px;
+//     box-shadow: 0 8px 16px -6px rgba(109, 90, 224, 0.5);
+//     transition: right 0.3s cubic-bezier(0.5, 0, 0.15, 1);
+//     z-index: 0;
+//   }
 
-  button {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    border-radius: 10px;
-    color: #6b6885;
-    font-size: 14.5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: color 0.25s ease;
+//   button {
+//     position: relative;
+//     z-index: 1;
+//     flex: 1;
+//     padding: 10px;
+//     border: none;
+//     background: transparent;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 6px;
+//     border-radius: 10px;
+//     color: #6b6885;
+//     font-size: 14.5px;
+//     font-weight: 600;
+//     cursor: pointer;
+//     transition: color 0.25s ease;
 
-    &.active {
-      color: #ffffff;
-    }
-  }
-}
+//     &.active {
+//       color: #ffffff;
+//     }
+//   }
+// }
 
 .tabel_transactions {
   display: flex;
@@ -84,22 +84,104 @@
 }
 
 .status-badge {
-  padding: 4px 12px;
+  --bg: #f1f5f9;
+  --fg: #475569;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
   border-radius: 30px;
-  font-size: 12px;
-  font-weight: bold;
-  display: inline-block;
-  transform: rotate(-2deg);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--fg);
+  background: var(--bg);
+
+  &::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--fg);
+  }
+
+  &[data-type='Deposit'] {
+    --bg: #e8f8ef;
+    --fg: #15803d;
+  }
+  &[data-type='Loan Disbursement'] {
+    --bg: #e8f0fe;
+    --fg: #1d4ed8;
+  }
+  &[data-type='Transfer Out'] {
+    --bg: #fff3e5;
+    --fg: #c2410c;
+  }
+  &[data-type='Bill Payment'] {
+    --bg: #fdecec;
+    --fg: #b91c1c;
+  }
 }
 
-.status-badge.success {
-  background: #e8f8f1;
-  color: #159a68;
-  border: 1px solid #159a68;
-}
+.action_buttons {
+  display: flex;
+  gap: 10px;
+  width: 100%;
 
-.status-badge.pending {
-  background: #fff4dc;
-  color: #c58a12;
-  border: 1px solid #c58a12;
+  button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* زر الإيداع (Deposit) */
+  .btn_deposit {
+    background-color: #e8f8ef;
+    color: #15803d;
+    border: 1px solid #15803d;
+
+    &:hover {
+      background-color: #d1f4e2;
+    }
+
+    &:active {
+      background-color: #bbeedf;
+      transform: scale(0.98);
+    }
+  }
+
+  .btn_Withdraw {
+    background-color: #fff3e5;
+    color: #c2410c;
+    border: 1px solid #c2410c;
+
+    &:hover {
+      background-color: #ffe6cc;
+    }
+
+    &:active {
+      background-color: #ffd9b3;
+      transform: scale(0.98);
+    }
+  }
+
+  .btn_transfare {
+    background-color: #fff;
+    color: #6d5ae0;
+    border: 1px solid #6d5ae0;
+
+    &:hover {
+      background-color: #f5f3ff;
+    }
+
+    &:active {
+      background-color: #ede9fe;
+      transform: scale(0.98);
+    }
+  }
 }
