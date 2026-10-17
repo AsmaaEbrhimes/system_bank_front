@@ -30,6 +30,7 @@ import { CreateLoans } from './loans/create-loans/create-loans';
 import { TooltipModule } from 'primeng/tooltip';
 import { ApprovedLoans } from './loans/approved-loans/approved-loans';
 import { ShowInstallmentRelationsLoan } from './loans/show-installment-relations-loan/show-installment-relations-loan';
+import { ActionTransactionDialog } from './transactions/action-transaction-dialog/action-transaction-dialog';
 @NgModule({
   declarations: [
     SideNav,
@@ -54,6 +55,7 @@ import { ShowInstallmentRelationsLoan } from './loans/show-installment-relations
     CreateLoans,
     ApprovedLoans,
     ShowInstallmentRelationsLoan,
+    ActionTransactionDialog,
   ],
   imports: [
     CommonModule,
