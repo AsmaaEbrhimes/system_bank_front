@@ -67,7 +67,6 @@ export class AddCustmerAndCreateAccount implements OnInit {
             balance: ['', Validators.required],
             status: ['', Validators.required],
             createdAt: [currentIsoDate],
-            customerId: ['', Validators.required],
           }),
         ]),
       }),
