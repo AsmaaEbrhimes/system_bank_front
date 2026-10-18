@@ -9,6 +9,7 @@ import { Loans } from './loans/loans';
 import { Notifications } from './notifications/notifications';
 import { Transactions } from './transactions/transactions';
 import { ShowInstallmentRelationsLoan } from './loans/show-installment-relations-loan/show-installment-relations-loan';
+import { CustmerHaveAccounts } from './custmers/custmer-have-accounts/custmer-have-accounts';
 {
 }
 
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'paying_bills', component: PayingBills },
       { path: 'cards', component: Cards },
       { path: 'custmers', component: Custmers },
+      { path: 'Account_custmers', component: CustmerHaveAccounts },
       { path: 'loans', component: Loans },
       { path: 'notifications', component: Notifications },
       { path: 'transactions', component: Transactions },
