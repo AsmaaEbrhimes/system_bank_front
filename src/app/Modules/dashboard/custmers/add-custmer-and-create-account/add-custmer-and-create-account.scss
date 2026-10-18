@@ -124,9 +124,9 @@ form {
 
   .actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 10px;
-    margin-top: 20px;
+    margin: 10px 0;
     opacity: 0;
     animation: fadeInDown 0.5s ease-out 0.4s forwards;
     button {
