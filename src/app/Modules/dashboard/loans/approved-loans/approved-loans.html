@@ -39,7 +39,7 @@
       @for (installment of installmentsArray.controls; track $index ; let i = $index) {
       <div class="Group_installment" [formGroupName]="i">
 
-        
+
         <!-- Delete Installments -->
         @if(installmentsArray.length > 1){
         <button type="button" class="delete_icon" (click)="removeInstallments(i)">
@@ -51,7 +51,7 @@
         <!-- Payment Date -->
         <div class="Group">
           <label>Enter Payment Date</label>
-          <input formControlName="paymentDate" type="date" placeholder="Payment date" />
+          <input formControlName="paymentDate" type="date" placeholder="Payment date" [min]="Core.minDate()"/>
 
           @if (getInstallmentControl(i, 'paymentDate')?.touched && getInstallmentControl(i, 'paymentDate')?.invalid) {
           <div class="wrapper-error">

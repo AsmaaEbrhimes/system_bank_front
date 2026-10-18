@@ -2,6 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Data } from '../../../../core/Servies/data';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Core } from '../../../../core/Servies/core';
 
 @Component({
   selector: 'app-approved-loans',
@@ -21,6 +22,7 @@ export class ApprovedLoans implements OnInit {
     private Data: Data,
     private FB: FormBuilder,
     private config: DynamicDialogConfig,
+    public Core:Core,
   ) {}
 
   //=========================Varibels===============================//
