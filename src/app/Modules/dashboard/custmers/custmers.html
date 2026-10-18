@@ -32,7 +32,7 @@
 
 
           @if (item.accounts?.length > 0) {
-          <button class="badge-accounts has-accounts" (click)="getAccounts(item.accounts)">
+          <button class="badge-accounts has-accounts" [routerLink]="['/ContentDashboard/Account_custmers']">
             <svg-icon [svgStyle]="{ 'width.px': 15, 'height.px': 15 }" src="/Icons/akar-icons--link-chain.svg">
             </svg-icon>
             <span class="count-text">{{ item.accounts.length }} Accounts</span>
@@ -52,7 +52,4 @@
     </app-tabel>
   </div>
 
-
-
-  <app-custmer-have-accounts #accountsSection [AccountsCustmer]="accounts()"></app-custmer-have-accounts>
 </section>

@@ -25,7 +25,6 @@ export class Custmers {
   ) {}
   //=========================Varibels===============================//
   data = signal<any>([]);
-  accounts = signal<any>([]);
   @ViewChild('accountsSection', { read: ElementRef }) accountsSection!: ElementRef;
 
   //=========================Functions===============================//
@@ -47,15 +46,6 @@ export class Custmers {
     ];
   }
 
-  getAccounts(accounts: any) {
-    this.accounts.set(accounts);
-    setTimeout(() => {
-      this.accountsSection?.nativeElement?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }, 100);
-  }
 
   AddCustmer() {
     const ref: any = this.dialogService.open(AddCustmerAndCreateAccount, {
@@ -70,7 +60,7 @@ export class Custmers {
       showHeader: false,
       baseZIndex: 99999999,
       contentStyle: {
-        
+
         padding: '0',
         'overflow-y': 'auto',
         height: 'auto',
@@ -100,7 +90,6 @@ export class Custmers {
         this.Data.delete(`Customers/${id}`).subscribe({
           next: () => {
             this.getData();
-            this.accounts.set([]);
           },
         });
       }
