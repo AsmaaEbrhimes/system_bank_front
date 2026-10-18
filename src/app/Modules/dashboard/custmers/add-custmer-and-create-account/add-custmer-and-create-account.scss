@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
 
-    &::before {
+  &::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -29,20 +29,20 @@
     gap: 10px;
   }
 
-    .btn_close {
-      background-color: #f1effb;
-      border: 1px solid #ccc;
-      color: #17153b;
-      height: 30px;
-      width: 30px;
-      border-radius: 50%;
-      display: inline-block;
-      transition: 0.3s linear;
-      &:hover{
-        background-color: #6c4fdb;
-        color: white;
-      }
+  .btn_close {
+    background-color: #f1effb;
+    border: 1px solid #ccc;
+    color: #17153b;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: 0.3s linear;
+    &:hover {
+      background-color: #6c4fdb;
+      color: white;
     }
+  }
   .wrapper_icon {
     background: #6d5ae0;
     border-color: #6d5ae0;
@@ -70,33 +70,29 @@ form {
   }
 
   .Group {
+    position: relative;
     margin-top: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start !important;
-
-
-      opacity: 0;
-  animation: fadeInUp 0.5s ease-out 0.4s forwards;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out 0.4s forwards;
 
     &:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  &:nth-child(2) {
-    animation-delay: 0.2s;
-  }
+      animation-delay: 0.1s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
 
     &:nth-child(3) {
-    animation-delay: 0.4s;
-  }
+      animation-delay: 0.4s;
+    }
 
-
-
-   &:nth-child(4) {
-    animation-delay: 0.5s;
-  }
-
+    &:nth-child(4) {
+      animation-delay: 0.5s;
+    }
   }
 
   .custem_group {
@@ -131,8 +127,8 @@ form {
     justify-content: flex-end;
     gap: 10px;
     margin-top: 20px;
-  opacity: 0;
-  animation: fadeInDown 0.5s ease-out 0.4s forwards;
+    opacity: 0;
+    animation: fadeInDown 0.5s ease-out 0.4s forwards;
     button {
       padding: 0.5rem 1.25rem;
       border-radius: 0.5rem;
@@ -255,6 +251,10 @@ form {
   }
 }
 
+.group_phone {
+  z-index: 10;
+}
+
 @media (max-width: 767px) {
   form {
     .custem_group {
@@ -262,9 +262,6 @@ form {
     }
   }
 }
-
-
-
 
 /* ==========================================
    Keyframes الخاصة بالـ Animations
