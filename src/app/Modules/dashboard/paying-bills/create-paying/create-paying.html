@@ -45,7 +45,7 @@
   <div class="parent_grouo">
     <div class="Group">
       <label>please Enter Due Date</label>
-      <input type="date" placeholder="Enter due date" formControlName="dateTime" />
+      <input type="date" placeholder="Enter due date" formControlName="dateTime" [min]="Core.minDate()" />
       @if (getControlName('dateTime')?.touched && getControlName('dateTime')?.invalid) {
       <div class="wrapper-error">
         <small class="error">*This Fild Is Reqiured</small>

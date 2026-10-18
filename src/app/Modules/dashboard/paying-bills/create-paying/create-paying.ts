@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { panel } from '../../panel.service';
 import { Data } from '../../../../core/Servies/data';
+import { Core } from '../../../../core/Servies/core';
 
 @Component({
   selector: 'app-create-paying',
@@ -22,6 +23,7 @@ export class CreatePaying implements OnInit {
     private FB: FormBuilder,
     private Panel: panel,
     private Data: Data,
+    public Core: Core,
   ) {}
 
   //=========================Varibels=============================//
