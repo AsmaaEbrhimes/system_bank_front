@@ -1,24 +1,43 @@
 .status-badge {
-  padding: 4px 12px;
+  --bg: #f1f5f9;
+  --fg: #475569;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
   border-radius: 30px;
-  font-size: 12px;
-  font-weight: bold;
-  display: inline-block;
-  transform: rotate(-2deg);
-}
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--fg);
+  background: var(--bg);
 
-.status-badge.success {
-  background: #e8f8f1;
-  color: #159a68;
-  border: 1px solid #159a68;
-}
+  &::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--fg);
+  }
 
-.status-badge.pending {
-  background: #fff4dc;
-  color: #c58a12;
-  border: 1px solid #c58a12;
+  &[data-type='Deposit'] {
+    --bg: #e8f8ef;
+    --fg: #15803d;
+  }
+  &[data-type='Loan Disbursement'] {
+    --bg: #e8f0fe;
+    --fg: #1d4ed8;
+  }
+  &[data-type='Transfer Out'] {
+    --bg: #fff3e5;
+    --fg: #c2410c;
+  }
+  &[data-type='Bill Payment'] {
+    --bg: #fdecec;
+    --fg: #b91c1c;
+  }
 }
-
 .header_transactions {
   display: flex;
   justify-content: space-between;

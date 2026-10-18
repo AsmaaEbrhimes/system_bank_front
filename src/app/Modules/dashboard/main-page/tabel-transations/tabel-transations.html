@@ -1,18 +1,22 @@
 <section class="Tabel_transactions">
   <div class="header_transactions">
 
-    <app-search></app-search>
+    <app-search [ArrayColumns]="['transactionType']" (DataFilter)="data.set($event)"></app-search>
 
-    <a href=""><svg-icon [svgStyle]="{ 'width.px': 18, 'height.px': 18 }"
-        src="/Icons/formkit--arrowright.svg"></svg-icon>The latest notebook moves</a>
+
+    <a [routerLink]="['/ContentDashboard/transactions']" href=""><svg-icon
+        [svgStyle]="{ 'width.px': 18, 'height.px': 18 }" src="/Icons/formkit--arrowright.svg"></svg-icon>The latest
+      notebook moves</a>
   </div>
-  <app-tabel [data]="data()" [bodytabel]="boadyTabel()">
 
-    <ng-template #status let-row>
-      <span class="status-badge" [class.success]="row.status === 'تم التنفيذ'"
-        [class.pending]="row.status === 'قيد المعالجة'">
-        {{ row.status }}
+  <app-tabel [data]="data()" [bodytabel]="bodyTabel()" [templates]="{ transactionType: type }">
+
+    <ng-template #type let-row>
+
+      <span class="status-badge" [attr.data-type]="row.transactionType">
+        {{ row.transactionType }}
       </span>
+
     </ng-template>
   </app-tabel>
 </section>
