@@ -31,6 +31,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ApprovedLoans } from './loans/approved-loans/approved-loans';
 import { ShowInstallmentRelationsLoan } from './loans/show-installment-relations-loan/show-installment-relations-loan';
 import { ActionTransactionDialog } from './transactions/action-transaction-dialog/action-transaction-dialog';
+import { StepperSidebar } from './custmers/add-custmer-and-create-account/stepper-sidebar/stepper-sidebar';
 @NgModule({
   declarations: [
     SideNav,
@@ -56,6 +57,7 @@ import { ActionTransactionDialog } from './transactions/action-transaction-dialo
     ApprovedLoans,
     ShowInstallmentRelationsLoan,
     ActionTransactionDialog,
+    StepperSidebar,
   ],
   imports: [
     CommonModule,
