@@ -70,7 +70,7 @@ export class Custmers {
       showHeader: false,
       baseZIndex: 99999999,
       contentStyle: {
-        'border-radius': '24px',
+        
         padding: '0',
         'overflow-y': 'auto',
         height: 'auto',
