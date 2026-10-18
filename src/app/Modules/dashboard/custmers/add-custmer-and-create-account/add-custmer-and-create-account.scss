@@ -4,13 +4,45 @@
 }
 
 .header_form {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
   padding: 10px 15px;
-  // padding-top: 15px;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+    &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    left: 10px;
+    top: -50px;
+    background: radial-gradient(circle, rgba(95, 79, 230, 0.16), transparent 65%);
+    z-index: -1;
+  }
+
+  .desc_header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+    .btn_close {
+      background-color: #f1effb;
+      border: 1px solid #ccc;
+      color: #17153b;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: 0.3s linear;
+      &:hover{
+        background-color: #6c4fdb;
+        color: white;
+      }
+    }
   .wrapper_icon {
     background: #6d5ae0;
     border-color: #6d5ae0;
@@ -43,6 +75,28 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: flex-start !important;
+
+
+      opacity: 0;
+  animation: fadeInUp 0.5s ease-out 0.4s forwards;
+
+    &:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+    &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+
+
+   &:nth-child(4) {
+    animation-delay: 0.5s;
+  }
+
   }
 
   .custem_group {
@@ -77,7 +131,8 @@ form {
     justify-content: flex-end;
     gap: 10px;
     margin-top: 20px;
-
+  opacity: 0;
+  animation: fadeInDown 0.5s ease-out 0.4s forwards;
     button {
       padding: 0.5rem 1.25rem;
       border-radius: 0.5rem;
@@ -125,7 +180,7 @@ form {
 }
 
 .accounts_container {
-  height: 190px;
+  height: 216px;
   overflow-y: auto;
 }
 
@@ -205,5 +260,33 @@ form {
     .custem_group {
       flex-direction: column;
     }
+  }
+}
+
+
+
+
+/* ==========================================
+   Keyframes الخاصة بالـ Animations
+   ========================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
