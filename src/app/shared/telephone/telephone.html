@@ -3,7 +3,7 @@
   <div class="fild_number_usre">
     <div class="wrapper_code_country">
       <input [value]="value" #phoneInput [placeholder]="select_item()?.placeholder || '100 123 4567'"
-        (input)="onPhoneInput($event)" [attr.maxlength]="select_item()?.maxLength" />
+        (input)="onPhoneInput($event)"  [attr.maxlength]="select_item()?.maxLength" />
       <div class="code_country" (click)="toggleDropdown()">
         <span><svg-icon src="/Icons/fa7-solid--angle-down.svg" class="input-icon"></svg-icon></span>
         <span>{{select_item()?.dialCode}}</span>
@@ -27,7 +27,7 @@
     item.name.toLowerCase().includes(searchInput.value.toLowerCase()) ||
     item.dialCode.includes(searchInput.value)
     ) {
-    <button class="country" (click)="onChooesCountry(item, $event, phoneInput)">
+    <button  type="button" class="country" (click)="onChooesCountry(item, $event, phoneInput)">
       <div class="code_country">
         <span>{{item?.dialCode}}</span>
       </div>
