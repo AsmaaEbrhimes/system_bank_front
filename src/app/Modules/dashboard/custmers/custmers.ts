@@ -61,7 +61,7 @@ export class Custmers {
     const ref: any = this.dialogService.open(AddCustmerAndCreateAccount, {
       width: '90%',
       style: {
-        'max-width': '720px',
+        'max-width': '800px',
         width: '100%',
         'max-height': '100vh',
       },
