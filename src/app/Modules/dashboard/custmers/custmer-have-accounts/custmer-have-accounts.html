@@ -7,9 +7,7 @@
     </div>
     <span class="count">{{data().accounts?.length}} حسابات</span>
     <div class="dist">
-      @for (item of data().accounts; track $index) {
-      <p [ngClass]="item?.accountType"></p>
-      }
+      <p *ngFor="let a of data().accounts" [attr.data-type]="a.accountType"></p>
     </div>
 
   </header>
@@ -17,7 +15,7 @@
   <div class="list">
 
     <article class="acct" *ngFor="let acc of data().accounts">
-      <div class="card" [attr.data-type]="acc.type" [attr.data-status]="acc.status">
+      <div class="card" [attr.data-type]="acc.accountType" [attr.data-status]="acc.status">
         <div class="card-top">
           <b>{{ acc.accountType }}</b>
           <span class="badge">{{ acc.status }}</span>
