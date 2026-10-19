@@ -1,41 +1,42 @@
+<section class="acc" dir="rtl">
 
-@if(data() && data().length>0){
-  <div class="accounts-wrapper">
-    <!-- Summary Cards Header -->
-    <div class="summary-cards">
-      <div class="stat-card">
-        <span class="title">عدد الحسابات</span>
-        <strong class="value">{{data()?.length}}</strong>
-      </div>
-
-      <div class="stat-card">
-        <span class="title">إجمالي الرصيد</span>
-        <strong class="value">{{TotalBalanceInAccounting()}} <small>ج.م</small></strong>
-      </div>
+  <header class="sum">
+    <div>
+      <span class="sum-label">إجمالي الرصيد</span>
+      <b>{{ total | number }} <small>ج.م</small></b>
+    </div>
+    <span class="count">{{data().accounts?.length}} حسابات</span>
+    <div class="dist">
+      @for (item of data().accounts; track $index) {
+      <p [ngClass]="item?.accountType"></p>
+      }
     </div>
 
+  </header>
 
+  <div class="list">
 
+    <article class="acct" *ngFor="let acc of data().accounts">
+      <div class="card" [attr.data-type]="acc.type" [attr.data-status]="acc.status">
+        <div class="card-top">
+          <b>{{ acc.accountType }}</b>
+          <span class="badge">{{ acc.status }}</span>
+        </div>
+        <div class="chip"></div>
+        <div class="card-num">{{ acc.accountNumber }}</div>
+        <div class="card-bot">
+          <div><small>Current Balance </small><strong>{{ acc.balance | number }} <em>EGP</em></strong></div>
+          <div><small>{{ acc.accountType }}</small><span>{{ acc.createdAt | date:'dd/MM/yyyy' }}</span></div>
+        </div>
+      </div>
 
-    <div class="accounts-grid">
-      <!-- Accounts-->
-       @for(item of data() ; track item?.id){
-         <div class="bank-card active">
-           <div class="card-header">
-             <span class="type">{{item?.accountType}}</span>
-             <span class="status-badge active">{{item?.status}}</span>
-           </div>
-           <div class="card-number">{{item?.accountNumber}}</div>
-           <div class="card-footer">
-             <div class="balance">
-               <label>Balance</label>
-               <strong>{{item?.balance | number}}EG</strong>
-             </div>
-             <span class="date">{{item?.createdAt | date:"dd/MM/yyyy"}}</span>
-           </div>
-         </div>
-       }
-    </div>
+      <div class="tiles">
+        <div class="tile wide"><small> Account Number</small><b>{{ acc.accountNumber }}</b></div>
+        <div class="tile"><small>Type</small><b>{{ acc.accountType }}</b></div>
+        <div class="tile"><small>Status</small><b>{{ acc.status }}</b></div>
+        <div class="tile"><small> Open Date</small><b>{{ acc.createdAt | date:'dd/MM/yyyy' }}</b></div>
+      </div>
 
+    </article>
   </div>
-}
+</section>

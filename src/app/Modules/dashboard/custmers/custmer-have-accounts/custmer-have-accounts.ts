@@ -1,4 +1,6 @@
-import { Component, Input, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Component, computed, Input, OnInit, signal } from '@angular/core';
+import { Data } from '../../../../core/Servies/data';
 
 @Component({
   selector: 'app-custmer-have-accounts',
@@ -6,23 +8,41 @@ import { Component, Input, signal } from '@angular/core';
   templateUrl: './custmer-have-accounts.html',
   styleUrl: './custmer-have-accounts.scss',
 })
-export class CustmerHaveAccounts {
+export class CustmerHaveAccounts implements OnInit {
   //=========================Implemantion===============================//
-
-  //=========================Varibels===============================//
-    data = signal<any>([]);
-
-
-  //=========================Input & Output===============================//
-  @Input()
-  set AccountsCustmer(value: any) {
-    this.data.set(value)
+  ngOnInit(): void {
+    this.GetDetailsAccount();
   }
 
-  //=========================Functions===============================//
+  constructor(
+    private ActivatedRoute: ActivatedRoute,
+    private Data: Data,
+  ) {}
+
+  //=========================Varibels===============================//
+  data = signal<any>([]);
 
 
-TotalBalanceInAccounting(): number {
-  return this.data().reduce((acc: number, item: any) => acc + (item.balance || 0), 0) || 0;
+
+  //=========================Funcrions===============================//
+
+  GetDetailsAccount() {
+    let id_custmer = this.ActivatedRoute.snapshot.paramMap.get('id');
+    if (id_custmer) {
+      this.Data.get(`Customers/${id_custmer}`).subscribe((res) => {
+        this.data.set(res);
+      });
+    }
+  }
+
+
+  get total(): number {
+    return this.data().accounts.reduce((sum:number, a:any) => sum + a.balance, 0);
+  }
+
+
 }
-}
+
+
+
+
