@@ -22,8 +22,6 @@ export class CustmerHaveAccounts implements OnInit {
   //=========================Varibels===============================//
   data = signal<any>([]);
 
-
-
   //=========================Funcrions===============================//
 
   GetDetailsAccount() {
@@ -35,14 +33,7 @@ export class CustmerHaveAccounts implements OnInit {
     }
   }
 
-
   get total(): number {
-    return this.data().accounts.reduce((sum:number, a:any) => sum + a.balance, 0);
+    return this.data().accounts.reduce((sum: number, a: any) => sum + a.balance, 0);
   }
-
-
 }
-
-
-
-

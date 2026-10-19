@@ -72,45 +72,49 @@
   box-shadow: 0 22px 34px -24px rgba(20, 18, 58, 0.45);
 }
 
-.dist {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  p {
-    height: 10px;
-    width: 100%;
-    border-radius: 20px;
 
-    &.INDIVIDUAL {
-      background-color: #1e3a8a;
-    }
 
-    &.CORPORATE {
-      background-color: #282c52;
-    }
+$account-types: (
+  'INDIVIDUAL': (#1e3a8a, #0f172a, #3b82f6),
+  'CORPORATE':  (#282c52, #0a0b1a, #d6aa5a),
+  'JOINT':      (#581c87, #2e1065, #c084fc),
+  'MINOR':      (#0284c7, #0f172a, #38bdf8),
+  'MERCHANT':   (#065f46, #022c22, #34d399),
+  'SAVINGS':    (#0f766e, #042f2e, #2dd4bf),
+  'CURRENT':    (#6d28d9, #1e1b4b, #a78bfa),
+);
 
-    &.JOINT {
-      background-color: #581c87;
-    }
+.card,
+.dist p {
+  --c1: #2b2594;
+  --c2: #14123a;
+  --glow: #6f66ff;
+  background:
+    radial-gradient(110% 80% at 100% 0%, var(--glow), transparent 55%),
+    linear-gradient(150deg, var(--c1), var(--c2));
 
-    &.MINOR {
-      background-color: #0284c7;
-    }
-
-    &.MERCHANT {
-      background-color: #065f46;
-    }
-
-    &.SAVINGS {
-      background-color: #0f766e;
+  @each $name, $c in $account-types {
+    &[data-type='#{$name}'] {
+      --c1: #{nth($c, 1)};
+      --c2: #{nth($c, 2)};
+      --glow: #{nth($c, 3)};
     }
   }
 }
 
+.dist {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  p {
+    height: 10px;
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+
 .card {
-  --c1: #2b2594;
-  --c2: #14123a;
-  --glow: #6f66ff;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -121,43 +125,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background:
-    radial-gradient(110% 80% at 100% 0%, var(--glow), transparent 55%),
-    linear-gradient(150deg, var(--c1), var(--c2));
-}
-
-.card[data-type='INDIVIDUAL'] {
-  --c1: #1e3a8a;
-  --c2: #0f172a;
-  --glow: #3b82f6;
-}
-
-.card[data-type='CORPORATE'] {
-  --c1: #282c52;
-  --c2: #0a0b1a;
-  --glow: #d6aa5a;
-}
-
-.card[data-type='JOINT'] {
-  --c1: #581c87;
-  --c2: #2e1065;
-  --glow: #c084fc;
-}
-
-.card[data-type='MINOR'] {
-  --c1: #0284c7;
-  --c2: #0f172a;
-  --glow: #38bdf8;
-}
-
-.card[data-type='MERCHANT'] {
-  --c1: #065f46;
-  --c2: #022c22;
-  --glow: #34d399;
-}
-
-.card[data-status='INACTIVE'] {
-  filter: grayscale(1) brightness(0.92);
 }
 
 .card::before {
