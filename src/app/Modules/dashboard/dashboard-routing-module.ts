@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: 'paying_bills', component: PayingBills },
       { path: 'cards', component: Cards },
       { path: 'custmers', component: Custmers },
-      { path: 'Account_custmers', component: CustmerHaveAccounts },
+      { path: 'Account_custmers/:id', component: CustmerHaveAccounts },
       { path: 'loans', component: Loans },
       { path: 'notifications', component: Notifications },
       { path: 'transactions', component: Transactions },
