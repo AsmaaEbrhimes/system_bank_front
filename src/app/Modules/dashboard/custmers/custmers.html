@@ -32,7 +32,7 @@
 
 
           @if (item.accounts?.length > 0) {
-          <button class="badge-accounts has-accounts" [routerLink]="['/ContentDashboard/Account_custmers']">
+          <button class="badge-accounts has-accounts" [routerLink]="['/ContentDashboard/Account_custmers',item?.id]">
             <svg-icon [svgStyle]="{ 'width.px': 15, 'height.px': 15 }" src="/Icons/akar-icons--link-chain.svg">
             </svg-icon>
             <span class="count-text">{{ item.accounts.length }} Accounts</span>
