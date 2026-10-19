@@ -256,9 +256,13 @@ form {
 }
 
 @media (max-width: 767px) {
+  .wrapper_add_custemer {
+    grid-template-columns: 1fr 0fr;
+  }
   form {
     .custem_group {
       flex-direction: column;
+      width: 100%;
     }
   }
 }
