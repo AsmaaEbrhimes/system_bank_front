@@ -13,11 +13,6 @@
     justify-content: flex-end;
     gap: 10px;
     cursor: pointer;
-    input{
-      border: 1px solid #cbd5e1;
-      border-radius: 7px;
-      padding: 0 9px;
-    }
   }
   .code_country {
     display: flex;
@@ -123,4 +118,14 @@
   ::placeholder {
     text-align: end;
   }
+}
+
+.phone_input {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  padding: 0 9px;
+  width: 100%;
 }
