@@ -25,13 +25,18 @@ export class Custmers {
   ) {}
   //=========================Varibels===============================//
   data = signal<any>([]);
+    PageTransactions = signal<number>(1);
+
   @ViewChild('accountsSection', { read: ElementRef }) accountsSection!: ElementRef;
 
   //=========================Functions===============================//
 
   getData() {
-    this.Data.get(`Customers`).subscribe((res: any) => {
-      this.data.set(res);
+      let params = {
+      pageNumber: this.PageTransactions()
+    };
+    this.Data.get(`Customers`,params).subscribe((res: any) => {
+      this.data.set(res?.items);
       this.Core.originalDataStore.set(this.data());
       this.bodyTabel();
     });
@@ -95,4 +100,10 @@ export class Custmers {
   //     }
   //   });
   // }
+
+
+  onPageChanges(event: any) {
+    this.PageTransactions.set(event);
+    this.getData();
+  }
 }

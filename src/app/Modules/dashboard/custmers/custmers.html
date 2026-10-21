@@ -20,7 +20,7 @@
 
   <div class="tabel_custmer">
     <app-search [ArrayColumns]="['fullName', 'nationalId' , 'phoneNumber']" (DataFilter)="data.set($event)"></app-search>
-    <app-tabel [data]="data()" [bodytabel]="bodyTabel()" [templates]="{ actions: actions}">
+    <app-tabel (pageChange)="onPageChanges($event)" [data]="data()" [bodytabel]="bodyTabel()" [templates]="{ actions: actions}">
       <ng-template #actions let-item>
         <div class="account-badge-container">
 
