@@ -52,7 +52,6 @@ export class MainPage implements OnInit {
 
   onPageChanges(event: any) {
     this.PageTransactions.set(event);
-    console.log('PageTransactions',event)
     this.getAllTransactions();
   }
 }
