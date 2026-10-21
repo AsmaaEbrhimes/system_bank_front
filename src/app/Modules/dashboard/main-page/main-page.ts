@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, EventEmitter } from '@angular/core';
 import { Data } from '../../../core/Servies/data';
 
 @Component({
@@ -21,6 +21,7 @@ export class MainPage implements OnInit {
   cards = signal<any>('');
   custmers = signal<any>('');
   loans = signal<any>('');
+  PageTransactions = signal<number>(1);
 
   getAllcards() {
     this.Data.get('Cards').subscribe((res) => {
@@ -35,7 +36,10 @@ export class MainPage implements OnInit {
   }
 
   getAllTransactions() {
-    this.Data.get('Transactions').subscribe((res) => {
+    let params = {
+      pageNumber: this.PageTransactions(),
+    };
+    this.Data.get('Transactions', params).subscribe((res) => {
       this.transactions.set(res);
     });
   }
@@ -44,5 +48,11 @@ export class MainPage implements OnInit {
     this.Data.get('Loans/pending-requests').subscribe((res) => {
       this.loans.set(res);
     });
+  }
+
+  onPageChanges(event: any) {
+    this.PageTransactions.set(event);
+    console.log('PageTransactions',event)
+    this.getAllTransactions();
   }
 }

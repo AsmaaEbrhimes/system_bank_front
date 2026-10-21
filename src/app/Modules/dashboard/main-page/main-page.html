@@ -17,5 +17,5 @@
 
 <main class="wrapper_main_paget">
   <app-summary-card [CardsData]="cards()" [CustmersData]="custmers()" [TransactionsData]="transactions()" [loansData]="loans()"></app-summary-card>
-  <app-tabel-transations [Transactions]="transactions()"></app-tabel-transations>
+  <app-tabel-transations (pageChangeTranactions)="onPageChanges($event)" [Transactions]="transactions()"></app-tabel-transations>
 </main>
