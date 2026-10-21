@@ -33,7 +33,7 @@ export class Header implements OnInit {
     this.toggelMenue.emit();
   }
   getAllNotifications() {
-    this.Data.get('Notifications/GetAllNotification').subscribe((res) =>
+    this.Data.get('Notifications/GetAllNotification').subscribe((res:any) =>
       this.notifications.set(res || []),
     );
   }
