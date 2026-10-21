@@ -29,12 +29,17 @@ export class PayingBills implements OnInit {
   IdCustomer = signal<number | null>(null);
   data = signal<any[]>([]);
   ref: DynamicDialogRef | any;
+  PageTransactions = signal<number>(1);
 
   //===============================Functions================================//
 
   getAllPaying() {
-    this.Data.get('Bill/all').subscribe((res: any) => {
-      this.data.set(res);
+    let params = {
+      pageNumber: this.PageTransactions(),
+    };
+    this.Data.get('Bill/all', params).subscribe((res: any) => {
+      this.data.set(res?.items);
+      this.Core.originalDataStore.set(res?.items);
     });
   }
 
@@ -58,7 +63,7 @@ export class PayingBills implements OnInit {
     this.activeTab = tab;
     let status = tab === 'paid' ? true : false;
     this.Data.get(`Bill/all?customerId=${exststCustmer}&status=${status}`).subscribe((res: any) => {
-      this.data.set(res);
+      this.data.set(res?.items);
       this.Core.originalDataStore.set(this.data());
     });
   }
@@ -86,5 +91,15 @@ export class PayingBills implements OnInit {
 
   getCount(isPaidStatus: boolean): number {
     return this.data().filter((item) => item.isPaid === isPaidStatus).length;
+  }
+
+  onPageChanges(event: any) {
+    this.PageTransactions.set(event);
+
+    if (this.activeTab) {
+      this.onActiveTap(this.activeTab);
+    } else {
+      this.getAllPaying();
+    }
   }
 }

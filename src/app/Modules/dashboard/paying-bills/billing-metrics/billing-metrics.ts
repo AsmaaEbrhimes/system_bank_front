@@ -34,7 +34,7 @@ export class BillingMetrics {
   //===============================Functions================================//
   getAllCustmers() {
     this.Panel.Customers$.subscribe((res) => {
-      this.customers.set(res);
+      this.customers.set(res?.items);
     });
   }
 

@@ -45,7 +45,7 @@ export class CreatePaying implements OnInit {
 
   getAllCustmers() {
     this.Panel.Customers$.subscribe((res) => {
-      this.customers.set(res);
+      this.customers.set(res?.items);
     });
   }
 
