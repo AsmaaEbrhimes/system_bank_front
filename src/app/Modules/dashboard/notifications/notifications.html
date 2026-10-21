@@ -11,7 +11,7 @@
     </div>
   </div>
 
-
+@if(notifications()?.length > 0){
   <div class="content_notifications">
     @for(notificate of notifications() ; track notificate?.id){
     <div class="card">
@@ -23,5 +23,6 @@
     </div>
     }
   </div>
+}@else {<app-no-data></app-no-data>}
 
 </section>
