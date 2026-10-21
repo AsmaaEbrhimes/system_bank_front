@@ -27,7 +27,8 @@
 
     <!-- Tabels -->
     <app-search [ArrayColumns]="['transactionType']" (DataFilter)="data.set($event)"></app-search>
-    <app-tabel [data]="data()" [bodytabel]="bodyTabel()" [templates]="{ transactionType: type }">
+    <app-tabel [data]="data()" [bodytabel]="bodyTabel()" [templates]="{ transactionType: type }"
+      (pageChange)="onPageChanges($event)">
 
       <ng-template #type let-row>
 

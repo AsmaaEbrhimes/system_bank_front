@@ -24,13 +24,17 @@ export class Transactions implements OnInit {
 
   //===============================Vribels================================//
   data = signal<any>([]);
+  PageTransactions = signal<number>(1);
 
   //===============================Functions================================//
 
   getDataTransactions() {
-    this.Data.get('Transactions').subscribe((res: any) => {
-      this.data.set(res);
-      this.Core.originalDataStore.set(res);
+    let params = {
+      pageNumber: this.PageTransactions()
+    };
+    this.Data.get('Transactions', params).subscribe((res: any) => {
+      this.data.set(res?.items);
+      this.Core.originalDataStore.set(res?.items);
       this.bodyTabel();
     });
   }
@@ -82,5 +86,10 @@ export class Transactions implements OnInit {
         this.getDataTransactions();
       }
     });
+  }
+
+  onPageChanges(event: any) {
+    this.PageTransactions.set(event);
+    this.getDataTransactions();
   }
 }
