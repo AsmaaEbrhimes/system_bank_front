@@ -74,25 +74,25 @@ export class Custmers {
     });
   }
 
-  onDelete(id: number) {
-    let ref: any = this.dialogService.open(ConfirmationDelted, {
-      width: '25rem',
-      modal: true,
-      showHeader: false,
-      baseZIndex: 9999999999,
-      contentStyle: {
-        'border-radius': '24px',
-        'text-align': 'center',
-      },
-    });
-    ref.onClose.subscribe((res: boolean) => {
-      if (res) {
-        this.Data.delete(`Customers/${id}`).subscribe({
-          next: () => {
-            this.getData();
-          },
-        });
-      }
-    });
-  }
+  // onDelete(id: number) {
+  //   let ref: any = this.dialogService.open(ConfirmationDelted, {
+  //     width: '25rem',
+  //     modal: true,
+  //     showHeader: false,
+  //     baseZIndex: 9999999999,
+  //     contentStyle: {
+  //       'border-radius': '24px',
+  //       'text-align': 'center',
+  //     },
+  //   });
+  //   ref.onClose.subscribe((res: boolean) => {
+  //     if (res) {
+  //       this.Data.delete(`Customers/${id}`).subscribe({
+  //         next: () => {
+  //           this.getData();
+  //         },
+  //       });
+  //     }
+  //   });
+  // }
 }
