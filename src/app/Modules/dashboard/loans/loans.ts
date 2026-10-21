@@ -26,6 +26,7 @@ export class Loans implements OnInit {
   active_tap = signal<number>(0);
   data = signal<any>([]);
   status = signal<string>('All');
+  currentPage = signal<number>(1);
   CreateLoans = CreateLoans;
   ApprovedLoans = ApprovedLoans;
 
@@ -34,10 +35,11 @@ export class Loans implements OnInit {
   getAllLoans() {
     const params = {
       status: this.status(),
+      pageNumber: this.currentPage(),
     };
     this.Data.get('Loans/GetAllLoans', params).subscribe((res: any) => {
-      this.data.set(res);
-      this.Core.originalDataStore.set(res);
+      this.data.set(res?.items);
+      this.Core.originalDataStore.set(res?.items);
       this.boayTabel();
     });
   }
@@ -83,10 +85,14 @@ export class Loans implements OnInit {
     });
   }
 
-
   onReject(item: any) {
     this.Data.put(`Loans/${item?.id}/reject`, {}).subscribe((res) => {
       this.getAllLoans();
     });
+  }
+
+  onPageChanges(event: any) {
+    this.currentPage.set(event);
+    this.getAllLoans();
   }
 }
