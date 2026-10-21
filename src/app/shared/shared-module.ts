@@ -12,7 +12,7 @@ import { Notifications } from './notifications/notifications';
 import { SignalRService } from './signal-r';
 import { Telephone } from './telephone/telephone';
 import { SvgIconComponent } from 'angular-svg-icon';
-
+import { PaginatorModule } from 'primeng/paginator';
 @NgModule({
   declarations: [
     Success,
@@ -24,7 +24,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
     Notifications,
     Telephone,
   ],
-  imports: [CommonModule, AsyncPipe, TableModule, AngularSvgIconModule , SvgIconComponent],
+  imports: [CommonModule, AsyncPipe, TableModule, AngularSvgIconModule , SvgIconComponent , PaginatorModule],
   exports: [Success, NoData, Error, Tabel, SearchComponent, LoaderComponent, Notifications , Telephone],
   providers: [DatePipe, SignalRService],
 })

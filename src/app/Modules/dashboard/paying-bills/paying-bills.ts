@@ -62,10 +62,17 @@ export class PayingBills implements OnInit {
     let exststCustmer = this.IdCustomer() ? this.IdCustomer() : '';
     this.activeTab = tab;
     let status = tab === 'paid' ? true : false;
-    this.Data.get(`Bill/all?customerId=${exststCustmer}&status=${status}`).subscribe((res: any) => {
-      this.data.set(res?.items);
-      this.Core.originalDataStore.set(this.data());
-    });
+
+    let params = {
+      pageNumber: this.PageTransactions(),
+    };
+
+    this.Data.get(`Bill/all?customerId=${exststCustmer}&status=${status}`, params).subscribe(
+      (res: any) => {
+        this.data.set(res?.items);
+        this.Core.originalDataStore.set(this.data());
+      },
+    );
   }
 
   onOpenComponentCreateInvoice() {
@@ -85,7 +92,7 @@ export class PayingBills implements OnInit {
     this.Data.put(`Bill/${row.id}/pay`, { accountId: row.accountId }).subscribe((res: any) => {
       this.onActiveTap(this.activeTab);
       this.Panel.triggerRefresh();
-      this.getAllPaying();
+      this.onActiveTap(this.activeTab)
     });
   }
 
@@ -95,11 +102,7 @@ export class PayingBills implements OnInit {
 
   onPageChanges(event: any) {
     this.PageTransactions.set(event);
+      this.onActiveTap(this.activeTab)
 
-    if (this.activeTab) {
-      this.onActiveTap(this.activeTab);
-    } else {
-      this.getAllPaying();
-    }
   }
 }
