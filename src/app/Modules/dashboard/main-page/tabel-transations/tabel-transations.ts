@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, signal } from '@angular/core';
 import { Core } from '../../../../core/Servies/core';
 
 @Component({
@@ -8,13 +8,14 @@ import { Core } from '../../../../core/Servies/core';
   styleUrl: './tabel-transations.scss',
 })
 export class TabelTransations {
-  constructor(private Core:Core){ }
+  constructor(private Core: Core) {}
   data = signal<any[]>([]);
+  @Output() pageChangeTranactions = new EventEmitter<number>();
 
   @Input()
   set Transactions(value: any) {
-    this.data.set(value);
-    this.Core.originalDataStore.set(this.data())
+    this.data.set(value?.items);
+    this.Core.originalDataStore.set(this.data());
     this.bodyTabel();
   }
 
@@ -24,5 +25,9 @@ export class TabelTransations {
       { key: 'Amount', value: 'amount' },
       { key: 'Created At', value: 'createdAt', type: 'date', format: 'dd/MM/yyyy' },
     ];
+  }
+
+  OnPagnaotor(event: any) {
+    this.pageChangeTranactions.emit(event);
   }
 }
