@@ -7,7 +7,7 @@
       </div>
 
       <div class="card-title-group">
-        <span class="card-title">البطاقات الفعالة</span>
+        <span class="card-title">Active Cards</span>
         <span class="badge badge-success">1.1% ↑</span>
       </div>
     </div>
@@ -15,7 +15,7 @@
 
     <div class="card-body">
       <h2 class="value">{{cards().length}}</h2>
-      <p class="subtitle">بطاقة مفعلة حالياً</p>
+      <p class="subtitle">Currently Activated Card</p>
     </div>
 
     <app-sparkline-chart color="#4F46E5"></app-sparkline-chart>
@@ -27,13 +27,13 @@
         <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/tabler--users.svg"></svg-icon>
       </div>
       <div class="card-title-group">
-        <span class="card-title">إجمالي العملاء</span>
+        <span class="card-title">Total Custmer</span>
         <span class="badge badge-success">3.2% ↑</span>
       </div>
     </div>
     <div class="card-body">
       <h2 class="value">{{custmers().length}}</h2>
-      <p class="subtitle">حساب نشط عبر جميع الفروع</p>
+      <p class="subtitle">An active account across all branches</p>
     </div>
     <app-sparkline-chart color="#10B981"></app-sparkline-chart>
   </div>
@@ -45,13 +45,13 @@
           src="/Icons/grommet-icons--transaction.svg"></svg-icon>
       </div>
       <div class="card-title-group">
-        <span class="card-title">حجم معاملات اليوم</span>
+        <span class="card-title">Transactions</span>
         <span class="badge badge-success">8.6% ↑</span>
       </div>
     </div>
     <div class="card-body">
       <h2 class="value">{{transactions().length}}<span class="currency">ج.م</span></h2>
-      <p class="subtitle">1,208 عملية منذ منتصف الليل</p>
+      <p class="subtitle">Transactions Valume</p>
     </div>
     <app-sparkline-chart color="#8B5CF6"></app-sparkline-chart>
   </div>
@@ -62,13 +62,13 @@
         <svg-icon [svgStyle]="{ 'width.px': 20, 'height.px': 20 }" src="/Icons/griddy-icons--loan.svg"></svg-icon>
       </div>
       <div class="card-title-group">
-        <span class="card-title">طلبات قروض معلقة</span>
+        <span class="card-title">Pending loan requests</span>
         <span class="badge badge-danger">4 ↓</span>
       </div>
     </div>
     <div class="card-body">
       <h2 class="value">{{loans().length}}</h2>
-      <p class="subtitle">بانتظار مراجعة الموظف</p>
+      <p class="subtitle">Waiting for the employee's review</p>
     </div>
     <app-sparkline-chart color="#F43F5E"></app-sparkline-chart>
   </div>
