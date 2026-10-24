@@ -1,13 +1,5 @@
 @if(tableData && tableData.length > 0){
-<p-table
- [value]="tableData"
-  [tableStyle]="{ 'min-width': '50rem' }"
-  [paginator]="true"
-  [rowsPerPageOptions]="[5, 10, 20, 50]"
-   [rows]="5"
-  [lazy]="true" [totalRecords]="totalRecords"
-  [first]="(currentPage - 1) * 5" (onLazyLoad)="onPageChange($event)"
-   >
+<p-table [value]="tableData" [tableStyle]="{ 'min-width': '50rem' }">
 
   <ng-template #header>
     <tr>
@@ -46,3 +38,6 @@
 } @else {
 <app-no-data></app-no-data>
 }
+
+<p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="totalRecords"
+  [rowsPerPageOptions]="[10, 20, 30]" />
