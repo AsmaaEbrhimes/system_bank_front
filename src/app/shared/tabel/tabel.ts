@@ -23,8 +23,10 @@ export class Tabel<T extends object> {
 
     if (this.tableData.length === this.rows) {
       this.totalRecords = (this.currentPage + 1) * this.rows;
+
     } else if (this.tableData.length > 0) {
       this.totalRecords = (this.currentPage - 1) * this.rows + this.tableData.length;
+
     } else {
       this.totalRecords = this.currentPage * this.rows;
     }
